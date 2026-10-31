@@ -1,0 +1,98 @@
+[
+  {
+    "path": "LICENSE.txt",
+    "bytes": 1071,
+    "sha256": "62145e70388e9be739b404f904df6434bacaa748c9b5875c146791457fb83b81",
+    "mime": "text/plain"
+  },
+  {
+    "path": "fonts/OFL.txt",
+    "bytes": 4533,
+    "sha256": "72a6f68e8715c4de18823c2ec0bd54d3b0de0f8cc143615c2131ed998077df60",
+    "mime": "text/plain"
+  },
+  {
+    "path": "fonts/gentium-book-plus-400-greek-ext.woff2",
+    "bytes": 9356,
+    "sha256": "f4cbbee8404f7275cdece60d170d787d693df853452ef43a7b504d73eca2d658",
+    "mime": "font/woff2"
+  },
+  {
+    "path": "fonts/gentium-book-plus-400-greek.woff2",
+    "bytes": 18168,
+    "sha256": "cba273ba7a0fbe810e3531f5cc62fd4e963da7c5d32b4981c3f30fe562aea343",
+    "mime": "font/woff2"
+  },
+  {
+    "path": "fonts/gentium-book-plus-400-latin-ext.woff2",
+    "bytes": 57824,
+    "sha256": "46b8923c77eceb874e1b6a28ce08d56293641382ea0382f7043139bfff8f2383",
+    "mime": "font/woff2"
+  },
+  {
+    "path": "fonts/gentium-book-plus-400-latin.woff2",
+    "bytes": 21564,
+    "sha256": "dd5d2902dac9c11d3acc42b0e54a74b4f2db9bd4a7d6872c23338f70df29ca7e",
+    "mime": "font/woff2"
+  },
+  {
+    "path": "sources/CC-BY-SA-4.0.txt",
+    "bytes": 20138,
+    "sha256": "28a9529c7d0bb4dc51f4bf5c116a3d16ef247a052f7591466768ddf563fd1cf5",
+    "mime": "text/plain"
+  },
+  {
+    "path": "sources/NOTICE.txt",
+    "bytes": 1326,
+    "sha256": "c00124d3783c7419920d808879a7c7b1c60c9cb0d253c781c92ebf71826fba51",
+    "mime": "text/plain"
+  },
+  {
+    "path": "sources/perseus-eng2.xml",
+    "bytes": 44863,
+    "sha256": "8a9f4a7fcef782be0ad15289fdbe22bdd188ef0094b425fd15e332cd6990723b",
+    "mime": "application/xml"
+  },
+  {
+    "path": "sources/perseus-grc2.xml",
+    "bytes": 54489,
+    "sha256": "a438785a11d7b300a4afe56b5d3cb11d227a7cabac7fc90ca0355fa1ceb4cc1a",
+    "mime": "application/xml"
+  },
+  {
+    "path": "sources/provenance.json",
+    "bytes": 1145,
+    "sha256": "3ad294a1ebd5225505810f75ebdbf7bf084ae5cb05dfab702f8eb86db1764cd1",
+    "mime": "application/json"
+  },
+  {
+    "path": "sources/rennie-imprint.jpg",
+    "bytes": 134932,
+    "sha256": "edd9ed2ba58e51fe173ee64c2c9d9de79d276eb87785b923e744088409c95d12",
+    "mime": "image/jpeg"
+  },
+  {
+    "path": "sources/rennie-p107.jpg",
+    "bytes": 411629,
+    "sha256": "c36220d68c3487f764b0873b2630d31e07999ff57c92995eb3823ce6b65874fa",
+    "mime": "image/jpeg"
+  },
+  {
+    "path": "sources/rennie-p108.jpg",
+    "bytes": 450273,
+    "sha256": "8e7ae4d181116e2f7d91fb5a3c56806a2958a78f345342caf272281c9c1e7909",
+    "mime": "image/jpeg"
+  },
+  {
+    "path": "sources/rennie-p109.jpg",
+    "bytes": 406544,
+    "sha256": "f08cd4893ed0d887c213c66fd47b420462b1215b6683f93aab36cefb14c0e1ed",
+    "mime": "image/jpeg"
+  },
+  {
+    "path": "sources/rennie-title.jpg",
+    "bytes": 158615,
+    "sha256": "63d8243d7da3c8f0817c9c3112ba7781f979f2eacd945ccd7ff8c05936338c32",
+    "mime": "image/jpeg"
+  }
+]

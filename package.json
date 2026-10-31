@@ -1,0 +1,51 @@
+{
+  "name": "@antonsoloviev/nautikon",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Read an Athenian sea-loan contract in Greek and change the voyage facts that control its debt, deductions and collateral.",
+  "type": "module",
+  "author": "Anthony Mercer <anthony@praviel.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antonsoo/nautikon.git"
+  },
+  "homepage": "https://antonsoo.github.io/nautikon/",
+  "keywords": [
+    "ancient-greek",
+    "maritime-law",
+    "demosthenes",
+    "education",
+    "classics",
+    "economic-history"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 4402 --strictPort",
+    "preview": "vite preview --host 127.0.0.1 --port 4401 --strictPort",
+    "build": "tsc --noEmit && vite build",
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "check": "npm run lint && npm run typecheck && npm test && npm run build",
+    "verify:sources": "python3 scripts/verify-sources.py",
+    "verify:model": "node --import tsx scripts/model-cases.ts | python3 scripts/model-oracle.py",
+    "test:browser": "node scripts/browser.mjs",
+    "test:faults": "node scripts/faults.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@biomejs/biome": "2.6.2",
+    "@types/node": "24.19.2",
+    "playwright": "1.63.0",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2",
+    "vite": "8.3.5"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}

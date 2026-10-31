@@ -1,0 +1,18 @@
+{
+  "repository": "https://github.com/PerseusDL/canonical-greekLit",
+  "commit": "70427323b61267cdcd0256b9b02009c23392de07",
+  "retrieved": "2026-10-31",
+  "Greek": "Rennie, Demosthenis Orationes II.2 (1921)",
+  "English_consulted": "Murray (1936); app translations are new",
+  "scan_identifier": "p2orationesrecog02demouoft",
+  "scan_copy": "University of Toronto; 1939 reprint of 1921 edition",
+  "scan_urls": {
+    "rennie-title.jpg": "https://archive.org/download/p2orationesrecog02demouoft/page/n6.jpg",
+    "rennie-imprint.jpg": "https://archive.org/download/p2orationesrecog02demouoft/page/n7.jpg",
+    "rennie-p107.jpg": "https://archive.org/download/p2orationesrecog02demouoft/page/n123.jpg",
+    "rennie-p108.jpg": "https://archive.org/download/p2orationesrecog02demouoft/page/n124.jpg",
+    "rennie-p109.jpg": "https://archive.org/download/p2orationesrecog02demouoft/page/n125.jpg"
+  },
+  "license_url": "https://raw.githubusercontent.com/PerseusDL/canonical-greekLit/70427323b61267cdcd0256b9b02009c23392de07/license.md",
+  "modifications": "Electronic text unchanged; selected readings normalize whitespace. Page JPEGs unchanged."
+}
