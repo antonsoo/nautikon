@@ -9,6 +9,7 @@ import { reviewServer } from "./review-server.mjs";
 const server = reviewServer("dist");
 await server.start();
 await mkdir("examples", { recursive: true });
+await mkdir("test-results", { recursive: true });
 const b = await chromium.launch();
 try {
   const p = await b.newPage({
