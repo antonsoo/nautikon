@@ -59,10 +59,10 @@ ${select("loss", "One selected loss event", [
   ["jettison", "Goods thrown overboard"],
   ["enemies", "Money paid to enemies"],
 ])}
-${range("lossAmount", "Assumed deduction value (drachmas)", 0, 1000, 25)}<label class="check"><input type="checkbox" id="consent"> Those sailing together voted in common to jettison</label><p class="hint">The number is your assumed allowable value. The source does not supply a valuation rule. This bench models one loss event.</p>
+${range("lossAmount", "Assumed deduction value (drachmas)", 0, 1000)}<label class="check"><input type="checkbox" id="consent"> Those sailing together voted in common to jettison</label><p class="hint">The number is your assumed allowable value. The source does not supply a valuation rule. This bench models one loss event.</p>
 </div><div><div id="loss-result" class="finding" aria-live="polite"></div><a href="#read-loss">Read the exception and its condition · §11</a></div></div></section>
 <section id="default" aria-labelledby="default-title"><div class="section-heading"><p class="section-number">03 / DEFAULT</p><h2 id="default-title">Who bears the shortfall?</h2></div><div class="work-grid"><div class="controls">
-${range("days", "Elapsed days after arrival", 0, 45)}${range("sale", "Assumed proceeds if the security is sold", 0, 10000, 100)}
+${range("days", "Elapsed days after arrival", 0, 45)}${range("sale", "Assumed proceeds if the security is sold", 0, 10000)}
 <label class="check"><input type="checkbox" id="paid"> Record full repayment of the modeled debt</label><label class="check"><input type="checkbox" id="otherPledge"> Another loan is secured on the same goods</label><label class="check"><input type="checkbox" id="sameVessel"> All return cargo comes back in the same vessel</label><p class="hint">The default account assumes no payment unless full repayment is selected. Day 20 is inside this teaching interval; day 21 is beyond it. Other contractual breaches are flagged without invented remedies.</p>
 </div><div><div id="collection" aria-live="polite"></div><a href="#read-default">Read security, sale and collection · §§11–12</a></div></div></section>
 <section id="keep" aria-labelledby="keep-title"><div class="section-heading"><p class="section-number">04 / COMPARE</p><h2 id="keep-title">Keep the facts before changing them.</h2></div><div class="actions"><button id="pin" type="button" class="primary">Keep this voyage</button><button id="unpin" type="button">Clear kept voyage</button><button id="share" type="button">Copy voyage link</button></div><p class="hint">The link contains current voyage facts. Notes and the kept comparison travel only in notebook downloads. This page does not autosave edits.</p><div id="comparison"></div>
@@ -260,6 +260,16 @@ function selectReading(id: string): void {
 }
 for (const b of document.querySelectorAll<HTMLButtonElement>("[data-reading]"))
   b.addEventListener("click", () => selectReading(b.dataset.reading ?? "rate"));
+root.addEventListener("click", (event) => {
+  const link =
+    event.target instanceof Element
+      ? event.target.closest<HTMLAnchorElement>('a[href^="#read-"]')
+      : null;
+  const id = link?.getAttribute("href")?.slice(6);
+  // Native same-fragment navigation does not emit hashchange. Select the
+  // cited reading even after a reading button changed the visible passage.
+  if (id) selectReading(id);
+});
 function fragment(): void {
   if (location.hash.startsWith("#read-")) selectReading(location.hash.slice(6));
 }
