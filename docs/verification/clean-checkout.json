@@ -1,0 +1,14 @@
+{
+  "scope": "Local committed archive with no prior node_modules, dist or test-results",
+  "archiveCommit": "8d45ee3e053d56e07190d52ae3c19a320942e296",
+  "commands": [
+    "npm ci",
+    "npm run check",
+    "npm run verify:sources",
+    "npm run verify:model",
+    "node scripts/example.mjs"
+  ],
+  "productionFilesCompared": 20,
+  "allProductionBytesIdentical": true,
+  "exampleScriptStartedWithoutPriorBrowserReceipts": true
+}
