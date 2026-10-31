@@ -23,6 +23,12 @@ those inputs. A fresh committed archive, fresh `npm ci`, full check, source
 concordance and independent 576-account Fraction oracle reproduced **every
 production byte**. [Clean-build receipt](verification/clean-checkout.json).
 
+A separate source audit fetched **54 pinned public raw artifacts** across
+Nautikon and Officina without credentials: retained sources, curated readings,
+PDFs, notebooks, images and review receipts. Every response matched its local
+committed bytes. Both source heads matched their remotes and both trees were
+clean before that audit. [Public source receipt](verification/public-source.json).
+
 The first clean-archive attempt caught missing final newlines in generated audit
 JSON. The generator and files were corrected and the clean checks repeated
 before pushing. That failed attempt is not counted as a successful clean check.

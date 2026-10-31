@@ -1,0 +1,512 @@
+{
+  "checkedAt": "2026-10-31T20:04:11.560Z",
+  "method": "Pinned public raw responses without credentials compared with local committed bytes",
+  "repositories": [
+    {
+      "repository": "nautikon",
+      "local": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "remote": {
+        "refs/heads/gh-pages": "19fb7af050b4a348f281a44abb055e5985a60db4",
+        "refs/heads/main": "c355b44066979dd0744c770c64ce5fcd124cb076"
+      },
+      "cleanBeforeVerification": true
+    },
+    {
+      "repository": "officina",
+      "local": "22826ce9fedec8e28caf52d01e76969f2680c43e",
+      "remote": {
+        "refs/heads/gh-pages": "f7c2a4d2845c721e41dce60f07041ac39f32091a",
+        "refs/heads/main": "22826ce9fedec8e28caf52d01e76969f2680c43e"
+      },
+      "cleanBeforeVerification": true
+    }
+  ],
+  "files": [
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "public/LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/public/LICENSE.txt",
+      "bytes": 1071,
+      "sha256": "62145e70388e9be739b404f904df6434bacaa748c9b5875c146791457fb83b81",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "public/fonts/OFL.txt",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/public/fonts/OFL.txt",
+      "bytes": 4533,
+      "sha256": "72a6f68e8715c4de18823c2ec0bd54d3b0de0f8cc143615c2131ed998077df60",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "public/fonts/gentium-book-plus-400-greek-ext.woff2",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/public/fonts/gentium-book-plus-400-greek-ext.woff2",
+      "bytes": 9356,
+      "sha256": "f4cbbee8404f7275cdece60d170d787d693df853452ef43a7b504d73eca2d658",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "public/fonts/gentium-book-plus-400-greek.woff2",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/public/fonts/gentium-book-plus-400-greek.woff2",
+      "bytes": 18168,
+      "sha256": "cba273ba7a0fbe810e3531f5cc62fd4e963da7c5d32b4981c3f30fe562aea343",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "public/fonts/gentium-book-plus-400-latin-ext.woff2",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/public/fonts/gentium-book-plus-400-latin-ext.woff2",
+      "bytes": 57824,
+      "sha256": "46b8923c77eceb874e1b6a28ce08d56293641382ea0382f7043139bfff8f2383",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "public/fonts/gentium-book-plus-400-latin.woff2",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/public/fonts/gentium-book-plus-400-latin.woff2",
+      "bytes": 21564,
+      "sha256": "dd5d2902dac9c11d3acc42b0e54a74b4f2db9bd4a7d6872c23338f70df29ca7e",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "public/sources/CC-BY-SA-4.0.txt",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/public/sources/CC-BY-SA-4.0.txt",
+      "bytes": 20138,
+      "sha256": "28a9529c7d0bb4dc51f4bf5c116a3d16ef247a052f7591466768ddf563fd1cf5",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "public/sources/NOTICE.txt",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/public/sources/NOTICE.txt",
+      "bytes": 1675,
+      "sha256": "5a09ec38da2ca6fcc91270d517c5d106669d6f33a2c0118b6fbfe275d2d30b46",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "public/sources/perseus-eng2.xml",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/public/sources/perseus-eng2.xml",
+      "bytes": 44863,
+      "sha256": "8a9f4a7fcef782be0ad15289fdbe22bdd188ef0094b425fd15e332cd6990723b",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "public/sources/perseus-grc2.xml",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/public/sources/perseus-grc2.xml",
+      "bytes": 54489,
+      "sha256": "a438785a11d7b300a4afe56b5d3cb11d227a7cabac7fc90ca0355fa1ceb4cc1a",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "public/sources/provenance.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/public/sources/provenance.json",
+      "bytes": 1337,
+      "sha256": "9276ecfddaa4c6b96576175827041e00f9e7f24b5c2a707c9681a3d5d8fdb5c4",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "public/sources/rennie-imprint.jpg",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/public/sources/rennie-imprint.jpg",
+      "bytes": 134932,
+      "sha256": "edd9ed2ba58e51fe173ee64c2c9d9de79d276eb87785b923e744088409c95d12",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "public/sources/rennie-p107.jpg",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/public/sources/rennie-p107.jpg",
+      "bytes": 411629,
+      "sha256": "c36220d68c3487f764b0873b2630d31e07999ff57c92995eb3823ce6b65874fa",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "public/sources/rennie-p108.jpg",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/public/sources/rennie-p108.jpg",
+      "bytes": 450273,
+      "sha256": "8e7ae4d181116e2f7d91fb5a3c56806a2958a78f345342caf272281c9c1e7909",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "public/sources/rennie-p109.jpg",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/public/sources/rennie-p109.jpg",
+      "bytes": 406544,
+      "sha256": "f08cd4893ed0d887c213c66fd47b420462b1215b6683f93aab36cefb14c0e1ed",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "public/sources/rennie-p110.jpg",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/public/sources/rennie-p110.jpg",
+      "bytes": 380210,
+      "sha256": "a4f9368da4e33d393e29293f63648fe83e4347e6dd8412aed815bd417ec87ef6",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "public/sources/rennie-p111.jpg",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/public/sources/rennie-p111.jpg",
+      "bytes": 394754,
+      "sha256": "8f91b7d5edca666e0c9cf9f9cb168184149202f0e1fc6bed56f682313ec583a0",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "public/sources/rennie-title.jpg",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/public/sources/rennie-title.jpg",
+      "bytes": 158615,
+      "sha256": "63d8243d7da3c8f0817c9c3112ba7781f979f2eacd945ccd7ff8c05936338c32",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "examples/README.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/examples/README.md",
+      "bytes": 2100,
+      "sha256": "70e8552b9ffccf987ecce6194645516f55cb9ea9984f02c4f605de6fe7156c3c",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "examples/default-ledger.csv",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/examples/default-ledger.csv",
+      "bytes": 4017,
+      "sha256": "463361b5d6763709dc4503c34bb5b59ab96f3d313e725711d2694ae71973e792",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "examples/default-notebook.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/examples/default-notebook.json",
+      "bytes": 940,
+      "sha256": "06428b38faa9bdb2739e77830b8354fe5cb5469aff84797d6656757b0b50f68e",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "examples/default-reading.html.gz",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/examples/default-reading.html.gz",
+      "bytes": 2427245,
+      "sha256": "944dcf0d22bce06fe65a8a805d9dce2d92047f3907b2bcb7d9736bf696b3dc35",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "examples/default-reading.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/examples/default-reading.pdf",
+      "bytes": 2962624,
+      "sha256": "f18afe8a08c8ea7e4630dda0cd8981eda6c56ef274d329643152d6b1343ea987",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "examples/default-timeline.svg",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/examples/default-timeline.svg",
+      "bytes": 1316,
+      "sha256": "4159cd53259677624f738347addff92e3e4478ea67d5fd2f2a220d5e1db3973a",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "examples/testimony-count.svg",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/examples/testimony-count.svg",
+      "bytes": 2209,
+      "sha256": "f98562f6e2e731dfd451dc3cb73333a807b23a4528bcfb3349577fd3118e86ca",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "examples/testimony-inferences.csv",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/examples/testimony-inferences.csv",
+      "bytes": 482,
+      "sha256": "40f41e65e3ab33d846fd60a522ae05a338fc5b6509aa6d03dcd84cdff11f3e83",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "examples/testimony-notebook.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/examples/testimony-notebook.json",
+      "bytes": 814,
+      "sha256": "3f078679aceb7302d9749e5f8f376c2ac6cddf396dfb7aa0a4a964c6ecece2aa",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "examples/testimony-reading.html.gz",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/examples/testimony-reading.html.gz",
+      "bytes": 2422880,
+      "sha256": "dbb8126782340f53fc3580c9399a0ebb1d8321a8633e15be7d08823d4a9d8281",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "examples/testimony-reading.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/examples/testimony-reading.pdf",
+      "bytes": 2902703,
+      "sha256": "99f18086513c57276a0c093152f87a001c4dda26976cd68de3a366aabd400f00",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "docs/review.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/docs/review.md",
+      "bytes": 10725,
+      "sha256": "d00e6c0f90f698e876fa10ebff2cca70bcc72f11f28f10fa0ecfa69fdb002aef",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "docs/source-and-model.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/docs/source-and-model.md",
+      "bytes": 8979,
+      "sha256": "d29cbe8ffea05c157942b09a0ee22ceb78a152f9050b199ead8b3d6a492dfa8c",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "docs/publication.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/docs/publication.md",
+      "bytes": 6206,
+      "sha256": "a44e00cc8fb0670e1e04e05119a09e1eb9bf388118cd88f0d32130b7f8e67e9d",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "docs/verification/clean-checkout.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/docs/verification/clean-checkout.json",
+      "bytes": 4287,
+      "sha256": "15d6076df234b01a6bd23aa1d7553ee51d1c9c5c894894fedd4d54e30fdb0d5d",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "docs/verification/public-current.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/docs/verification/public-current.json",
+      "bytes": 11745,
+      "sha256": "ffbde024b961fc4c7c731ea40317f7acfb9a90f680a11d6e34aa19b587a36b9b",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "docs/verification/public-upgrade.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/docs/verification/public-upgrade.json",
+      "bytes": 2133,
+      "sha256": "96154eacd29db84b83de76ced017e4db2f88bbf29b8cbbda0c7ef2b41a3660b1",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "docs/verification/github-execution.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/docs/verification/github-execution.json",
+      "bytes": 2660,
+      "sha256": "4993363cb73595aa5fcd0bf7098956d688da8bed469d77ef5d92fdc8111dae24",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "nautikon",
+      "sourceCommit": "c355b44066979dd0744c770c64ce5fcd124cb076",
+      "path": "docs/verification/rollout.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/nautikon/c355b44066979dd0744c770c64ce5fcd124cb076/docs/verification/rollout.json",
+      "bytes": 2380,
+      "sha256": "22befbc96dd306751c6f59def134f9268d4486a4b05bfeb62e1eba4054280314",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "officina",
+      "sourceCommit": "22826ce9fedec8e28caf52d01e76969f2680c43e",
+      "path": "studies/nautikon-public/README.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/officina/22826ce9fedec8e28caf52d01e76969f2680c43e/studies/nautikon-public/README.md",
+      "bytes": 4718,
+      "sha256": "fb6fcf2754ab93c302057a3e27e09eb49510c63277be3a222c38bc008f162be3",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "officina",
+      "sourceCommit": "22826ce9fedec8e28caf52d01e76969f2680c43e",
+      "path": "studies/nautikon-public/chromium-1440-discovery.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/officina/22826ce9fedec8e28caf52d01e76969f2680c43e/studies/nautikon-public/chromium-1440-discovery.png",
+      "bytes": 118715,
+      "sha256": "10c59cce7846c2138d84000de92a2a1d579c7e8ba1f694cb8a7f70c9e0727daa",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "officina",
+      "sourceCommit": "22826ce9fedec8e28caf52d01e76969f2680c43e",
+      "path": "studies/nautikon-public/chromium-1440-testimony.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/officina/22826ce9fedec8e28caf52d01e76969f2680c43e/studies/nautikon-public/chromium-1440-testimony.png",
+      "bytes": 138078,
+      "sha256": "2b89b289447617ae8943c441f525d6b1959d5e8e2680c563fb2147821a33dec1",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "officina",
+      "sourceCommit": "22826ce9fedec8e28caf52d01e76969f2680c43e",
+      "path": "studies/nautikon-public/chromium-375-discovery.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/officina/22826ce9fedec8e28caf52d01e76969f2680c43e/studies/nautikon-public/chromium-375-discovery.png",
+      "bytes": 75447,
+      "sha256": "2577c1850f50a62093d2244b0749315c88977c099bd017f4b0c20c1312d640f6",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "officina",
+      "sourceCommit": "22826ce9fedec8e28caf52d01e76969f2680c43e",
+      "path": "studies/nautikon-public/chromium-375-testimony.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/officina/22826ce9fedec8e28caf52d01e76969f2680c43e/studies/nautikon-public/chromium-375-testimony.png",
+      "bytes": 71623,
+      "sha256": "aa4893e90850f6a285675883df64473fe7240ded61abf2bf8a2a47c836678393",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "officina",
+      "sourceCommit": "22826ce9fedec8e28caf52d01e76969f2680c43e",
+      "path": "studies/nautikon-public/firefox-1440-discovery.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/officina/22826ce9fedec8e28caf52d01e76969f2680c43e/studies/nautikon-public/firefox-1440-discovery.png",
+      "bytes": 194368,
+      "sha256": "af86fea037af88d8b55a6c342c8202e4570332932d3ae2963589d2d01c8d7217",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "officina",
+      "sourceCommit": "22826ce9fedec8e28caf52d01e76969f2680c43e",
+      "path": "studies/nautikon-public/firefox-1440-testimony.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/officina/22826ce9fedec8e28caf52d01e76969f2680c43e/studies/nautikon-public/firefox-1440-testimony.png",
+      "bytes": 189070,
+      "sha256": "c93825e4af889c3680d122aa5350d5f0aa5bc5dbca846d4d242747da6de28121",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "officina",
+      "sourceCommit": "22826ce9fedec8e28caf52d01e76969f2680c43e",
+      "path": "studies/nautikon-public/firefox-375-discovery.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/officina/22826ce9fedec8e28caf52d01e76969f2680c43e/studies/nautikon-public/firefox-375-discovery.png",
+      "bytes": 109151,
+      "sha256": "71c013b45456c6baebbace84425b70088fd4e7ff7ec52e1da9fa0df1e810ea32",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "officina",
+      "sourceCommit": "22826ce9fedec8e28caf52d01e76969f2680c43e",
+      "path": "studies/nautikon-public/firefox-375-testimony.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/officina/22826ce9fedec8e28caf52d01e76969f2680c43e/studies/nautikon-public/firefox-375-testimony.png",
+      "bytes": 102922,
+      "sha256": "9ef0df422ee607cf41578be0f69e427ad763fd044a7203e1bf0900ed6858d0ce",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "officina",
+      "sourceCommit": "22826ce9fedec8e28caf52d01e76969f2680c43e",
+      "path": "studies/nautikon-public/nautikon-after.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/officina/22826ce9fedec8e28caf52d01e76969f2680c43e/studies/nautikon-public/nautikon-after.json",
+      "bytes": 11740,
+      "sha256": "d4b74a1818109192ce43813c7471781e42960729bbd69f8e1ab41534f039ba30",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "officina",
+      "sourceCommit": "22826ce9fedec8e28caf52d01e76969f2680c43e",
+      "path": "studies/nautikon-public/officina-after.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/officina/22826ce9fedec8e28caf52d01e76969f2680c43e/studies/nautikon-public/officina-after.json",
+      "bytes": 42237,
+      "sha256": "65235d395507c1c30f4b16ed6e01570dbdf3c9ca87426f8e36a03ace1420c14e",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "officina",
+      "sourceCommit": "22826ce9fedec8e28caf52d01e76969f2680c43e",
+      "path": "studies/nautikon-public/officina-before.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/officina/22826ce9fedec8e28caf52d01e76969f2680c43e/studies/nautikon-public/officina-before.json",
+      "bytes": 42242,
+      "sha256": "1f6d1d06802c3ecc10d0ee29b04fa36586c58ca66997cce6a94c1020c719beb7",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "officina",
+      "sourceCommit": "22826ce9fedec8e28caf52d01e76969f2680c43e",
+      "path": "studies/nautikon-public/receipts.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/officina/22826ce9fedec8e28caf52d01e76969f2680c43e/studies/nautikon-public/receipts.json",
+      "bytes": 2763,
+      "sha256": "273bd8fa61c7471baf5f21156f70667a48209a7d8d68124792f33ff05978f04d",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "officina",
+      "sourceCommit": "22826ce9fedec8e28caf52d01e76969f2680c43e",
+      "path": "studies/nautikon-public/review-source.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/officina/22826ce9fedec8e28caf52d01e76969f2680c43e/studies/nautikon-public/review-source.json",
+      "bytes": 360,
+      "sha256": "4502560707789310dcf6447187f0e0cb67089c2bd670c5ca1dc2ee0ec4d73e77",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "officina",
+      "sourceCommit": "22826ce9fedec8e28caf52d01e76969f2680c43e",
+      "path": "public/projects.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/officina/22826ce9fedec8e28caf52d01e76969f2680c43e/public/projects.json",
+      "bytes": 76480,
+      "sha256": "c593e94646502cbfccf5f854dd40a4e15e07066f061f069f2d63b0c3a7071c39",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "officina",
+      "sourceCommit": "22826ce9fedec8e28caf52d01e76969f2680c43e",
+      "path": "public/thumbs/nautikon-voyage.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/officina/22826ce9fedec8e28caf52d01e76969f2680c43e/public/thumbs/nautikon-voyage.png",
+      "bytes": 156995,
+      "sha256": "900d706cee36a80cdbb8e054a56d3f5c64d32c029975d54686e917e5bb59368c",
+      "matchesCommittedBytes": true
+    },
+    {
+      "repository": "officina",
+      "sourceCommit": "22826ce9fedec8e28caf52d01e76969f2680c43e",
+      "path": "public/thumbs/nautikon-testimony.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/officina/22826ce9fedec8e28caf52d01e76969f2680c43e/public/thumbs/nautikon-testimony.png",
+      "bytes": 138078,
+      "sha256": "2b89b289447617ae8943c441f525d6b1959d5e8e2680c563fb2147821a33dec1",
+      "matchesCommittedBytes": true
+    }
+  ]
+}
