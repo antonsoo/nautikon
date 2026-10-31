@@ -18,7 +18,11 @@ else
   git worktree add --detach "$pages_dir" HEAD
   git -C "$pages_dir" switch --orphan "pages-publish-$$"
 fi
-rsync -a --delete --exclude=.git "$site_dir/" "$pages_dir/"
+# Older cached HTML can still request its hashed entry modules before a new
+# worker takes control. Keep those modules reachable across publication.
+rsync -a --delete --exclude=.git --exclude=/assets/ "$site_dir/" "$pages_dir/"
+mkdir -p "$pages_dir/assets"
+rsync -a "$site_dir/assets/" "$pages_dir/assets/"
 touch "$pages_dir/.nojekyll"
 git -C "$pages_dir" add -A
 if git -C "$pages_dir" diff --cached --quiet; then

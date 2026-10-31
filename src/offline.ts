@@ -60,15 +60,23 @@ export function installOffline(): void {
         resolve(data);
       };
       const timer = setTimeout(() => done({}), 3000);
-      channel.port1.onmessage = (e) => done(e.data);
-      worker.postMessage({ type: "INSPECT" }, [channel.port2]);
+      channel.port1.onmessage = (e) => done(e.data && typeof e.data === "object" ? e.data : {});
+      try {
+        worker.postMessage({ type: "INSPECT" }, [channel.port2]);
+      } catch {
+        // A controller can become redundant between reading it and messaging
+        // it. Settle this inspection rather than leaving an unhandled promise.
+        done({});
+      }
     });
     if (request !== revision || worker !== navigator.serviceWorker.controller || saving) return;
     label.textContent =
       result.edition === __EDITION__ && result.complete
         ? `Complete edition available offline: ${result.count}/${result.total} files. Notebook edits stay in this tab until downloaded.`
-        : (repairFailure ??
-          "The complete edition is not retained. Keep a notebook download; reconnect and retry offline saving.");
+        : result.edition && result.edition !== __EDITION__
+          ? "This page’s complete edition is not retained. A different edition is controlling this tab. Download your notebook JSON before reloading, then reopen it in the updated page. Your edits remain in this tab until then."
+          : (repairFailure ??
+            "The complete edition is not retained. Keep a notebook download; reconnect and retry offline saving.");
   }
   const watch = () => {
     const worker = registration?.installing;

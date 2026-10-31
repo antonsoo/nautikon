@@ -37,7 +37,8 @@
     "test:faults": "node scripts/faults.mjs",
     "test:testimony": "node scripts/testimony-browser.mjs",
     "test:audit": "node scripts/audit-reproduce.mjs && node scripts/offline-audit.mjs",
-    "test:offline-bodies": "node scripts/offline-bodies.mjs"
+    "test:offline-bodies": "node scripts/offline-bodies.mjs",
+    "test:rollout": "node scripts/rollout-fixtures.mjs && node scripts/rollout-audit.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",

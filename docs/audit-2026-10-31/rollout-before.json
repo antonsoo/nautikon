@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-10-31T19:37:50.400Z",
+  "fixture": "Two builds of one committed source; second adds an HTML comment and a changed retained notice; never published",
+  "observations": [
+    {
+      "browser": "chromium",
+      "before": "ba018c9538c51599510d",
+      "after": "c07baa117d613aa14ea4",
+      "oldPageLabel": "The complete edition is not retained. Keep a notebook download; reconnect and retry offline saving.",
+      "oldWorkPreserved": true,
+      "mixedEditionExportRefused": true,
+      "notebookMigrated": true,
+      "currentOnlyCache": false,
+      "cacheInventory": [
+        {
+          "name": "nautikon-ba018c9538c51599510d",
+          "files": 23
+        },
+        {
+          "name": "nautikon-c07baa117d613aa14ea4",
+          "files": 24
+        }
+      ],
+      "currentOfflineExport": true,
+      "workerMessagingErrors": ["The worker became redundant"],
+      "workerMessagingLabel": "Offline completeness needs checking.",
+      "otherPageErrors": []
+    },
+    {
+      "browser": "firefox",
+      "before": "ba018c9538c51599510d",
+      "after": "c07baa117d613aa14ea4",
+      "oldPageLabel": "The complete edition is not retained. Keep a notebook download; reconnect and retry offline saving.",
+      "oldWorkPreserved": true,
+      "mixedEditionExportRefused": true,
+      "notebookMigrated": true,
+      "currentOnlyCache": true,
+      "cacheInventory": [
+        {
+          "name": "nautikon-c07baa117d613aa14ea4",
+          "files": 24
+        }
+      ],
+      "currentOfflineExport": true,
+      "workerMessagingErrors": ["The worker became redundant", "The worker became redundant"],
+      "workerMessagingLabel": "Offline completeness needs checking.",
+      "otherPageErrors": []
+    }
+  ]
+}
