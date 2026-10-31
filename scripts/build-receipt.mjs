@@ -33,6 +33,6 @@ export async function writeReceipt(path, build, observations) {
   );
   await writeFile(
     path,
-    JSON.stringify({ checkedAt: new Date().toISOString(), build, observations }, null, 2),
+    `${JSON.stringify({ checkedAt: new Date().toISOString(), build, observations }, null, 2)}\n`,
   );
 }
