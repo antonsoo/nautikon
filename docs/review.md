@@ -62,6 +62,23 @@ damages, creditor priority or probability is supplied.
 | A proposed invalid count could otherwise save an earlier valid value                                       | Testimony checking and saving wait for correction; draft stays visible           | Blank and out-of-range fields in both engines                |
 | A mistaken source-page assignment would have sent the jar phrase to p. 108                                 | Independently inspected p. 107 and corrected the reading link before publication | Whole scan, exact Greek, Archive pagination metadata         |
 
+The later edition-upgrade audit kept two edited tabs open across a real local
+worker handover. Both notes already survived; the deficiencies were the generic
+reconnect/retry guidance and an unhandled rejection when `postMessage` was
+fault-injected to throw `InvalidStateError` at the inspection call site. The
+footer now gives the JSON/reload/reopen steps, and thrown or malformed inspection
+replies settle as unavailable instead of leaving “checking” and a page error.
+Both notebook schemas, the kept voyage and the kept inference were reopened
+in the updated edition. An old export refused the fixture's changed notice.
+The current edition still exported with its origin stopped.
+
+The two fixtures are built from one committed source; the second deliberately
+adds an HTML comment and a changed retained notice. They are never published.
+The current controller and its complete inventory are checked directly. An
+older cache may coexist while older tabs remain open; no single-cache claim
+is made. Before and after receipts distinguish this observed inventory from
+the page's edition-specific readiness.
+
 The initial seven-file refetch and the later nine-file refetch independently
 matched the upstream scans and pinned TEI files. No local source was replaced
 by those audits. Selected Greek is checked against the electronic text; scan

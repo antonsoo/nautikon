@@ -53,11 +53,16 @@ try {
       const active = await next.evaluate(async () => {
         const channel = new MessageChannel();
         return new Promise((resolve) => {
-          channel.port1.onmessage = (e) => resolve(e.data.edition);
+          channel.port1.onmessage = (e) => {
+            channel.port1.close();
+            resolve(e.data);
+          };
           navigator.serviceWorker.controller.postMessage({ type: "INSPECT" }, [channel.port2]);
         });
       });
-      assert.equal(active, after);
+      assert.equal(active.edition, after);
+      assert.equal(active.complete, true);
+      assert.equal(active.count, active.total);
       await p.bringToFront();
       await wait(p, "offline", "not retained");
       await second.bringToFront();
@@ -87,6 +92,20 @@ try {
       assert.equal(await next.locator("#note").inputValue(), saved.note);
       await wait(next, "ledger", "3,900");
       await wait(next, "comparison", "3,675");
+      const testimonyDownload = second.waitForEvent("download");
+      await second.locator("#json").click();
+      const testimonyPath = resolve(out, `${name}-old-testimony.json`);
+      await (await testimonyDownload).saveAs(testimonyPath);
+      const testimonySaved = JSON.parse(await readFile(testimonyPath, "utf8"));
+      assert.equal(testimonySaved.note, "KEEP MY TESTIMONY WORK");
+      assert.equal(testimonySaved.checked.selected.erasikles, false);
+      const freshTestimony = await c.newPage();
+      await freshTestimony.goto(`${server.base}testimony.html`);
+      await wait(freshTestimony, "offline", "Complete edition available offline");
+      await freshTestimony.locator("#import").setInputFiles(testimonyPath);
+      await wait(freshTestimony, "status", "Testimony reopened");
+      assert.equal(await freshTestimony.locator("#note").inputValue(), testimonySaved.note);
+      await wait(freshTestimony, "checked", "Counterexample: 499");
       const cachesNow = await next.evaluate(() => caches.keys());
       const cacheInventory = await next.evaluate(async () => {
         const out = [];
@@ -143,6 +162,8 @@ try {
         oldWorkPreserved: true,
         mixedEditionExportRefused: true,
         notebookMigrated: true,
+        testimonyNotebookAndKeptCheckMigrated: true,
+        currentWorker: active,
         currentCachePresent: cachesNow.includes(`nautikon-${after}`),
         currentOnlyCache: cachesNow.length === 1 && cachesNow[0] === `nautikon-${after}`,
         cacheInventory,

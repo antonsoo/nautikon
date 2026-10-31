@@ -15,6 +15,7 @@ npm run test:testimony
 npm run test:faults
 npm run test:audit
 npm run test:offline-bodies
+npm run test:rollout
 ```
 
 Production output is `dist/`, base `/nautikon/`. `npm run preview` uses port
@@ -27,3 +28,8 @@ canonical URLs without cache-busting. Public source links must identify a
 reachable immutable source commit. Catalogue discovery and public browser
 operation require separate journeys; local route fixtures do not establish
 public availability. A successful local check does not establish a CI run.
+
+`test:rollout` requires committed build inputs and creates two isolated local
+fixtures. The second changes a retained notice and an HTML comment; neither
+fixture is a public release. Publication preserves old hashed modules for
+cached entry pages, while each worker inventories only its own current build.

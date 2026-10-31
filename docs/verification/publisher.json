@@ -1,0 +1,10 @@
+{
+  "checkedAt": "2026-10-31T19:42:19.392915+00:00",
+  "scope": "Controlled local bare remote; no public writes",
+  "first": "061a4d5e2ff95ab35073f9ec3c96913fad01771a",
+  "second": "a35c3c6a8bc370e0ffcbef8608ad235ce1fe9df2",
+  "fastForwardAncestry": true,
+  "oldHashedModuleRemainsReachable": true,
+  "newModuleAndUpdatedHtmlPublished": true,
+  "obsoleteRootArtifactRemoved": true
+}

@@ -135,6 +135,12 @@ installation and matching file inventory. Source failures, cache damage and
 recovery are observable. Check the footer before going offline. Browser storage
 may be evicted; a downloaded reading does not depend on it.
 
+If a different edition takes control while you are editing, the footer explains
+how to keep your work: download JSON, reload, and reopen that file. The app
+does not reload an edited tab automatically. A saved reading refuses changed
+source bytes, while the JSON remains available to carry the learner's inputs
+and kept comparison or check into the updated page.
+
 ## How the numbers work
 
 The principal stays **3,000 drachmas**, as in §10. The same clause’s **3,000 jars**
@@ -164,6 +170,7 @@ npm run test:faults
 npm run test:testimony
 npm run test:audit
 npm run test:offline-bodies
+npm run test:rollout
 ```
 
 The exact-fraction Python oracle independently checks **576** accounts. Fifteen

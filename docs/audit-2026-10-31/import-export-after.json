@@ -1,7 +1,7 @@
 {
-  "checkedAt": "2026-10-31T19:23:25.623Z",
+  "checkedAt": "2026-10-31T19:44:46.155Z",
   "build": {
-    "edition": "ba018c9538c51599510d",
+    "edition": "582e41255fddd59639dd",
     "files": [
       {
         "path": "assets/source-CLNDIER7.css",
@@ -9,19 +9,19 @@
         "sha256": "e2b4f6fbe1f49ffae0d7f92d8ff98630f2931888802d6389c2b39ec3e039753e"
       },
       {
-        "path": "assets/source-IzMkBer_.js",
-        "bytes": 36304,
-        "sha256": "93af2c408f9d47f27b859330824ffb0adabc072d1ba759fc992ae1c105282c27"
+        "path": "assets/source-Cs4NB_yF.js",
+        "bytes": 36621,
+        "sha256": "967c7819fe9e11f1973bd539ee12b465ed1f059be6c987669077a7fd74bd09b0"
       },
       {
-        "path": "assets/testimony-lCUA7Ey_.js",
+        "path": "assets/testimony-CPl229_9.js",
         "bytes": 31464,
-        "sha256": "76d6191972e663636cf62b76b653c473acbc50d92ab3af76ab9ec7beb8b24edb"
+        "sha256": "3a917f22403d0f15455a25a52d64ff7f02bc09312e9cbe8efbd26d451ef2920e"
       },
       {
-        "path": "assets/voyage-S8i1QPc3.js",
+        "path": "assets/voyage-B0D1yIud.js",
         "bytes": 24889,
-        "sha256": "7bcaa651f70d220fb5bafac406468434b2e4d5cd4720a6716c28df58045d0a18"
+        "sha256": "417b2ca1af45bcd71b794e9f688165af965ef924719a908a27a67c27ca3f67d5"
       },
       {
         "path": "fonts/gentium-book-plus-400-greek-ext.woff2",
@@ -51,7 +51,7 @@
       {
         "path": "index.html",
         "bytes": 1021,
-        "sha256": "920703ed5cc570de6d510f14bc8a120b60ae5e6b52355ddada54c3a9d73c502e"
+        "sha256": "19a1c4c2fea0c0a478cc897e25c11225bfd16594a98d304ece979e8bd989f485"
       },
       {
         "path": "LICENSE.txt",
@@ -121,12 +121,12 @@
       {
         "path": "sw.js",
         "bytes": 5778,
-        "sha256": "4f9cacd857207c58bee30165bbe52aec9eee385a5a53ca0d8d6c20191d11f4e3"
+        "sha256": "77db15f71977ee462f94ed03ad05254ae24ba80d83d1af15a26dc148f16306dd"
       },
       {
         "path": "testimony.html",
         "bytes": 1033,
-        "sha256": "6064d977adbfb04383caf34a3aa8d967545ecee4607a1249174b1d4f9e80f8ce"
+        "sha256": "e19459130941589096e69ac912e191010eb909098b7deaed203aeb7797730a0b"
       }
     ]
   },
