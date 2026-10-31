@@ -5,10 +5,12 @@ import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import AxeBuilder from "@axe-core/playwright";
 import { chromium, firefox } from "playwright";
+import { buildIdentity, writeReceipt } from "./build-receipt.mjs";
 import { reviewServer } from "./review-server.mjs";
 
 const out = resolve("test-results/browser");
 await mkdir(out, { recursive: true });
+const build = await buildIdentity();
 const server = reviewServer("dist");
 await server.start();
 const receipts = [];
@@ -187,7 +189,7 @@ try {
         await offlinePage.getByRole("link", { name: "Editable notebook JSON" }).click();
         const embedded = await embeddedPending;
         assert.deepEqual(JSON.parse(await readFile(await embedded.path(), "utf8")), record);
-        assert.equal(await offlinePage.locator("img").count(), 5);
+        assert.equal(await offlinePage.locator("img").count(), 7);
         assert.equal(await offlinePage.locator("script").count(), 0);
         if (name === "chromium" && width === 1440)
           await offlinePage.pdf({
@@ -269,7 +271,7 @@ try {
       await browser.close();
     }
   }
-  await writeFile(resolve(out, "receipts.json"), JSON.stringify(receipts, null, 2));
+  await writeReceipt(resolve(out, "receipts.json"), build, receipts);
   console.log(JSON.stringify(receipts, null, 2));
 } finally {
   await server.stop();

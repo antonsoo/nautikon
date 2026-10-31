@@ -1,13 +1,13 @@
-# Nautikon local review — 2026-10-31
+# Nautikon audit and source review — 2026-10-31
 
-This is a **local review of unpublished work**. It establishes source identity,
-conditional model behavior, local production browser behavior and saved
-artifacts. It does not establish a public repository, a hosted release, remote
-synchronization or a successful GitHub Actions run.
+Nautikon now has two operated readings: a sea-loan account, and a cargo-testimony
+bench that separates a contractual requirement, an upper-bound allegation and
+an attributed exact-count report. [Publication evidence](publication.md) records
+remote source, clean-build, hosted-byte and public-browser boundaries separately.
 
 ## Try the actual work
 
-With Node 24 or later, from this checkout:
+With Node 24 or later:
 
 ```sh
 npm ci
@@ -15,84 +15,79 @@ npm run check
 npm run preview
 ```
 
-Open `http://127.0.0.1:4401/nautikon/`. The preview uses the built `dist/`;
-`npm run dev` uses port 4402 and does not install an offline worker.
-1. **Keep this voyage.** Move arrival from 25 to 55 days after Arcturus.
-   The known departure is still five days before: interest stays **675**.
-2. Move departure to one day after Arcturus. Interest becomes **900**;
-   debt becomes **3,900**. The kept voyage still has **3,675**.
-3. Select **A missing departure**. The arrival survives but the rate and debt
-   become **undetermined**. Follow the source link and inspect ἐκπλεύσωσιν.
-4. Select **The same 300 lost**. Spoilage gives no deduction. Jettison with the
-   shared decision gives **300**; removing that decision removes the deduction.
-5. Select **A cargo worth less**. With no payment, day 21 and assumed sale
-   proceeds of **2,000**, the shortfall is **1,675**. Move to day 20: this model
-   has not yet activated the default sale. Record full repayment: security releases.
-6. Try surviving security after irreparable damage to the ship, then the
-   Hellespont exception. Each preserves its separate source explanation while
-   withholding the ordinary safe-return debt calculation and interval.
-7. Follow a clause link, select another reading with a button, then follow the
-   same clause link again. The cited reading must be selected even when the
-   fragment has not changed. Enlarge the scan; focus its viewport and pan with
-   arrow keys. The page itself must keep its width.
-8. Write a note; save and reopen a notebook; save the illustrated reading.
-   Open it offline and use its embedded JSON download to restore both accounts.
+Open `http://127.0.0.1:4401/nautikon/`.
+1. **Keep this voyage.** Change arrival to 55 days after Arcturus: interest
+   remains **675**. Move departure to one day after Arcturus: interest becomes
+   **900**, debt **3,900**. The kept voyage still has **3,675**.
+2. Select **A missing departure**. Arrival remains known; rate and debt become
+   undetermined. Follow ἐκπλεύσωσιν back to §10 and the checked whole source page.
+3. Select **The same 300 lost**. Spoilage gives no deduction. Jettison with a
+   shared vote gives **300**; removing the vote removes that deduction.
+4. Select **A cargo worth less**. Day 21 and assumed sale proceeds of **2,000**
+   leave **1,675** claimable under §12. Day 20 is still inside the declared
+   modern elapsed-day interval. Full repayment releases the security.
+5. Try the Hellespont exception and surviving security after irreparable ship
+   damage. Each withholds ordinary safe-return arithmetic and retains its own
+   source explanation.
+6. Open `testimony.html`. With only **Speaker · §19** selected, check the
+   conclusion **Exactly 450 jars**. The counterexample is **499**, which also
+   fits οὐδὲ πεντακόσια. Try 500: it does not fit.
+7. Select **Erasikles · §20**. Current inference becomes exactly **450**, if
+   that report is true. The earlier kept check retains the speaker alone.
+   Select Hippias, then remove both depositions: observe which premise changed
+   the conclusion. No report selected means no inferred upper bound.
+8. Read Hippias’s deposition on pp. 110–111. Enlarge and keyboard-pan both
+   checked scans. The requirement’s 3,000-jar phrase is on **p. 107, lines 25–26**.
+   Complete §§18–22 preserve the surrounding argument.
+9. Add an explanation; save JSON, CSV, SVG and an illustrated reading from
+   either lesson. Reopen the scriptless reading offline, use its embedded JSON
+   download, and restore the original current and kept inputs.
 
-These altered facts are **invented teaching inputs**. The source/model boundary
-and the elapsed-day convention are part of the exercise, not hidden assumptions.
+These are conditional readings. A report being selected does not establish its
+historical truth, authenticity or credibility. Jars are not drachmas. No verdict,
+damages, creditor priority or probability is supplied.
 
-## Evidence retained
+## What the audit actually repaired
 
-| Boundary                  | Result                                                                                                                                                                                                                       | Reproduce / inspect                                            |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| Source bytes              | 16 retained file identities checked at build, display and export boundaries                                                                                                                                                  | `npm run verify:sources`; `src/asset-manifest.json`            |
-| Greek concordance         | Six exact excerpts and six complete context sections match the pinned electronic text                                                                                                                                        | `scripts/verify-sources.py`                                    |
-| Printed witness           | Title, imprint, pp. 107–109 inspected; copy is the 1939 reprint of the 1921 edition                                                                                                                                          | `public/sources/`, `docs/source-and-model.md`                  |
-| Conditional arithmetic    | 576 accounts agree with an independent Python Fraction oracle                                                                                                                                                                | `npm run verify:model`                                         |
-| Core behavior             | Eight focused tests pass                                                                                                                                                                                                     | `npm test`                                                     |
-| Clean local build         | Fresh `npm ci`, Biome, strict TypeScript, tests and production build pass                                                                                                                                                    | `npm run check`                                                |
-| Browser operation         | Chromium and Firefox, each at 1440 and 375 px; controls, kept facts, native source links, panning and four download types                                                                                                    | `npm run test:browser`; `docs/verification/browser.json`       |
-| Accessibility scan        | Zero axe violations in the four reviewed states; keyboard actions and panning also operated                                                                                                                                  | Browser script; this is not a full accessibility certification |
-| No automatic external use | Zero unexpected external requests and zero page errors in the reviewed journeys; standalone reading makes no HTTP requests                                                                                                   | Browser receipts                                               |
-| Offline edition           | Current worker control plus complete inventory; reload, source reading and illustrated export with actual server stopped; explicit browser offline also exercised                                                            | Browser receipts                                               |
-| Two-tab damage/recovery   | Delete a source, observe loss of readiness in both controlled tabs, repair, then read it again                                                                                                                               | Browser receipts                                               |
-| Fault behavior            | Superseded source response cannot replace latest page; source substitution refuses export; cancellation and retry retain work; corrupted cache invalidates readiness across tabs; failed complete install cannot claim ready | `npm run test:faults`; `docs/verification/faults.json`         |
-| Portable artifact bytes   | Actual embedded image, four font subsets and TEI byte strings match retained originals; embedded JSON restores the exported notebook                                                                                         | Browser script                                                 |
-| Printed example           | Actual Chromium print of the downloaded reading; text, diagram and whole source page visually inspected                                                                                                                      | `examples/default-reading.pdf`                                 |
-| Public boundary           | No repository creation, push or deployment performed. Read-only repository API returned 404 during this session                                                                                                              | Local-only handoff; no CI or hosted-byte success claimed       |
+| Reproduced before the change                                                                               | Result after the change                                                          | Evidence                                                     |
+| ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| Enum arrays such as `["pontus"]` passed string-coerced validation while the account and dropdown disagreed | Enum fields require scalar strings; import is atomic                             | Core cases; actual invalid-file imports                      |
+| An earlier slow file overwrote a newer file or a later typed note                                          | Only the latest import can replace unchanged work                                | Two browser engines, overlapping reads and intervening edits |
+| Repeated JSON names silently chose the last departure                                                      | Repeated keys, including escaped spellings, are refused                          | JSON reader; native file imports                             |
+| The ship SVG described the same vessel after the learner changed vessel                                    | Accessible description and visible caption follow the selected fact              | Actual operated checkbox and SVG text                        |
+| A 2,000-character unbroken note widened a 375-px saved reading to over 23,000 px                           | Notes and long source-download links wrap; document stays 375 px                 | Before/after observations                                    |
+| Denied clipboard access printed a long unbroken URL across the live page                                   | A bounded, selected, keyboard-copyable URL field appears                         | Actual rejected clipboard promise at 375 px                  |
+| Failed registration reverted to an endless “saving” label on the next poll                                 | Failure remains visible and recoverable                                          | HTTP 503 registration and later polling                      |
+| A worker or asset response with a body that never ended left retry disabled                                | Body reads and worker API waits are bounded; retry becomes available             | Real HTTP partial bodies, timeout, successful retry          |
+| A proposed invalid count could otherwise save an earlier valid value                                       | Testimony checking and saving wait for correction; draft stays visible           | Blank and out-of-range fields in both engines                |
+| A mistaken source-page assignment would have sent the jar phrase to p. 108                                 | Independently inspected p. 107 and corrected the reading link before publication | Whole scan, exact Greek, Archive pagination metadata         |
 
-The source-based UI review exposed and repaired a scan enlargement that widened
-the CSS grid. Final review also repaired same-fragment source links and avoided
-silently rounding valid imported whole-drachma amounts to a coarse slider step.
+The initial seven-file refetch and the later nine-file refetch independently
+matched the upstream scans and pinned TEI files. No local source was replaced
+by those audits. Selected Greek is checked against the electronic text; scan
+interpretation and page placement were separately inspected.
 
-The final local build inventory and edition are recorded in
-[`verification/build.json`](verification/build.json). It is a build receipt,
-not a hosted-file receipt. The reviewed implementation commit is recorded there;
-documentation and artifact commits may follow without changing the build inputs.
+## Review boundaries and receipts
 
-## Saved example
+| Boundary                      | What was operated or checked                                                                                                                                                                    |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Retained sources              | 18 byte identities; ten exact Greek excerpts; eleven complete Greek context sections                                                                                                            |
+| Conditional loan arithmetic   | 576 accounts checked against an independent Python Fraction oracle                                                                                                                              |
+| Count consequence             | All eight report selections and whole counts 0–3,500; an unconstrained larger count remains possible                                                                                            |
+| Browser use                   | Chromium and Firefox at 1440 and 375 px; all clauses, report toggles, source links, keyboard panning and four native download types per lesson                                                  |
+| Portable readings             | Actual embedded JPEG, WOFF2 and TEI bytes compared with retained originals; native embedded JSON restored; no scripts or HTTP requests on opening                                               |
+| Accessibility                 | Zero axe violations in eight reviewed lesson/browser/width states; keyboard check and pan operated; no full screen-reader audit claimed                                                         |
+| Offline                       | Both HTML entry pages, current controller and full inventory; navigation, source reading and export with the real local origin stopped                                                          |
+| Failure and recovery          | Corrupt export refused in both renderers; cancel/retry; immutable export snapshot; two-tab cache invalidation; incomplete installs; stalled worker and asset bodies; compressed HTTP navigation |
+| Build evidence                | Browser receipts capture the complete reviewed build inventory and refuse to complete if files change during review                                                                             |
+| Printed examples              | Native Chromium prints of both actual downloaded readings; text, diagrams and whole source pages inspected                                                                                      |
+| Public source, hosting and CI | Separate record in [publication.md](publication.md); workflow presence alone is not a successful run                                                                                            |
 
-[Notebook](../examples/default-notebook.json) ·
-[Ledger](../examples/default-ledger.csv) ·
-[Timeline](../examples/default-timeline.svg) ·
-[Illustrated HTML, gzip](../examples/default-reading.html.gz) ·
-[Reading PDF](../examples/default-reading.pdf).
+Reproduction commands are in [publication-handoff.md](publication-handoff.md).
+Current receipts are under [`verification/`](verification/) and
+[`audit-2026-10-31/`](audit-2026-10-31/). Screenshots show actual controls and source
+readings; they are not design mockups. Saved examples are under [`examples/`](../examples/).
 
-Decompress the HTML before opening it. These files were made through actual
-browser controls by `node scripts/example.mjs`; the PDF prints that saved HTML.
-The illustrated reading contains no script. The PDF is a reading copy; editable
-state remains in the JSON and HTML. Automated checks do not substitute for an
-independent philological review or a screen-reader audit.
-
-## Source and release limits
-
-No assertion about authenticity of the transmitted contract, authorship of the
-speech, actual borrower conduct, a verdict, creditor priority or historical
-recovery follows from the model. The source establishes the words used here;
-new arithmetic depends on the declared assumptions. No public CI execution,
-registry release or deployed-browser journey was attempted.
-
-Officina’s entry stays `soon`, with no demo URL, so ordinary catalogue search
-cannot present an unhosted lesson as published. Its local preview journey uses
-an explicitly injected published fixture and local bytes. That is a reviewable
-handoff, not public availability. See the adjacent Officina study.
+The new English and lexical explanations have not had independent philological
+review. Document authenticity, historical cargo and the real lawsuit remain
+outside the model. See [the source concordance](source-and-model.md).

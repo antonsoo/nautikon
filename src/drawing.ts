@@ -10,7 +10,17 @@ export function cargo(v: Voyage): string {
         : a.stage === "released"
           ? "Security released after repayment"
           : "Return cargo held until repayment";
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 290" role="img" aria-label="Schematic voyage: 3,000 drachmas lent; 3,000 wine jars are outward security; all return cargo travels back in the same vessel; ${esc(end)}.">
+  const selected =
+    v.route === "hellespont"
+      ? "Hellespont branch selected; no Pontus entry. The ordinary Pontus account is withheld."
+      : v.sameVessel
+        ? "Selected return cargo uses the same vessel."
+        : "Selected return cargo changes vessel, contrary to §11.";
+  const caption =
+    v.route === "hellespont"
+      ? "Hellespont branch: ordinary Pontus account withheld. Route and cargo drawings are schematic."
+      : `${v.sameVessel ? "Same vessel selected." : "Vessel changed: contradicts §11."} Jar count is not a price; route and cargo drawings are schematic.`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 290" role="img" aria-label="Schematic voyage: 3,000 drachmas lent; 3,000 wine jars are outward security; ${esc(selected)} ${esc(end)}.">
   <rect width="900" height="290" fill="#173b4b"/>
   <g fill="none" stroke="#b9cbd0" stroke-width="1.4"><path d="M65 75H825M65 69v12m245-12v12m245-12v12m270-12v12"/><path d="m240 70 8 5-8 5m237-10 8 5-8 5m225-10 8 5-8 5"/>
   <path d="M0 228q50-10 100 0t100 0t100 0t100 0t100 0t100 0t100 0t100 0t100 0" stroke="#698895"/>
@@ -21,8 +31,8 @@ export function cargo(v: Voyage): string {
   <path d="M751 131h73v67h-73Zm0 22h73m-48-22v67m26-67v67"/>
   </g></g>
   <g fill="#f6efde" font-family="Gentium,Georgia,serif" font-size="22"><text x="65" y="45">Athens</text><text x="270" y="45">Mende / Scione</text><text x="525" y="45">${v.route === "pontus" ? "Pontus" : "Hellespont"}</text><text x="747" y="45">${v.outcome === "safe" ? "Athens" : "Loss branch"}</text></g>
-  <g fill="#f6efde" font-family="Gentium,Georgia,serif" font-size="18"><text x="65" y="255">3,000 drachmas lent</text><text x="270" y="255">3,000 wine jars</text><text x="525" y="255">${v.route === "pontus" ? "All return cargo" : "No Pontus entry"}</text><text x="747" y="255">${a.stage === "released" ? "Released" : v.outcome === "safe" ? "Under security" : "Separate branch"}</text></g>
-  <text x="65" y="280" fill="#b9cbd0" font-family="Gentium,Georgia,serif" font-size="15">Sequence, not a map. Jar count is not a price. The return cargo has no invented quantity or commodity.</text></svg>`;
+  <g fill="#f6efde" font-family="Gentium,Georgia,serif" font-size="18"><text x="65" y="255">3,000 drachmas lent</text><text x="270" y="255">3,000 wine jars</text><text x="525" y="255">${v.route === "pontus" ? "All return cargo" : "No Pontus entry"}</text><text x="747" y="255">${a.stage === "outside" ? "Account withheld" : a.stage === "released" ? "Released" : "Under security"}</text></g>
+  <text x="65" y="280" fill="#b9cbd0" font-family="Gentium,Georgia,serif" font-size="15">${esc(caption)}</text></svg>`;
 }
 export function timeline(v: Voyage): string {
   if (v.outcome !== "safe" || v.route !== "pontus") {

@@ -1,0 +1,27 @@
+{
+  "source": "https://archive.org/download/p2orationesrecog02demouoft/p2orationesrecog02demouoft_scandata.xml",
+  "sha256": "1a80416fc2087011f000b850d4f87a948832115577de67e8b29851f11f8675d4",
+  "note": "Page references follow Archive pageNumber labels, distinct from the bracketed older text reference visible in the scan. The quoted 3000-jar phrase is on leaf n123, label 107.",
+  "pages": [
+    {
+      "leaf": "123",
+      "pageNumber": "107"
+    },
+    {
+      "leaf": "124",
+      "pageNumber": "108"
+    },
+    {
+      "leaf": "125",
+      "pageNumber": "109"
+    },
+    {
+      "leaf": "126",
+      "pageNumber": "110"
+    },
+    {
+      "leaf": "127",
+      "pageNumber": "111"
+    }
+  ]
+}

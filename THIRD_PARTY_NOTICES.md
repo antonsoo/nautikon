@@ -10,7 +10,7 @@
 - **Printed source scans:** University of Toronto copy digitized by Internet
   Archive, `p2orationesrecog02demouoft`. Rennie, _Demosthenis Orationes_, II.2,
   first edition 1921, photographed reprint 1939. Full unmodified images of title,
-  imprint and pp. 107–109. The print is public-domain material. These are pages
+  imprint and pp. 107–111. The print is public-domain material. These are pages
   of an edited literary text, not an ancient physical contract.
 - **Gentium Book Plus:** Copyright (c) 2003–2022 SIL International, Reserved Font
   Names Gentium and SIL. Four unmodified Google Fonts WOFF2 subsets, reused from

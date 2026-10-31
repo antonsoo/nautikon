@@ -26,6 +26,7 @@ export default defineConfig(async ({ command }) => {
     ...(await files("src")),
     ...(await files("public")),
     "index.html",
+    "testimony.html",
     "vite.config.ts",
     "package.json",
     "package-lock.json",
@@ -38,6 +39,7 @@ export default defineConfig(async ({ command }) => {
   return {
     base,
     define: { __EDITION__: JSON.stringify(edition) },
+    build: { rollupOptions: { input: { voyage: "index.html", testimony: "testimony.html" } } },
     plugins: [
       {
         name: "complete-offline-voyage",
@@ -58,7 +60,24 @@ export default defineConfig(async ({ command }) => {
           await writeFile(
             "dist/sw.js",
             `const EDITION=${JSON.stringify(edition)}, CACHE="nautikon-"+EDITION, BASE=${JSON.stringify(base)}, FILES=${JSON.stringify(urls)}, INTEGRITY=${JSON.stringify(integrity)};
-self.addEventListener('install', e => e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES.map(u => new Request(u,{cache:'reload',integrity:INTEGRITY[u]})))).then(() => self.skipWaiting())));
+self.addEventListener('install', e => {
+ const controller=new AbortController(), timer=setTimeout(()=>controller.abort(),15000);
+ e.waitUntil((async()=>{
+  try {
+   const downloaded=await Promise.all(FILES.map(async url=>{
+    const r=await fetch(url,{cache:'reload',integrity:INTEGRITY[url],signal:controller.signal});
+    if(!r.ok) throw new Error('Incomplete offline edition');
+    const body=await r.arrayBuffer(), headers=new Headers(r.headers);
+    headers.delete('Content-Encoding'); headers.delete('Content-Length');
+    return [url,new Response(body,{status:r.status,statusText:r.statusText,headers})];
+   }));
+   controller.signal.throwIfAborted();
+   const cache=await caches.open(CACHE);
+   await Promise.all(downloaded.map(([url,response])=>cache.put(url,response)));
+   await self.skipWaiting();
+  } finally { clearTimeout(timer); controller.abort(); }
+ })());
+});
 self.addEventListener('activate', e => e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k.startsWith('nautikon-') && k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())));
 self.addEventListener('message', e => {
  if(e.data?.type !== 'INSPECT' || !e.ports[0]) return;
@@ -71,7 +90,7 @@ self.addEventListener('fetch', e => {
  if(e.request.mode!=='navigate') { e.respondWith(caches.match(p,{cacheName:CACHE}).then(r=>r||fetch(e.request))); return; }
  e.respondWith((async()=>{
   let timer;
-  const network=fetch(e.request).then(async r=>new Response(await r.arrayBuffer(),{status:r.status,statusText:r.statusText,headers:r.headers}));
+  const network=fetch(e.request).then(async r=>{const body=await r.arrayBuffer(),headers=new Headers(r.headers);headers.delete('Content-Encoding');headers.delete('Content-Length');return new Response(body,{status:r.status,statusText:r.statusText,headers});});
   const outcome=await Promise.race([network.then(r=>({r}),()=>({})),new Promise(resolve=>{timer=setTimeout(()=>resolve({}),2000)})]);
   clearTimeout(timer);
   if(outcome.r && outcome.r.status<500) return outcome.r;

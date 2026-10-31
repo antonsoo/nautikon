@@ -1,3 +1,5 @@
+import { parseJson } from "./json";
+
 export interface Voyage {
   departure: number | null;
   arrival: number;
@@ -119,9 +121,12 @@ export function readVoyage(value: unknown): Voyage {
   if (typeof v.departure === "number" && v.arrival <= v.departure)
     throw new Error("Arrival must follow departure.");
   if (
-    !["pontus", "hellespont"].includes(String(v.route)) ||
-    !["safe", "salvage", "lost"].includes(String(v.outcome)) ||
-    !["none", "jettison", "enemies", "ordinary"].includes(String(v.loss))
+    typeof v.route !== "string" ||
+    !["pontus", "hellespont"].includes(v.route) ||
+    typeof v.outcome !== "string" ||
+    !["safe", "salvage", "lost"].includes(v.outcome) ||
+    typeof v.loss !== "string" ||
+    !["none", "jettison", "enemies", "ordinary"].includes(v.loss)
   )
     throw new Error("Unknown route, outcome or loss kind.");
   for (const key of ["consent", "paid", "otherPledge", "sameVessel"])
@@ -156,8 +161,12 @@ export function share(v: Voyage): string {
   return `?voyage=${encodeURIComponent(JSON.stringify(v))}#bench`;
 }
 export function fromSearch(search: string): Voyage {
-  const raw = new URLSearchParams(search).get("voyage");
-  return raw ? readVoyage(JSON.parse(raw)) : structuredClone(initial);
+  const values = new URLSearchParams(search).getAll("voyage");
+  if (!values.length) return structuredClone(initial);
+  const raw = values[0];
+  if (values.length !== 1 || !raw || raw.length > 8000)
+    throw new Error("A voyage link must contain one nonempty, bounded voyage record.");
+  return readVoyage(parseJson(raw));
 }
 export const presets: { id: string; title: string; question: string; patch: Partial<Voyage> }[] = [
   {

@@ -11,3 +11,6 @@ r=E.parse(root/'public/sources/perseus-grc2.xml');ns={'t':'http://www.tei-c.org/
 sections=[{'section':n,'greek':' '.join(''.join(r.find(f'.//t:div[@n="{n}"]',ns).itertext()).split())} for n in range(9,15)]
 (root/'src/content/sections.json').write_text(json.dumps(sections,ensure_ascii=False,indent=2)+'\n')
 print(f'Retained {len(assets)} assets and six complete Greek sections.')
+
+sections=[{'section':n,'greek':' '.join(''.join(r.find(f'.//t:div[@n="{n}"]',ns).itertext()).split())} for n in range(18,23)]
+(root/'src/content/testimony-sections.json').write_text(json.dumps(sections,ensure_ascii=False,indent=2)+'\n')

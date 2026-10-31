@@ -43,8 +43,8 @@
   },
   {
     "path": "sources/NOTICE.txt",
-    "bytes": 1326,
-    "sha256": "c00124d3783c7419920d808879a7c7b1c60c9cb0d253c781c92ebf71826fba51",
+    "bytes": 1675,
+    "sha256": "5a09ec38da2ca6fcc91270d517c5d106669d6f33a2c0118b6fbfe275d2d30b46",
     "mime": "text/plain"
   },
   {
@@ -61,8 +61,8 @@
   },
   {
     "path": "sources/provenance.json",
-    "bytes": 1145,
-    "sha256": "3ad294a1ebd5225505810f75ebdbf7bf084ae5cb05dfab702f8eb86db1764cd1",
+    "bytes": 1337,
+    "sha256": "9276ecfddaa4c6b96576175827041e00f9e7f24b5c2a707c9681a3d5d8fdb5c4",
     "mime": "application/json"
   },
   {
@@ -87,6 +87,18 @@
     "path": "sources/rennie-p109.jpg",
     "bytes": 406544,
     "sha256": "f08cd4893ed0d887c213c66fd47b420462b1215b6683f93aab36cefb14c0e1ed",
+    "mime": "image/jpeg"
+  },
+  {
+    "path": "sources/rennie-p110.jpg",
+    "bytes": 380210,
+    "sha256": "a4f9368da4e33d393e29293f63648fe83e4347e6dd8412aed815bd417ec87ef6",
+    "mime": "image/jpeg"
+  },
+  {
+    "path": "sources/rennie-p111.jpg",
+    "bytes": 394754,
+    "sha256": "8f91b7d5edca666e0c9cf9f9cb168184149202f0e1fc6bed56f682313ec583a0",
     "mime": "image/jpeg"
   },
   {

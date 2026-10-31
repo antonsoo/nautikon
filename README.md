@@ -12,10 +12,12 @@ cargo for less than the debt does not, in the ordinary default clause, erase the
 shortfall. Nautikon lets an English-speaking learner make both distinctions,
 change the facts, and read the Greek responsible for the result.
 
-This is a new, **local, unpublished** repository. The intended repository and
-Pages addresses in package metadata do not assert a public release. No npm
-package is published. [Source and model](docs/source-and-model.md) ·
+[Open the voyage account](https://antonsoo.github.io/nautikon/) ·
+[Open the testimony bench](https://antonsoo.github.io/nautikon/testimony.html) ·
+[Source and model](docs/source-and-model.md) ·
 [Reproducible review](docs/review.md#try-the-actual-work).
+No npm package is published. Public deployment evidence is recorded separately
+in [the publication record](docs/publication.md).
 
 ## Start here
 
@@ -60,6 +62,38 @@ return vessel produces a flag, without inventing a penalty, creditor priority or
 court decision. Full modeled repayment releases the security; partial payments
 are outside the model.
 
+## What does a witness establish?
+
+The second workshop reads **35.18–22**. The speaker's **“not even 500”** jars
+supplies a strict upper bound. It does not by itself establish **450**. The
+attributed depositions in §20 give that numbered count, with Hippias's sentence
+crossing the printed page. Select the reports to take at face value, test 499
+as a counterexample, then keep your conclusion with its original premises.
+
+| Selected descriptive reports                      | Strongest conditional count conclusion                                  |
+| ------------------------------------------------- | ----------------------------------------------------------------------- |
+| None                                              | No upper bound from these reports; 3,000 remains a contract requirement |
+| Speaker alone                                     | Whole counts 0–499; 450 is possible but not forced                      |
+| Erasikles or Hippias, with or without the speaker | Exactly 450, if the selected deposition is true                         |
+
+Selection does not authenticate a document or assess credibility. Agreement
+between two reports is not assigned an invented probability. The 0–3,500
+plotting window is modern; an unconstrained count has no inferred maximum.
+A jar shortfall is not a drachma deduction.
+
+The kept check preserves its original reports, proposed count and learner
+conclusion. Save and reopen it as **testimony JSON**, save an inference CSV or
+count SVG, or save a scriptless illustrated reading with all seven full pages.
+It uses a separate schema from the voyage notebook. Invalid counts keep
+checking and saving disabled until corrected, instead of saving a different
+number from the one visible in the field.
+
+![The testimony bench after adding a numbered deposition](docs/assets/testimony-1440.png)
+
+[Example testimony notebook](examples/testimony-notebook.json) ·
+[Illustrated reading, gzip](examples/testimony-reading.html.gz) ·
+[Printed testimony reading](examples/testimony-reading.pdf).
+
 ## Read the agreement
 
 Six readings have exact Greek excerpts, new English and contextual word notes.
@@ -67,7 +101,7 @@ Full context **35.9–14** includes the speaker’s introduction and transmitted
 testimony. The retained electronic text is Perseus’s Rennie edition, pinned to
 commit `70427323b61267cdcd0256b9b02009c23392de07`.
 
-Five full images preserve the title, imprint and printed pp. 107–109 of the
+Seven full images preserve the title, imprint and printed pp. 107–111 of the
 University of Toronto copy at Internet Archive. Visual inspection established
 that it is a **1939 reprint of the 1921 edition**. The critical apparatus is
 retained. The viewer checks byte count and SHA-256 before displaying a page;
@@ -82,12 +116,12 @@ Decompress the HTML before opening it.
 
 ## Keep the work
 
-| Artifact         | Contents                                                                                                                                      |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| Notebook JSON    | Current voyage, kept voyage and note; strict validation before replacing anything                                                             |
-| Ledger CSV       | Both accounts, every selected fact and explicit model scope                                                                                   |
-| Timeline SVG     | Star-relative departure, arrival and the twenty-day interval; accessible text description                                                     |
-| Illustrated HTML | Both accounts, note, diagrams, all readings and words, full Greek context, five scans, four font subsets, licenses and embedded editable JSON |
+| Artifact         | Contents                                                                                                                                       |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Notebook JSON    | Current voyage, kept voyage and note; strict validation before replacing anything                                                              |
+| Ledger CSV       | Both accounts, every selected fact and explicit model scope                                                                                    |
+| Timeline SVG     | Star-relative departure, arrival and the twenty-day interval; accessible text description                                                      |
+| Illustrated HTML | Both accounts, note, diagrams, all readings and words, full Greek context, seven scans, four font subsets, licenses and embedded editable JSON |
 
 The illustrated HTML opens offline without scripts or automatic external
 requests. Print it from a browser for a reading PDF. Saving checks the actual
@@ -127,9 +161,12 @@ npm run verify:sources
 npm run verify:model
 npm run test:browser
 npm run test:faults
+npm run test:testimony
+npm run test:audit
+npm run test:offline-bodies
 ```
 
-The exact-fraction Python oracle independently checks **576** accounts. Eight
+The exact-fraction Python oracle independently checks **576** accounts. Fifteen
 focused tests check the distinctions and import boundaries. Browser review
 covers Chromium and Firefox at desktop and 375 px, native downloads, source
 navigation, panning, a real unavailable origin, two controlled tabs, cache damage

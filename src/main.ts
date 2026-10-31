@@ -1,6 +1,6 @@
 import "./style.css";
-import { asData, bytes } from "./assets";
 import { readings } from "./content/readings";
+import { parseJson } from "./core/json";
 import {
   account,
   fromSearch,
@@ -14,6 +14,7 @@ import { cargo, timeline } from "./drawing";
 import { csv, illustrated } from "./export";
 import { day, download, esc, money } from "./html";
 import { installOffline } from "./offline";
+import { installSources } from "./source";
 import { collection, comparison, completeGreek, ledger, limits, readingHtml } from "./views";
 
 const root = document.querySelector<HTMLDivElement>("#app");
@@ -27,11 +28,13 @@ try {
     "This share link has invalid voyage facts. The starting voyage is shown; no partial link settings were applied.";
 }
 let notebook: Notebook = { version: 1, voyage, pinned: null, note: "" };
+let notebookRevision = 0;
+let importRevision = 0;
 const select = (id: string, title: string, options: [string, string][]) =>
   `<label for="${id}">${title}</label><select id="${id}">${options.map(([value, label]) => `<option value="${value}">${label}</option>`).join("")}</select>`;
 const range = (id: string, title: string, min: number, max: number, step = 1) =>
   `<div class="range-field"><label for="${id}">${title} <output id="${id}-value" for="${id}"></output></label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}"></div>`;
-root.innerHTML = `<header><a class="wordmark" href="./"><span lang="grc">ΝΑΥΤΙΚΟΝ</span><span>A voyage under written terms</span></a><nav aria-label="Main"><a href="#bench">Voyage</a><a href="#losses">Loss</a><a href="#default">Default</a><a href="#reading">Greek & sources</a><a href="#keep">Keep it</a></nav></header>
+root.innerHTML = `<header><a class="wordmark" href="./"><span lang="grc">ΝΑΥΤΙΚΟΝ</span><span>A voyage under written terms</span></a><nav aria-label="Main"><a href="#bench">Voyage</a><a href="#losses">Loss</a><a href="#default">Default</a><a href="#reading">Greek & sources</a><a href="#keep">Keep it</a><a href="testimony.html" target="_blank" rel="noopener">Cargo testimony ↗</a></nav></header>
 <main><section class="opening"><p class="eyebrow">The agreement transmitted in [Demosthenes] 35.10–13</p><div class="intro-grid"><h1>The cargo came home.<br>Does the debt change?</h1><div class="intro-copy"><p>Move a departure. Keep an arrival. Read the clause that makes the difference.</p><p>An Athenian sea-loan agreement separates the voyage’s interest, losses allowed in deduction, and the goods a lender can hold. Follow those distinctions through one altered voyage.</p><a href="#bench" class="text-link">Open the account <span aria-hidden="true">↓</span></a></div></div></section>
 <p id="warning" class="warning" ${warning ? "" : "hidden"}>${esc(warning)}</p>
 <section id="bench" aria-labelledby="bench-title"><div class="section-heading"><p class="section-number">01 / WHEN</p><h2 id="bench-title">Which event changes the rate?</h2></div>
@@ -65,11 +68,11 @@ ${range("lossAmount", "Assumed deduction value (drachmas)", 0, 1000)}<label clas
 ${range("days", "Elapsed days after arrival", 0, 45)}${range("sale", "Assumed proceeds if the security is sold", 0, 10000)}
 <label class="check"><input type="checkbox" id="paid"> Record full repayment of the modeled debt</label><label class="check"><input type="checkbox" id="otherPledge"> Another loan is secured on the same goods</label><label class="check"><input type="checkbox" id="sameVessel"> All return cargo comes back in the same vessel</label><p class="hint">The default account assumes no payment unless full repayment is selected. Day 20 is inside this teaching interval; day 21 is beyond it. Other contractual breaches are flagged without invented remedies.</p>
 </div><div><div id="collection" aria-live="polite"></div><a href="#read-default">Read security, sale and collection · §§11–12</a></div></div></section>
-<section id="keep" aria-labelledby="keep-title"><div class="section-heading"><p class="section-number">04 / COMPARE</p><h2 id="keep-title">Keep the facts before changing them.</h2></div><div class="actions"><button id="pin" type="button" class="primary">Keep this voyage</button><button id="unpin" type="button">Clear kept voyage</button><button id="share" type="button">Copy voyage link</button></div><p class="hint">The link contains current voyage facts. Notes and the kept comparison travel only in notebook downloads. This page does not autosave edits.</p><div id="comparison"></div>
+<section id="keep" aria-labelledby="keep-title"><div class="section-heading"><p class="section-number">04 / COMPARE</p><h2 id="keep-title">Keep the facts before changing them.</h2></div><div class="actions"><button id="pin" type="button" class="primary">Keep this voyage</button><button id="unpin" type="button">Clear kept voyage</button><button id="share" type="button">Copy voyage link</button></div><p class="hint">The link contains current voyage facts. Notes and the kept comparison travel only in notebook downloads. This page does not autosave edits.</p><div id="share-fallback" hidden><label for="share-url">Voyage link to copy</label><input id="share-url" type="url" readonly aria-describedby="share-help"><p id="share-help" class="hint">The link is selected. Copy it with your keyboard or the browser’s text menu; it contains the facts captured when you chose Copy voyage link.</p></div><div id="comparison"></div>
 <label for="note">Explain which clause changes the account, and which fact you still need.</label><textarea id="note" rows="4" maxlength="6000" placeholder="Keep an explanation with the two accounts…"></textarea><div class="actions"><button id="html" type="button" class="primary">Save illustrated reading</button><button id="cancel-export" type="button" hidden>Cancel saving</button><button id="json" type="button">Notebook JSON</button><button id="csv" type="button">Ledger CSV</button><button id="svg" type="button">Timeline SVG</button><label class="file-button" for="import">Reopen notebook<input id="import" type="file" accept="application/json,.json"></label></div><p id="status" role="status">The illustrated reading includes both accounts, Greek, word notes, complete printed pages and editable JSON. It opens offline and prints from your browser.</p></section>
-<section id="reading" aria-labelledby="reading-title"><div class="section-heading"><p class="section-number">05 / READ</p><h2 id="reading-title">Follow the account back to the words.</h2></div><p>Short Greek readings with new English. The complete printed pages retain the surrounding text and editorial apparatus.</p><div class="reading-tabs" aria-label="Readings">${readings.map((r) => `<button type="button" data-reading="${r.id}" id="read-${r.id}" aria-pressed="${r.id === "rate"}">${esc(r.title)}</button>`).join("")}</div><div class="reading-grid"><article id="reading-text">${readingHtml("rate")}</article><aside class="source-column"><label for="page">Full printed source page</label><select id="page"><option value="107">p. 107 · §§7–10, agreement begins</option><option value="108">p. 108 · §§10–14, agreement continues</option><option value="109">p. 109 · testimony context</option><option value="title">Edition title</option><option value="imprint">Edition imprint & reprint dates</option></select><div class="actions"><button type="button" id="enlarge" aria-pressed="false">Enlarge page</button><button type="button" id="retry-source">Reload page image</button></div><p class="hint">Enlarge for actual pixels; focus the image area and use arrow keys to pan. Source files are checked before display.</p><div class="source-viewport" tabindex="0" role="region" aria-label="Full source image; arrow keys pan when enlarged"><div id="source-image"></div></div><p id="source-status" role="status"></p><a id="archive" href="https://archive.org/details/p2orationesrecog02demouoft/page/107/mode/1up">Source copy at Internet Archive</a></aside></div>
+<section id="reading" aria-labelledby="reading-title"><div class="section-heading"><p class="section-number">05 / READ</p><h2 id="reading-title">Follow the account back to the words.</h2></div><p>Short Greek readings with new English. The complete printed pages retain the surrounding text and editorial apparatus.</p><div class="reading-tabs" aria-label="Readings">${readings.map((r) => `<button type="button" data-reading="${r.id}" id="read-${r.id}" aria-pressed="${r.id === "rate"}">${esc(r.title)}</button>`).join("")}</div><div class="reading-grid"><article id="reading-text">${readingHtml("rate")}</article><aside class="source-column"><label for="page">Full printed source page</label><select id="page"><option value="107">p. 107 · §§7–10, agreement begins</option><option value="108">p. 108 · §§10–14, agreement continues</option><option value="109">p. 109 · testimony context</option><option value="110">p. 110 · cargo accusation & Erasikles</option><option value="111">p. 111 · Hippias continues</option><option value="title">Edition title</option><option value="imprint">Edition imprint & reprint dates</option></select><div class="actions"><button type="button" id="enlarge" aria-pressed="false">Enlarge page</button><button type="button" id="retry-source">Reload page image</button></div><p class="hint">Enlarge for actual pixels; focus the image area and use arrow keys to pan. Source files are checked before display.</p><div class="source-viewport" tabindex="0" role="region" aria-label="Full source image; arrow keys pan when enlarged"><div id="source-image"></div></div><p id="source-status" role="status"></p><a id="archive" href="https://archive.org/details/p2orationesrecog02demouoft/page/107/mode/1up">Source copy at Internet Archive</a></aside></div>
 <details><summary>Complete Greek context · 35.9–14</summary><div class="complete-greek">${completeGreek()}</div></details><details><summary>What the source and this model establish</summary>${limits()}<p>Greek electronic text: <a href="https://github.com/PerseusDL/canonical-greekLit/tree/70427323b61267cdcd0256b9b02009c23392de07/data/tlg0014/tlg035">Perseus Digital Library, pinned Rennie text</a>, CC BY-SA 4.0. The photographed copy is a 1939 reprint of the 1921 edition. The local <a href="sources/provenance.json">provenance</a> records the source identity. <a href="sources/perseus-eng2.xml">Murray’s English and notes</a> are retained for comparison; the new translations above do not reproduce his English. The source apparatus records variants; the controls operate the selected reading, not a reconstruction of the lost document.</p></details>
-</section></main><footer><p>Nautikon · Anthony Mercer / PRAVIEL · <a href="https://github.com/antonsoo/nautikon">Intended source repository</a> · <a href="LICENSE.txt">MIT</a> · <a href="sources/NOTICE.txt">Sources & reuse</a></p><p id="offline" role="status">Checking offline edition…</p><button type="button" id="retry-offline">Retry offline saving</button></footer>`;
+</section></main><footer><p>Nautikon · Anthony Mercer / PRAVIEL · <a href="https://github.com/antonsoo/nautikon">Source repository</a> · <a href="LICENSE.txt">MIT</a> · <a href="sources/NOTICE.txt">Sources & reuse</a></p><p id="offline" role="status">Checking offline edition…</p><button type="button" id="retry-offline">Retry offline saving</button></footer>`;
 const $ = <T extends HTMLElement = HTMLElement>(id: string): T => {
   const e = document.getElementById(id);
   if (!e) throw new Error(`Missing ${id}`);
@@ -81,6 +84,7 @@ const status = (message: string) => {
   $("status").textContent = message;
 };
 function update(): void {
+  notebookRevision++;
   const v = notebook.voyage,
     a = account(v);
   for (const key of ["departure", "arrival", "days", "lossAmount", "sale"] as const)
@@ -130,6 +134,7 @@ for (const key of ["route", "outcome", "loss"] as const)
     update();
   });
 $("note").addEventListener("input", () => {
+  notebookRevision++;
   notebook.note = $<HTMLTextAreaElement>("note").value;
 });
 for (const b of document.querySelectorAll<HTMLButtonElement>("[data-preset]"))
@@ -152,14 +157,24 @@ $("unpin").addEventListener("click", () => {
   update();
   status("Kept voyage cleared.");
 });
+let shareRevision = 0;
 $("share").addEventListener("click", async () => {
+  const request = ++shareRevision;
   const url = new URL(share(notebook.voyage), new URL(import.meta.env.BASE_URL, location.href))
     .href;
   try {
     await navigator.clipboard.writeText(url);
+    if (request !== shareRevision) return;
+    $("share-fallback").hidden = true;
     status("Voyage link copied. It does not contain your note or kept voyage.");
   } catch {
-    status(`Copy this voyage link: ${url}`);
+    if (request !== shareRevision) return;
+    const field = input("share-url");
+    field.value = url;
+    $("share-fallback").hidden = false;
+    field.focus();
+    field.select();
+    status("Clipboard access is unavailable. Copy the selected voyage link below.");
   }
 });
 $("json").addEventListener("click", () =>
@@ -204,85 +219,30 @@ $("cancel-export").addEventListener("click", () => exportController?.abort());
 input("import").addEventListener("change", async () => {
   const file = input("import").files?.[0];
   if (!file) return;
+  input("import").value = "";
+  const request = ++importRevision;
+  const revision = notebookRevision;
   try {
     if (file.size > 100000) throw new Error("Notebook files must be smaller than 100 KB.");
-    const candidate = readNotebook(JSON.parse(await file.text()));
+    const candidate = readNotebook(parseJson(await file.text()));
+    if (request !== importRevision) return;
+    if (revision !== notebookRevision) {
+      status(
+        "Notebook not replaced: your work changed while the file was being read. Reopen the file to try again.",
+      );
+      return;
+    }
     notebook = candidate;
     $<HTMLTextAreaElement>("note").value = notebook.note;
     update();
     status("Notebook reopened, including the kept voyage and note.");
   } catch (e) {
-    status(
-      `Notebook not opened: ${e instanceof Error ? e.message : "Invalid JSON"} The current notebook is kept.`,
-    );
-  } finally {
-    input("import").value = "";
+    if (request === importRevision)
+      status(
+        `Notebook not opened: ${e instanceof Error ? e.message : "Invalid JSON"} The current notebook is kept.`,
+      );
   }
 });
-let sourceController: AbortController | null = null;
-let sourceRevision = 0;
-async function showSource(): Promise<void> {
-  sourceController?.abort();
-  const controller = new AbortController();
-  sourceController = controller;
-  const revision = ++sourceRevision,
-    page = dropdown("page").value;
-  $("source-status").textContent = "Checking the full page…";
-  $("source-image").replaceChildren();
-  try {
-    const path = `sources/rennie-${/^[0-9]+$/.test(page) ? "p" : ""}${page}.jpg`;
-    const raw = await bytes(path, controller.signal);
-    if (revision !== sourceRevision) return;
-    const img = new Image();
-    img.src = asData(raw, "image/jpeg");
-    img.alt = `Full Rennie source page ${page}, including the printed apparatus where present`;
-    await img.decode();
-    if (revision !== sourceRevision) return;
-    $("source-image").replaceChildren(img);
-    $("source-status").textContent =
-      `Page ${page} · complete checked image. The scan is of a printed edition, not the original contract.`;
-    $<HTMLAnchorElement>("archive").href =
-      `https://archive.org/details/p2orationesrecog02demouoft/page/${/^[0-9]+$/.test(page) ? page : `n${page === "title" ? 6 : 7}`}/mode/1up`;
-  } catch (e) {
-    if (revision === sourceRevision)
-      $("source-status").textContent =
-        e instanceof Error ? e.message : "Page unavailable. Retry when connected.";
-  }
-}
-function selectReading(id: string): void {
-  const r = readings.find((r) => r.id === id);
-  if (!r) return;
-  $("reading-text").innerHTML = readingHtml(id);
-  for (const button of document.querySelectorAll<HTMLButtonElement>("[data-reading]"))
-    button.setAttribute("aria-pressed", String(button.dataset.reading === id));
-  dropdown("page").value = String(r.page);
-  void showSource();
-}
-for (const b of document.querySelectorAll<HTMLButtonElement>("[data-reading]"))
-  b.addEventListener("click", () => selectReading(b.dataset.reading ?? "rate"));
-root.addEventListener("click", (event) => {
-  const link =
-    event.target instanceof Element
-      ? event.target.closest<HTMLAnchorElement>('a[href^="#read-"]')
-      : null;
-  const id = link?.getAttribute("href")?.slice(6);
-  // Native same-fragment navigation does not emit hashchange. Select the
-  // cited reading even after a reading button changed the visible passage.
-  if (id) selectReading(id);
-});
-function fragment(): void {
-  if (location.hash.startsWith("#read-")) selectReading(location.hash.slice(6));
-}
-window.addEventListener("hashchange", fragment);
-fragment();
-dropdown("page").addEventListener("change", () => void showSource());
-$("retry-source").addEventListener("click", () => void showSource());
-$("enlarge").addEventListener("click", () => {
-  const expanded = $("enlarge").getAttribute("aria-pressed") !== "true";
-  $("enlarge").setAttribute("aria-pressed", String(expanded));
-  $("enlarge").textContent = expanded ? "Fit page to column" : "Enlarge page";
-  document.querySelector(".source-viewport")?.classList.toggle("enlarged", expanded);
-});
+installSources(readings);
 update();
-void showSource();
 installOffline();

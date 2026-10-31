@@ -1,0 +1,28 @@
+[
+  {
+    "browser": "chromium",
+    "overlappingImportFinalNote": "OLDER FILE",
+    "pendingImportFinalNote": "FILE CONTENT",
+    "vesselDescription": "Schematic voyage: 3,000 drachmas lent; 3,000 wine jars are outward security; all return cargo travels back in the same vessel; Return cargo held until repayment.",
+    "readingLayout": {
+      "viewport": 375,
+      "document": 24019,
+      "body": 24019,
+      "comparison": 336.625,
+      "note": 336.625
+    }
+  },
+  {
+    "browser": "firefox",
+    "overlappingImportFinalNote": "OLDER FILE",
+    "pendingImportFinalNote": "FILE CONTENT",
+    "vesselDescription": "Schematic voyage: 3,000 drachmas lent; 3,000 wine jars are outward security; all return cargo travels back in the same vessel; Return cargo held until repayment.",
+    "readingLayout": {
+      "viewport": 375,
+      "document": 23053,
+      "body": 23053,
+      "comparison": 336.6000061035156,
+      "note": 336.6000061035156
+    }
+  }
+]

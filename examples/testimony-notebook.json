@@ -1,0 +1,21 @@
+{
+  "kind": "nautikon-testimony",
+  "version": 1,
+  "selected": {
+    "speaker": true,
+    "erasikles": true,
+    "hippias": false
+  },
+  "candidate": 450,
+  "claim": "exact",
+  "checked": {
+    "selected": {
+      "speaker": true,
+      "erasikles": false,
+      "hippias": false
+    },
+    "candidate": 450,
+    "claim": "exact"
+  },
+  "note": "The kept check chose exactly 450 from the speaker alone. But οὐδὲ πεντακόσια permits 499 as well: it only gives an upper bound. The current selection adds the deposition attributed to Erasikles, which reports 450 and no more. That makes 450 exact if the report is taken at face value; this exercise has not established its historical truth or the document’s authenticity. The 2,550-jar difference from the contract is not a deduction in drachmas."
+}

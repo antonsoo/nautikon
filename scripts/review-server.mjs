@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { createServer } from "node:http";
 import { extname, resolve, sep } from "node:path";
+import { gzipSync } from "node:zlib";
 
 const types = {
   ".html": "text/html",
@@ -19,7 +20,14 @@ export function reviewServer(root) {
   let directory = resolve(root);
   let port = 0;
   let server;
+  const faults = new Map();
   return {
+    fault(path, value) {
+      faults.set(path, value);
+    },
+    clearFaults() {
+      faults.clear();
+    },
     get base() {
       return `http://127.0.0.1:${port}/nautikon/`;
     },
@@ -41,11 +49,26 @@ export function reviewServer(root) {
             return;
           }
           const bytes = await readFile(file);
+          const fault = faults.get(path);
+          if (fault?.stallHeaders) return;
+          if (fault?.status) {
+            res.writeHead(fault.status).end("Controlled HTTP failure");
+            return;
+          }
+          if (fault?.stallBody) {
+            res.writeHead(200, {
+              "Content-Type": types[extname(file)] || "application/octet-stream",
+              "Cache-Control": "no-store",
+            });
+            res.write(bytes.subarray(0, Math.min(100, bytes.length)));
+            return;
+          }
           res.writeHead(200, {
             "Content-Type": types[extname(file)] || "application/octet-stream",
             "Cache-Control": "no-store",
+            ...(fault?.gzip ? { "Content-Encoding": "gzip" } : {}),
           });
-          res.end(bytes);
+          res.end(fault?.gzip ? gzipSync(bytes) : bytes);
         } catch {
           res.writeHead(404).end("Not found");
         }

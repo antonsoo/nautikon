@@ -27,8 +27,9 @@ Line locations were visually checked against whole pages; the page images
 retain their printed apparatus. The body of §10 starts on p. 107, concludes
 with Hyblesius’s name on p. 108, and then §11 begins. The complete source context
 extends through §14 on p. 109. Title and imprint visibly identify Rennie and
-1921/1926/1939; the actual copy is the reprint. Page numbers are the modern
-edition’s pages, not the bracketed older page reference in the margin.
+1921/1926/1939; the actual copy is the reprint. Page numbers follow the Archive scan’s `pageNumber` labels, separately checked
+against its scan metadata. They are distinct from the bracketed older text
+reference visible in the margin; see the retained pagination receipt.
 
 ## Wording and translation
 
@@ -77,3 +78,34 @@ See the pinned electronic-text commit and scan URLs in
 sources the workshop uses. The reproduction scripts and checks do not resolve
 contract authenticity, historical dating of the alleged voyage or philological
 questions independently.
+
+## Cargo testimony: requirement, upper bound, exact report
+
+The second bench (`testimony.html`) holds three kinds of statement apart.
+The contract's 3,000 jars is a normative specification, not a descriptive
+measurement to conjoin with testimony as if it were another observation.
+
+| Words retained                                        | Printed location                                  | Conditional count consequence             | What remains unproved                        |
+| ----------------------------------------------------- | ------------------------------------------------- | ----------------------------------------- | -------------------------------------------- |
+| 35.10, ἐπὶ οἴνου κεραμίοις Μενδαίοις τρισχιλίοις      | p. 107, lines 25–26                               | Contractual outward security: 3,000 jars  | Actual loading and jar price                 |
+| 35.19, οὐδὲ πεντακόσια κεράμια                        | p. 110, lines 15–16                               | Literal whole-count interpretation: 0–499 | An exact count of 450                        |
+| 35.20, Erasikles: τετρακόσια πεντήκοντα, καὶ οὐ πλείω | p. 110, lines 24–27                               | If taken at face value: exactly 450       | Reliability and authenticity                 |
+| 35.20, Hippias: τετρακόσια πεντήκοντα                 | p. 110, lines 29–30, continuing p. 111, lines 1–3 | If taken at face value: exactly 450       | Independent observation or added probability |
+
+The two full-page JPEGs were fetched from their Archive leaf URLs and visually
+read. The `Hippias` excerpt belongs to a sentence starting at the bottom of
+p. 110; p. 111 alone omits its attribution. Complete electronic §§18–22
+retain this surrounding argument and the deposition's continuation.
+
+Nonnegative whole counts and the 0–3,500 drawing window are modern instructional
+choices. No upper bound is inferred when no descriptive report is selected.
+With the speaker alone, 499 is a counterexample to an exact-450 inference.
+Selecting either attributed deposition reduces the fitting counts to 450. This
+is consequence under premises, not evidence that the premises are historically
+true. No credibility score or probability is invented. A 2,550-jar difference
+from the requirement is not a monetary deduction from a 3,000-drachma loan.
+
+A kept check stores its selected reports, proposed count and learner conclusion.
+It is recomputed from those preserved inputs, rather than replaced by later
+controls or an imported precomputed grade. Testimony and voyage JSON have
+separate schemas; neither silently reinterprets the other's notebook.

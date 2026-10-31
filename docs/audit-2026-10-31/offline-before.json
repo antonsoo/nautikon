@@ -1,0 +1,16 @@
+[
+  {
+    "browser": "chromium",
+    "initialRegistrationFailure": "Saving the complete offline edition…",
+    "registrationFailureAfterPolling": "Saving the complete offline edition…",
+    "repairStillDisabledAfter21Seconds": true,
+    "repairMessage": "The complete edition is not retained. Keep a notebook download; reconnect and retry offline saving."
+  },
+  {
+    "browser": "firefox",
+    "initialRegistrationFailure": "Saving the complete offline edition…",
+    "registrationFailureAfterPolling": "Saving the complete offline edition…",
+    "repairStillDisabledAfter21Seconds": true,
+    "repairMessage": "The complete edition is not retained. Keep a notebook download; reconnect and retry offline saving."
+  }
+]

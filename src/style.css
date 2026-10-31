@@ -779,3 +779,62 @@ footer #offline {
 .reading-grid > * {
   min-width: 0;
 }
+
+#status,
+#source-status,
+#warning {
+  overflow-wrap: anywhere;
+}
+#share-fallback {
+  margin: 1rem 0;
+}
+#share-url {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  padding: 0.6rem;
+  min-height: 44px;
+  font-size: 0.85rem;
+}
+.evidence-norm {
+  border-block: 1px solid var(--line);
+  padding: 1rem 0;
+  margin: 1.5rem 0;
+  max-width: 65ch;
+}
+.evidence-norm strong {
+  font-size: 1.4rem;
+}
+.report-choices {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+.report-choices legend {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+#candidate {
+  width: 100%;
+  max-width: 12rem;
+  border: 1px solid var(--ink);
+  padding: 0.5rem;
+  background: var(--paper);
+}
+#candidate:invalid {
+  border-color: var(--red);
+}
+.kept-check {
+  border-left: 3px solid var(--ink);
+  padding-left: 1rem;
+  margin-block: 1.5rem;
+  max-width: 70ch;
+}
+
+#inference .result-number span {
+  display: block;
+  font-size: 0.85rem;
+}

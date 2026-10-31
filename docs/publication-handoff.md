@@ -1,22 +1,29 @@
-# Local publication handoff
+# Publication and reproduction
 
-Nautikon is committed locally. No GitHub repository, tag, push, Pages deployment
-or registry publication is part of this work. The read-only repository lookup
-returned HTTP 404 on 2026-10-31. No hosted-byte or CI success is claimed.
-- **Build:** `npm ci && npm run check`; production output `dist/`, base `/nautikon/`.
-- **Local production:** `npm run preview`, port 4401. Development: `npm run dev`, port 4402.
-- **Evidence:** `npm run verify:sources`, `npm run verify:model`,
-  `npm run test:browser`, `npm run test:faults`.
-- **Suggested description:** Read an Athenian sea-loan agreement in Greek by changing the voyage, loss and security facts.
-- **Suggested topics:** ancient-greek, demosthenes, maritime-history, legal-history,
-  education, interactive-learning, typescript, offline-first.
+The user authorized pushing and publication on 2026-10-31. Current remote,
+hosted-file and public browser receipts belong in [publication.md](publication.md).
+The earlier local-only handoff remains in Git history; it is not the present
+publication policy.
 
-Before a public release, the owner/coordinator can review the source, examples
-and recorded limitations, publish the intended repository, and separately check
-hosted file identity and real public browser behavior. The prepared Officina
-entry must stay `soon` until those boundaries are met. Its future workshop links
-already identify the clauses and source words; a local injected fixture proves
-the search-to-workshop journey without changing publication status.
+```sh
+npm ci
+npm run check
+npm run verify:sources
+npm run verify:model
+npm run test:browser
+npm run test:testimony
+npm run test:faults
+npm run test:audit
+npm run test:offline-bodies
+```
 
-GitHub workflows are provided for later use. Their presence does not assert that
-they have run. Local browsers used the cached Playwright engines on this machine.
+Production output is `dist/`, base `/nautikon/`. `npm run preview` uses port
+4401; `npm run dev` uses port 4402 without an offline worker. The complete
+edition includes both HTML entry pages and all retained sources and fonts.
+The worker's inventory is generated from actual output files.
+
+A Pages deployment must be compared with every file of a clean build, using
+canonical URLs without cache-busting. Public source links must identify a
+reachable immutable source commit. Catalogue discovery and public browser
+operation require separate journeys; local route fixtures do not establish
+public availability. A successful local check does not establish a CI run.

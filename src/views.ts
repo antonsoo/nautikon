@@ -1,4 +1,4 @@
-import { readings, scope } from "./content/readings";
+import { type Reading, readings, scope } from "./content/readings";
 import sections from "./content/sections.json";
 import { account, type Voyage } from "./core/model";
 import { day, esc, money } from "./html";
@@ -54,8 +54,8 @@ export function comparison(current: Voyage, pinned: Voyage | null): string {
     now = rows(current);
   return `<div class="table-scroll" tabindex="0" role="region" aria-label="Pinned and current voyage comparison"><table class="comparison"><caption>Earlier facts stay fixed when the current voyage changes.</caption><thead><tr><th scope="col">Fact / consequence</th><th scope="col">Kept voyage</th><th scope="col">Current voyage</th></tr></thead><tbody>${then.map(([label, val], i) => `<tr class="${val !== now[i]?.[1] ? "changed" : ""}"><th scope="row">${esc(label)}</th><td>${esc(val)}</td><td>${esc(now[i]?.[1])}</td></tr>`).join("")}</tbody></table></div>`;
 }
-export function readingHtml(id: string): string {
-  const r = readings.find((r) => r.id === id) ?? readings[0];
+export function readingHtml(id: string, choices: Reading[] = readings): string {
+  const r = choices.find((r) => r.id === id) ?? choices[0];
   if (!r) return "";
   return `<p class="eyebrow">[Demosthenes] · ${r.section} · Rennie p. ${r.page}</p><h3>${esc(r.title)}</h3><p class="greek" lang="grc">${esc(r.greek)}</p><p class="translation">${esc(r.english)}</p><p>${esc(r.note)}</p><dl class="words">${r.words.map(([form, meaning, work]) => `<div><dt lang="grc">${esc(form)}</dt><dd><strong>${esc(meaning)}</strong> ${esc(work)}</dd></div>`).join("")}</dl>`;
 }

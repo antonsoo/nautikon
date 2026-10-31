@@ -14,3 +14,11 @@ for excerpt in excerpts: assert excerpt in full,excerpt
 sections=json.loads((root/'src/content/sections.json').read_text())
 for s in sections: assert s['greek']==' '.join(''.join(r.find(f'.//t:div[@n="{s["section"]}"]',ns).itertext()).split())
 print(f'Checked {len(assets)} byte identities, six exact Greek excerpts and six full context sections. Scan interpretation remains a visual review.')
+
+full=' '.join(' '.join(''.join(r.find(f'.//t:div[@n="{n}"]',ns).itertext()).split()) for n in [10,18,19,20,21,22])
+source=(root/'src/content/testimony.ts').read_text()
+excerpts=re.findall(r'greek:\s*"([^"]+)"',source)
+assert len(excerpts)==4
+for excerpt in excerpts: assert excerpt in full,excerpt
+for s in json.loads((root/'src/content/testimony-sections.json').read_text()): assert s['greek']==' '.join(''.join(r.find(f'.//t:div[@n="{s["section"]}"]',ns).itertext()).split())
+print('Also checked four testimony excerpts and five complete context sections.')

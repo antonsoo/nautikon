@@ -1,0 +1,78 @@
+{
+  "checkedAt": "2026-10-31T19:17:25.863841+00:00",
+  "method": "Fresh complete upstream responses compared with retained bytes; no replacements",
+  "files": [
+    {
+      "path": "sources/rennie-title.jpg",
+      "url": "https://archive.org/download/p2orationesrecog02demouoft/page/n6.jpg",
+      "status": 200,
+      "bytes": 158615,
+      "sha256": "63d8243d7da3c8f0817c9c3112ba7781f979f2eacd945ccd7ff8c05936338c32",
+      "matchesRetained": true
+    },
+    {
+      "path": "sources/rennie-imprint.jpg",
+      "url": "https://archive.org/download/p2orationesrecog02demouoft/page/n7.jpg",
+      "status": 200,
+      "bytes": 134932,
+      "sha256": "edd9ed2ba58e51fe173ee64c2c9d9de79d276eb87785b923e744088409c95d12",
+      "matchesRetained": true
+    },
+    {
+      "path": "sources/rennie-p107.jpg",
+      "url": "https://archive.org/download/p2orationesrecog02demouoft/page/n123.jpg",
+      "status": 200,
+      "bytes": 411629,
+      "sha256": "c36220d68c3487f764b0873b2630d31e07999ff57c92995eb3823ce6b65874fa",
+      "matchesRetained": true
+    },
+    {
+      "path": "sources/rennie-p108.jpg",
+      "url": "https://archive.org/download/p2orationesrecog02demouoft/page/n124.jpg",
+      "status": 200,
+      "bytes": 450273,
+      "sha256": "8e7ae4d181116e2f7d91fb5a3c56806a2958a78f345342caf272281c9c1e7909",
+      "matchesRetained": true
+    },
+    {
+      "path": "sources/rennie-p109.jpg",
+      "url": "https://archive.org/download/p2orationesrecog02demouoft/page/n125.jpg",
+      "status": 200,
+      "bytes": 406544,
+      "sha256": "f08cd4893ed0d887c213c66fd47b420462b1215b6683f93aab36cefb14c0e1ed",
+      "matchesRetained": true
+    },
+    {
+      "path": "sources/rennie-p110.jpg",
+      "url": "https://archive.org/download/p2orationesrecog02demouoft/page/n126.jpg",
+      "status": 200,
+      "bytes": 380210,
+      "sha256": "a4f9368da4e33d393e29293f63648fe83e4347e6dd8412aed815bd417ec87ef6",
+      "matchesRetained": true
+    },
+    {
+      "path": "sources/rennie-p111.jpg",
+      "url": "https://archive.org/download/p2orationesrecog02demouoft/page/n127.jpg",
+      "status": 200,
+      "bytes": 394754,
+      "sha256": "8f91b7d5edca666e0c9cf9f9cb168184149202f0e1fc6bed56f682313ec583a0",
+      "matchesRetained": true
+    },
+    {
+      "path": "sources/perseus-grc2.xml",
+      "url": "https://raw.githubusercontent.com/PerseusDL/canonical-greekLit/70427323b61267cdcd0256b9b02009c23392de07/data/tlg0014/tlg035/tlg0014.tlg035.perseus-grc2.xml",
+      "status": 200,
+      "bytes": 54489,
+      "sha256": "a438785a11d7b300a4afe56b5d3cb11d227a7cabac7fc90ca0355fa1ceb4cc1a",
+      "matchesRetained": true
+    },
+    {
+      "path": "sources/perseus-eng2.xml",
+      "url": "https://raw.githubusercontent.com/PerseusDL/canonical-greekLit/70427323b61267cdcd0256b9b02009c23392de07/data/tlg0014/tlg035/tlg0014.tlg035.perseus-eng2.xml",
+      "status": 200,
+      "bytes": 44863,
+      "sha256": "8a9f4a7fcef782be0ad15289fdbe22bdd188ef0094b425fd15e332cd6990723b",
+      "matchesRetained": true
+    }
+  ]
+}

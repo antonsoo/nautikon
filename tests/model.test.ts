@@ -71,3 +71,20 @@ test("share links roundtrip all current facts; HTML escaping preserves notes as 
   assert.deepEqual(fromSearch(share(v).split("#")[0] ?? ""), v);
   assert.equal(esc("<script>\"&'"), "&lt;script&gt;&quot;&amp;&#39;");
 });
+
+test("notebook enums require scalar strings, without coercing arrays or objects", () => {
+  for (const field of ["route", "outcome", "loss"] as const) {
+    for (const value of [[initial[field]], { value: initial[field] }, null, 0, true]) {
+      assert.throws(() => readVoyage({ ...initial, [field]: value }));
+    }
+  }
+});
+test("a share link rejects duplicate, empty and oversized voyage records", () => {
+  const encoded = encodeURIComponent(JSON.stringify(initial));
+  for (const query of [
+    `?voyage=${encoded}&voyage=${encoded}`,
+    "?voyage=",
+    `?voyage=${" ".repeat(8001)}`,
+  ])
+    assert.throws(() => fromSearch(query));
+});

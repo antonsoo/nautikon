@@ -1,28 +1,26 @@
 {
-  "scope": "Local production build only; not hosted or deployed",
-  "implementationCommit": "40232992da279c6b87219c091fae613b06dcf0fb",
-  "edition": "adfd97d40ab8c54bd0b0",
-  "node": "v26.7.0",
+  "checkedAt": "2026-10-31T19:24:08.673Z",
+  "edition": "ba018c9538c51599510d",
   "files": [
     {
-      "path": "LICENSE.txt",
-      "bytes": 1071,
-      "sha256": "62145e70388e9be739b404f904df6434bacaa748c9b5875c146791457fb83b81"
+      "path": "assets/source-CLNDIER7.css",
+      "bytes": 11136,
+      "sha256": "e2b4f6fbe1f49ffae0d7f92d8ff98630f2931888802d6389c2b39ec3e039753e"
     },
     {
-      "path": "assets/index-ChJUGnxJ.js",
-      "bytes": 57279,
-      "sha256": "048388385fbb6f8c879429cb93ce8cc2649200aee9799cc0d609dea944120853"
+      "path": "assets/source-IzMkBer_.js",
+      "bytes": 36304,
+      "sha256": "93af2c408f9d47f27b859330824ffb0adabc072d1ba759fc992ae1c105282c27"
     },
     {
-      "path": "assets/index-ocRa1Rd7.css",
-      "bytes": 10346,
-      "sha256": "2e7819cc24c8cc08e699071a94754a7d3fd84086de7f67f78978560a498352f6"
+      "path": "assets/testimony-lCUA7Ey_.js",
+      "bytes": 31464,
+      "sha256": "76d6191972e663636cf62b76b653c473acbc50d92ab3af76ab9ec7beb8b24edb"
     },
     {
-      "path": "fonts/OFL.txt",
-      "bytes": 4533,
-      "sha256": "72a6f68e8715c4de18823c2ec0bd54d3b0de0f8cc143615c2131ed998077df60"
+      "path": "assets/voyage-S8i1QPc3.js",
+      "bytes": 24889,
+      "sha256": "7bcaa651f70d220fb5bafac406468434b2e4d5cd4720a6716c28df58045d0a18"
     },
     {
       "path": "fonts/gentium-book-plus-400-greek-ext.woff2",
@@ -45,9 +43,19 @@
       "sha256": "dd5d2902dac9c11d3acc42b0e54a74b4f2db9bd4a7d6872c23338f70df29ca7e"
     },
     {
+      "path": "fonts/OFL.txt",
+      "bytes": 4533,
+      "sha256": "72a6f68e8715c4de18823c2ec0bd54d3b0de0f8cc143615c2131ed998077df60"
+    },
+    {
       "path": "index.html",
-      "bytes": 935,
-      "sha256": "3274e824cfcd0f5bee5a49ae16c935ab9f28696cc2079060241707a86e0da675"
+      "bytes": 1021,
+      "sha256": "920703ed5cc570de6d510f14bc8a120b60ae5e6b52355ddada54c3a9d73c502e"
+    },
+    {
+      "path": "LICENSE.txt",
+      "bytes": 1071,
+      "sha256": "62145e70388e9be739b404f904df6434bacaa748c9b5875c146791457fb83b81"
     },
     {
       "path": "sources/CC-BY-SA-4.0.txt",
@@ -56,8 +64,8 @@
     },
     {
       "path": "sources/NOTICE.txt",
-      "bytes": 1326,
-      "sha256": "c00124d3783c7419920d808879a7c7b1c60c9cb0d253c781c92ebf71826fba51"
+      "bytes": 1675,
+      "sha256": "5a09ec38da2ca6fcc91270d517c5d106669d6f33a2c0118b6fbfe275d2d30b46"
     },
     {
       "path": "sources/perseus-eng2.xml",
@@ -71,8 +79,8 @@
     },
     {
       "path": "sources/provenance.json",
-      "bytes": 1145,
-      "sha256": "3ad294a1ebd5225505810f75ebdbf7bf084ae5cb05dfab702f8eb86db1764cd1"
+      "bytes": 1337,
+      "sha256": "9276ecfddaa4c6b96576175827041e00f9e7f24b5c2a707c9681a3d5d8fdb5c4"
     },
     {
       "path": "sources/rennie-imprint.jpg",
@@ -95,15 +103,29 @@
       "sha256": "f08cd4893ed0d887c213c66fd47b420462b1215b6683f93aab36cefb14c0e1ed"
     },
     {
+      "path": "sources/rennie-p110.jpg",
+      "bytes": 380210,
+      "sha256": "a4f9368da4e33d393e29293f63648fe83e4347e6dd8412aed815bd417ec87ef6"
+    },
+    {
+      "path": "sources/rennie-p111.jpg",
+      "bytes": 394754,
+      "sha256": "8f91b7d5edca666e0c9cf9f9cb168184149202f0e1fc6bed56f682313ec583a0"
+    },
+    {
       "path": "sources/rennie-title.jpg",
       "bytes": 158615,
       "sha256": "63d8243d7da3c8f0817c9c3112ba7781f979f2eacd945ccd7ff8c05936338c32"
     },
     {
       "path": "sw.js",
-      "bytes": 4349,
-      "sha256": "217598146204fb34e748841d5c7ee7ef325c4f006db0cbac0a932ff842826ca3"
+      "bytes": 5778,
+      "sha256": "4f9cacd857207c58bee30165bbe52aec9eee385a5a53ca0d8d6c20191d11f4e3"
+    },
+    {
+      "path": "testimony.html",
+      "bytes": 1033,
+      "sha256": "6064d977adbfb04383caf34a3aa8d967545ecee4607a1249174b1d4f9e80f8ce"
     }
-  ],
-  "bytes": 1869379
+  ]
 }

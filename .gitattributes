@@ -1,0 +1,2 @@
+# Native CSV downloads deliberately retain RFC-style CRLF record endings.
+*.csv -text whitespace=cr-at-eol

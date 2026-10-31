@@ -1,12 +1,15 @@
 import assert from "node:assert/strict";
-import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { cp, mkdir, readFile, rm } from "node:fs/promises";
 import { chromium, firefox } from "playwright";
+import { buildIdentity, writeReceipt } from "./build-receipt.mjs";
 import { reviewServer } from "./review-server.mjs";
 
 const out = "test-results/faults";
 await mkdir(out, { recursive: true });
+await rm(`${out}/incomplete`, { recursive: true, force: true });
 await cp("dist", `${out}/incomplete`, { recursive: true });
 await rm(`${out}/incomplete/sources/rennie-p109.jpg`);
+const build = await buildIdentity();
 const server = reviewServer("dist");
 await server.start();
 const receipts = [];
@@ -70,6 +73,50 @@ try {
       const saved = await ready;
       assert.equal(await saved.failure(), null);
       assert.equal(downloads.length, 1);
+      // The testimony exporter has its own rendering path and must refuse
+      // substituted bytes, honor cancellation, and keep the captured note.
+      await p.goto(`${server.base}testimony.html`);
+      await wait(p, "source-status", "Page 110");
+      downloads.length = 0;
+      await p.locator("#note").fill("CAPTURED TESTIMONY NOTE");
+      const badTestimony = Buffer.from(await readFile("public/sources/rennie-p111.jpg"));
+      badTestimony[badTestimony.length - 1] ^= 1;
+      await context.route("**/sources/rennie-p111.jpg", (r) =>
+        r.fulfill({ status: 200, contentType: "image/jpeg", body: badTestimony }),
+      );
+      await p.locator("#html").click();
+      await wait(p, "status", "Source check failed");
+      assert.equal(downloads.length, 0);
+      await context.unroute("**/sources/rennie-p111.jpg");
+      let reachedTestimony;
+      let pendingTestimony = new Promise((r) => {
+        reachedTestimony = r;
+      });
+      await context.route("**/sources/rennie-p111.jpg", async (route) => {
+        reachedTestimony();
+        await new Promise((r) => setTimeout(r, 1500));
+        try {
+          await route.continue();
+        } catch {}
+      });
+      await p.locator("#html").click();
+      await pendingTestimony;
+      await p.locator("#cancel-export").click();
+      await wait(p, "status", "Saving cancelled");
+      assert.equal(downloads.length, 0);
+      pendingTestimony = new Promise((r) => {
+        reachedTestimony = r;
+      });
+      const capturedDownload = p.waitForEvent("download");
+      await p.locator("#html").click();
+      await pendingTestimony;
+      await p.locator("#note").fill("NEWER UNSAVED TESTIMONY NOTE");
+      const captured = await capturedDownload;
+      const capturedHtml = await readFile(await captured.path(), "utf8");
+      assert.ok(capturedHtml.includes('<p class="note">CAPTURED TESTIMONY NOTE</p>'));
+      assert.ok(!capturedHtml.includes("NEWER UNSAVED TESTIMONY NOTE"));
+      assert.equal(await p.locator("#note").inputValue(), "NEWER UNSAVED TESTIMONY NOTE");
+      await context.unroute("**/sources/rennie-p111.jpg");
       await context.close();
       // Corrupt retained bytes: a successful HTTP response is insufficient evidence.
       const cacheContext = await b.newContext();
@@ -115,6 +162,8 @@ try {
         supersededSourceResponse: true,
         corruptExportRefused: true,
         exportCancelAndRetry: true,
+        testimonyCorruptExportRefused: true,
+        testimonyCancelRetryAndCapturedSnapshot: true,
         corruptCacheInvalidatedAcrossTabs: true,
         repairFetchesFreshBytes: true,
         failedInstallCannotClaimReady: true,
@@ -123,7 +172,7 @@ try {
       await b.close();
     }
   }
-  await writeFile(`${out}/receipts.json`, JSON.stringify(receipts, null, 2));
+  await writeReceipt(`${out}/receipts.json`, build, receipts);
   console.log(receipts);
 } finally {
   await server.stop();

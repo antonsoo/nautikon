@@ -17,3 +17,20 @@ From the repository root, `node scripts/example.mjs` regenerates these through
 an isolated production server after `npm run build`. The script also captures
 the README screenshots. It uses an installed Playwright browser; it does not
 install one, publish, or contact third-party services.
+
+## A numbered deposition changes the inference
+
+The `testimony-*` artifacts preserve an initially overstrong conclusion: exactly
+450, chosen from the speaker alone. The kept check supplies 499 as a
+counterexample. The current controls add Erasikles's attributed deposition,
+which gives 450 exactly if taken at face value. The explanation keeps the
+conditional inference separate from historical truth and monetary damages.
+
+- `testimony-notebook.json`: reopen through **Reopen testimony**.
+- `testimony-inferences.csv`: current and kept inference with their premises.
+- `testimony-count.svg`: selected constraint and proposed count.
+- `testimony-reading.html.gz`: decompress and open the scriptless full reading.
+- `testimony-reading.pdf`: the browser's actual print of that saved reading.
+
+Both illustrated readings include seven whole scan images, four font subsets,
+retained TEI downloads, attribution, licenses and embedded editable JSON.

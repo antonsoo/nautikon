@@ -1,3 +1,13 @@
+function bounded<T>(task: Promise<T>, signal: AbortSignal): Promise<T> {
+  signal.throwIfAborted();
+  let abort: () => void = () => {};
+  const cancelled = new Promise<never>((_, reject) => {
+    abort = () => reject(signal.reason);
+    signal.addEventListener("abort", abort, { once: true });
+  });
+  return Promise.race([task, cancelled]).finally(() => signal.removeEventListener("abort", abort));
+}
+
 export function installOffline(): void {
   const labelNode = document.querySelector<HTMLElement>("#offline");
   const retry = document.querySelector<HTMLButtonElement>("#retry-offline");
@@ -15,13 +25,21 @@ export function installOffline(): void {
   }
   let revision = 0;
   let installationFailed = false;
+  let saving = false;
+  let repairFailure: string | null = null;
   let registration: ServiceWorkerRegistration | undefined;
+  const observed = new WeakSet<ServiceWorker>();
+  const registrations = new WeakSet<ServiceWorkerRegistration>();
   const invalidate = () => {
     revision++;
     label.textContent = "Offline completeness needs checking.";
   };
   async function inspect(): Promise<void> {
     const request = ++revision;
+    if (saving) {
+      label.textContent = "Saving the complete offline edition…";
+      return;
+    }
     const worker = navigator.serviceWorker.controller;
     if (!worker) {
       label.textContent = installationFailed
@@ -45,36 +63,51 @@ export function installOffline(): void {
       channel.port1.onmessage = (e) => done(e.data);
       worker.postMessage({ type: "INSPECT" }, [channel.port2]);
     });
-    if (request !== revision || worker !== navigator.serviceWorker.controller) return;
+    if (request !== revision || worker !== navigator.serviceWorker.controller || saving) return;
     label.textContent =
       result.edition === __EDITION__ && result.complete
         ? `Complete edition available offline: ${result.count}/${result.total} files. Notebook edits stay in this tab until downloaded.`
-        : "The complete edition is not retained. Keep a notebook download; reconnect and retry offline saving.";
+        : (repairFailure ??
+          "The complete edition is not retained. Keep a notebook download; reconnect and retry offline saving.");
   }
-  async function install(): Promise<void> {
+  const watch = () => {
+    const worker = registration?.installing;
+    if (!worker || observed.has(worker)) return;
+    observed.add(worker);
+    const changed = () => {
+      if (worker.state === "redundant") installationFailed = true;
+      if (worker.state === "activated" || worker.state === "redundant") void inspect();
+    };
+    worker.addEventListener("statechange", changed);
+    changed();
+  };
+  async function install(parent?: AbortSignal): Promise<void> {
+    const own = new AbortController();
+    const signal = parent ?? own.signal;
+    const timer = parent
+      ? undefined
+      : setTimeout(() => own.abort(new Error("Offline installation timed out")), 15000);
     installationFailed = false;
     invalidate();
     try {
-      registration = await navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`, {
-        updateViaCache: "none",
-      });
-      const watch = () => {
-        const worker = registration?.installing;
-        if (!worker) return;
-        const changed = () => {
-          if (worker.state === "redundant") installationFailed = true;
-          if (worker.state === "activated" || worker.state === "redundant") void inspect();
-        };
-        worker.addEventListener("statechange", changed);
-        changed();
-      };
-      registration.addEventListener("updatefound", watch);
+      registration = await bounded(
+        navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`, {
+          updateViaCache: "none",
+        }),
+        signal,
+      );
+      if (!registrations.has(registration)) {
+        registration.addEventListener("updatefound", watch);
+        registrations.add(registration);
+      }
       watch();
-      await registration.update();
+      await bounded(registration.update(), signal);
       await inspect();
     } catch {
-      label.textContent =
-        "Offline saving failed. Keep a notebook download and retry when connected.";
+      installationFailed = true;
+      await inspect();
+    } finally {
+      clearTimeout(timer);
     }
   }
   navigator.serviceWorker.addEventListener("controllerchange", () => {
@@ -100,11 +133,17 @@ export function installOffline(): void {
     if (!document.hidden) void inspect();
   }, 5000);
   retry.addEventListener("click", async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(new Error("Offline saving timed out")), 15000);
     retry.disabled = true;
+    saving = true;
+    repairFailure = null;
     invalidate();
     try {
-      // Repair only this edition; do not delete other tabs' editions or their workers.
-      const response = await fetch(`${import.meta.env.BASE_URL}sw.js`, { cache: "reload" });
+      const response = await fetch(`${import.meta.env.BASE_URL}sw.js`, {
+        cache: "reload",
+        signal: controller.signal,
+      });
       if (!response.ok) throw new Error("Worker unavailable");
       const text = await response.text();
       const match = text.match(/FILES=(\[[\s\S]*?\]), INTEGRITY=(\{[\s\S]*?\});/);
@@ -112,16 +151,43 @@ export function installOffline(): void {
         throw new Error("Edition changed; reload");
       const files = JSON.parse(match[1]) as string[];
       const integrity = JSON.parse(match[2]) as Record<string, string>;
-      const cache = await caches.open(`nautikon-${__EDITION__}`);
-      await cache.addAll(
-        files.map((url) => new Request(url, { cache: "reload", integrity: integrity[url] ?? "" })),
+      // Buffer verified complete bodies before replacing any retained file.
+      // Explicit fetch signals bound both response headers and body reads.
+      const downloaded = await Promise.all(
+        files.map(async (url) => {
+          const file = await fetch(url, {
+            cache: "reload",
+            integrity: integrity[url] ?? "",
+            signal: controller.signal,
+          });
+          if (!file.ok) throw new Error("Edition file unavailable");
+          const body = await file.arrayBuffer();
+          const headers = new Headers(file.headers);
+          headers.delete("Content-Encoding");
+          headers.delete("Content-Length");
+          return [
+            url,
+            new Response(body, { status: file.status, statusText: file.statusText, headers }),
+          ] as const;
+        }),
       );
-      await install();
+      controller.signal.throwIfAborted();
+      const cache = await caches.open(`nautikon-${__EDITION__}`);
+      await Promise.all(downloaded.map(([url, file]) => cache.put(url, file)));
+      await install(controller.signal);
+      controller.signal.throwIfAborted();
     } catch {
-      label.textContent =
-        "The complete edition could not be saved. Reconnect or reload the current edition, then retry.";
+      const timedOut = controller.signal.aborted;
+      controller.abort();
+      repairFailure = timedOut
+        ? "The complete edition is not retained. Offline saving timed out; reconnect and retry."
+        : "The complete edition could not be saved. Reconnect or reload the current edition, then retry.";
     } finally {
+      clearTimeout(timer);
+      saving = false;
       retry.disabled = false;
+      invalidate();
+      await inspect();
     }
   });
   void install();

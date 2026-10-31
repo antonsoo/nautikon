@@ -34,7 +34,10 @@
     "verify:sources": "python3 scripts/verify-sources.py",
     "verify:model": "node --import tsx scripts/model-cases.ts | python3 scripts/model-oracle.py",
     "test:browser": "node scripts/browser.mjs",
-    "test:faults": "node scripts/faults.mjs"
+    "test:faults": "node scripts/faults.mjs",
+    "test:testimony": "node scripts/testimony-browser.mjs",
+    "test:audit": "node scripts/audit-reproduce.mjs && node scripts/offline-audit.mjs",
+    "test:offline-bodies": "node scripts/offline-bodies.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",
