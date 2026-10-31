@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "voyage": {
+    "departure": -5,
+    "arrival": 25,
+    "days": 21,
+    "route": "pontus",
+    "outcome": "safe",
+    "loss": "none",
+    "lossAmount": 300,
+    "consent": true,
+    "sale": 2000,
+    "paid": false,
+    "otherPledge": false,
+    "sameVessel": true
+  },
+  "pinned": {
+    "departure": -5,
+    "arrival": 25,
+    "days": 15,
+    "route": "pontus",
+    "outcome": "safe",
+    "loss": "none",
+    "lossAmount": 300,
+    "consent": true,
+    "sale": 2000,
+    "paid": false,
+    "otherPledge": false,
+    "sameVessel": true
+  },
+  "note": "Departure five days before Arcturus selects 225 per thousand: 675 interest on 3,000. The late arrival does not raise that rate. The kept voyage is inside the twenty-day interval; the current voyage is at day 21, still unpaid. On assumed sale proceeds of 2,000, §12 leaves 1,675 claimable from the borrowers’ other property. The text does not guarantee collection."
+}

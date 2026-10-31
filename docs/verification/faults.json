@@ -1,0 +1,20 @@
+[
+  {
+    "browser": "chromium",
+    "supersededSourceResponse": true,
+    "corruptExportRefused": true,
+    "exportCancelAndRetry": true,
+    "corruptCacheInvalidatedAcrossTabs": true,
+    "repairFetchesFreshBytes": true,
+    "failedInstallCannotClaimReady": true
+  },
+  {
+    "browser": "firefox",
+    "supersededSourceResponse": true,
+    "corruptExportRefused": true,
+    "exportCancelAndRetry": true,
+    "corruptCacheInvalidatedAcrossTabs": true,
+    "repairFetchesFreshBytes": true,
+    "failedInstallCannotClaimReady": true
+  }
+]

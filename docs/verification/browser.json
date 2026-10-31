@@ -1,0 +1,74 @@
+[
+  {
+    "browser": "chromium",
+    "width": 1440,
+    "sourceAssets": 16,
+    "externalRequests": [],
+    "errors": [],
+    "axe": 0,
+    "actualOriginOutage": true,
+    "explicitBrowserOffline": true,
+    "embeddedNotebookReopened": true,
+    "twoTabCacheDamageAndRepair": true,
+    "downloads": [
+      "chromium-1440.json",
+      "chromium-1440.csv",
+      "chromium-1440.svg",
+      "chromium-1440-reading.html"
+    ]
+  },
+  {
+    "browser": "chromium",
+    "width": 375,
+    "sourceAssets": 16,
+    "externalRequests": [],
+    "errors": [],
+    "axe": 0,
+    "actualOriginOutage": true,
+    "explicitBrowserOffline": true,
+    "embeddedNotebookReopened": true,
+    "twoTabCacheDamageAndRepair": true,
+    "downloads": [
+      "chromium-375.json",
+      "chromium-375.csv",
+      "chromium-375.svg",
+      "chromium-375-reading.html"
+    ]
+  },
+  {
+    "browser": "firefox",
+    "width": 1440,
+    "sourceAssets": 16,
+    "externalRequests": [],
+    "errors": [],
+    "axe": 0,
+    "actualOriginOutage": true,
+    "explicitBrowserOffline": true,
+    "embeddedNotebookReopened": true,
+    "twoTabCacheDamageAndRepair": true,
+    "downloads": [
+      "firefox-1440.json",
+      "firefox-1440.csv",
+      "firefox-1440.svg",
+      "firefox-1440-reading.html"
+    ]
+  },
+  {
+    "browser": "firefox",
+    "width": 375,
+    "sourceAssets": 16,
+    "externalRequests": [],
+    "errors": [],
+    "axe": 0,
+    "actualOriginOutage": true,
+    "explicitBrowserOffline": true,
+    "embeddedNotebookReopened": true,
+    "twoTabCacheDamageAndRepair": true,
+    "downloads": [
+      "firefox-375.json",
+      "firefox-375.csv",
+      "firefox-375.svg",
+      "firefox-375-reading.html"
+    ]
+  }
+]
