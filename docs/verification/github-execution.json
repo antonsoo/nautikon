@@ -1,0 +1,107 @@
+{
+  "checkedAt": "2026-10-31T19:52:50.846Z",
+  "runs": [
+    {
+      "id": 41235993307,
+      "name": "pages build and deployment",
+      "head": "19fb7af050b4a348f281a44abb055e5985a60db4",
+      "url": "https://github.com/antonsoo/nautikon/actions/runs/41235993307",
+      "status": "completed",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "name": "build",
+          "conclusion": "success",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Checkout",
+              "conclusion": "success"
+            },
+            {
+              "name": "Upload artifact",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Checkout",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "name": "report-build-status",
+          "conclusion": "success",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Report Build Status",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "name": "deploy",
+          "conclusion": "success",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Deploy to GitHub Pages",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 41235983836,
+      "name": "Check",
+      "head": "2bc82c136d26dac715a7ccea74f061cdaee31c75",
+      "url": "https://github.com/antonsoo/nautikon/actions/runs/41235983836",
+      "status": "completed",
+      "conclusion": "failure",
+      "jobs": [
+        {
+          "name": "check",
+          "conclusion": "failure",
+          "steps": []
+        }
+      ]
+    },
+    {
+      "id": 41235983805,
+      "name": "Pages",
+      "head": "2bc82c136d26dac715a7ccea74f061cdaee31c75",
+      "url": "https://github.com/antonsoo/nautikon/actions/runs/41235983805",
+      "status": "completed",
+      "conclusion": "failure",
+      "jobs": [
+        {
+          "name": "deploy",
+          "conclusion": "failure",
+          "steps": []
+        }
+      ]
+    }
+  ]
+}

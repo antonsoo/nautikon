@@ -17,3 +17,10 @@ The source and model concordance and the visually checked phrase placement are
 in [source-and-model.md](../source-and-model.md). Hosting, public browser use,
 remote ancestry and CI execution belong in [publication.md](../publication.md),
 not in these local failure reproductions.
+
+`rollout-before.json` records two edited tabs across two built editions and
+the separately injected worker-messaging failure at its actual call site.
+Current `verification/rollout.json` also reopens both notebook schemas and
+checks thrown and malformed replies. Coexisting older caches are recorded,
+not interpreted as a complete current edition. The real public upgrade is
+recorded independently in `verification/public-upgrade.json`.
