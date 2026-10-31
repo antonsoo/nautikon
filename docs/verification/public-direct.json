@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-10-31T19:29:17.371Z",
+  "base": "https://antonsoo.github.io/nautikon/",
+  "observations": [
+    {
+      "browser": "chromium",
+      "version": "153.0.8010.12",
+      "width": 375,
+      "publicVoyageAccount": true,
+      "publicCounterexampleAndDeposition": true,
+      "sourceContinuation": true,
+      "publicOfflineReloadAndReading": true,
+      "downloadBytes": 3443559,
+      "pageErrors": []
+    },
+    {
+      "browser": "firefox",
+      "version": "155.0",
+      "width": 375,
+      "publicVoyageAccount": true,
+      "publicCounterexampleAndDeposition": true,
+      "sourceContinuation": true,
+      "publicOfflineReloadAndReading": true,
+      "downloadBytes": 3443559,
+      "pageErrors": []
+    }
+  ]
+}
