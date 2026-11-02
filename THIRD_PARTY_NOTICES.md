@@ -18,4 +18,4 @@
   in `public/fonts/OFL.txt`.
 
 No scholarly modern translation or modern source photograph is claimed as the
-workshop author’s work. Code, diagrams, English translations and notes are MIT.
+workshop author’s work. Code, diagrams, English translations and notes are PolyForm Noncommercial.

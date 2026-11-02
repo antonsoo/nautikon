@@ -23,7 +23,7 @@ export async function retainedBundle(signal: AbortSignal) {
     )
     .join(
       "",
-    )}<h2>Attribution, retained files and reuse</h2><p>Greek: Perseus Digital Library, Tufts University, Rennie text, CC BY-SA 4.0. Whitespace normalized in excerpts and full-section transcripts. New English, notes, diagrams and software: Anthony Mercer, MIT. Fonts: SIL Open Font License. The electronic documents are retained unchanged.</p>${["sources/NOTICE.txt", "sources/provenance.json", "sources/CC-BY-SA-4.0.txt", "fonts/OFL.txt", "LICENSE.txt"].map((p) => `<details><summary>${esc(p)}</summary><pre>${esc(text(p))}</pre></details>`).join("")}<ul>${assets
+    )}<h2>Attribution, retained files and reuse</h2><p>Greek: Perseus Digital Library, Tufts University, Rennie text, CC BY-SA 4.0. Whitespace normalized in excerpts and full-section transcripts. New English, notes, diagrams and software: Anthony Mercer, PolyForm Noncommercial. Fonts: SIL Open Font License. The electronic documents are retained unchanged.</p>${["sources/NOTICE.txt", "sources/provenance.json", "sources/CC-BY-SA-4.0.txt", "fonts/OFL.txt", "LICENSE.txt"].map((p) => `<details><summary>${esc(p)}</summary><pre>${esc(text(p))}</pre></details>`).join("")}<ul>${assets
     .filter((a) => a.path.endsWith(".xml"))
     .map(
       (a) =>

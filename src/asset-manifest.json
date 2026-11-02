@@ -1,8 +1,8 @@
 [
   {
     "path": "LICENSE.txt",
-    "bytes": 1071,
-    "sha256": "62145e70388e9be739b404f904df6434bacaa748c9b5875c146791457fb83b81",
+    "bytes": 4654,
+    "sha256": "5bf05ce4f512d2bb48510eeb67f9a7576b4b7f1553ab41e69723e9c5e0e45ee7",
     "mime": "text/plain"
   },
   {
@@ -43,8 +43,8 @@
   },
   {
     "path": "sources/NOTICE.txt",
-    "bytes": 1675,
-    "sha256": "5a09ec38da2ca6fcc91270d517c5d106669d6f33a2c0118b6fbfe275d2d30b46",
+    "bytes": 1694,
+    "sha256": "ef0552a02ceba8e7f934fe8456831bd2206962da8471b6b0925db45c3de75c05",
     "mime": "text/plain"
   },
   {

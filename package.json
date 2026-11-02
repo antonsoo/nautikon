@@ -5,7 +5,7 @@
   "description": "Read an Athenian sea-loan contract in Greek and change the voyage facts that control its debt, deductions and collateral.",
   "type": "module",
   "author": "Anthony Mercer <anthony@praviel.com>",
-  "license": "MIT",
+  "license": "PolyForm-Noncommercial-1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/antonsoo/nautikon.git"

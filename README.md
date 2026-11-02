@@ -2,7 +2,7 @@
 
 **A cargo is not a debt. Read an Athenian sea-loan agreement by changing the voyage.**
 
-[![MIT license](https://img.shields.io/badge/code-MIT-173b4b)](LICENSE)
+[![PolyForm Noncommercial license](https://img.shields.io/badge/code-PolyForm%20Noncommercial-173b4b)](LICENSE)
 
 ![The voyage sequence, seasonal boundary and conditional account](docs/assets/voyage-1440.png)
 
@@ -201,7 +201,9 @@ claims need a precise source; a test passing does not establish the claim.
 
 ## License
 
-Code, new English, diagrams and notes: [MIT](LICENSE), Anthony Mercer.
+New versions are released under the [PolyForm Noncommercial License 1.0.0](LICENSE). It is free for any noncommercial purpose, including personal study, teaching and research, and for use by charities, schools, universities, research organizations and government institutions. Commercial use needs written permission from Anthony Mercer (anthony@praviel.com). Versions up to commit [`b5864f0`](https://github.com/antonsoo/nautikon/tree/b5864f0) (2026-11-01) were released under the MIT License, and copies of those versions keep it.
+
+Code, new English, diagrams and notes: [PolyForm Noncommercial 1.0.0](LICENSE), Anthony Mercer.
 Perseus text and Greek excerpts: CC BY-SA 4.0. Printed scans are public-domain
 material. Gentium Book Plus subsets: SIL Open Font License 1.1.
 [Third-party notices](THIRD_PARTY_NOTICES.md).
