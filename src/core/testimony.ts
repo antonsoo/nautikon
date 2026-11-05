@@ -81,7 +81,15 @@ export function readEvidence(value: unknown): EvidenceNotebook {
       throw new Error("Proposed count must be a whole number from 0 to 3,500.");
     if (typeof a.claim !== "string" || !Object.hasOwn(claims, a.claim))
       throw new Error("Unknown conclusion.");
-    return { selected: s as unknown as Selection, candidate: a.candidate, claim: a.claim as Claim };
+    return {
+      selected: {
+        speaker: s.speaker as boolean,
+        erasikles: s.erasikles as boolean,
+        hippias: s.hippias as boolean,
+      },
+      candidate: a.candidate,
+      claim: a.claim as Claim,
+    };
   }
   const n = object(value, ["kind", "version", "selected", "candidate", "claim", "checked", "note"]);
   if (n.kind !== "nautikon-testimony" || n.version !== 1)

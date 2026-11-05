@@ -33,3 +33,22 @@ test("a checked inference keeps the evidence used, and imports validate every sn
   ])
     assert.throws(() => readEvidence({ ...n, ...patch }));
 });
+
+test("imported report maps have independent values and canonical order", () => {
+  const selected = { hippias: false, speaker: true, erasikles: false };
+  const raw = {
+    ...initialEvidence,
+    selected,
+    checked: {
+      selected: { erasikles: false, hippias: false, speaker: true },
+      candidate: 450,
+      claim: "exact",
+    },
+  };
+  const result = readEvidence(raw);
+  assert.deepEqual(Object.keys(result.selected), ["speaker", "erasikles", "hippias"]);
+  assert.equal(JSON.stringify(snapshot(result)), JSON.stringify(result.checked));
+  result.selected.speaker = false;
+  assert.equal(selected.speaker, true);
+  assert.equal(result.checked?.selected.speaker, true);
+});
