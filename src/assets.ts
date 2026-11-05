@@ -1,4 +1,5 @@
 import assets from "./asset-manifest.json";
+import { receive } from "./core/receive";
 
 export { assets };
 export async function bytes(path: string, signal?: AbortSignal): Promise<Uint8Array<ArrayBuffer>> {
@@ -8,20 +9,16 @@ export async function bytes(path: string, signal?: AbortSignal): Promise<Uint8Ar
   const cancel = () => controller.abort(signal?.reason);
   signal?.addEventListener("abort", cancel, { once: true });
   if (signal?.aborted) cancel();
-  const timeout = setTimeout(
-    () =>
-      controller.abort(new Error("Source download timed out. Try again; the notebook is kept.")),
-    15000,
-  );
+
   try {
     const url = new URL(import.meta.env.BASE_URL + path, location.href);
     let response: Response | undefined;
     const cached = async () =>
       "caches" in window ? caches.match(url, { cacheName: `nautikon-${__EDITION__}` }) : undefined;
-    if (!navigator.onLine) response = await cached();
+    response = await cached();
     if (!response) {
       try {
-        response = await fetch(url, { cache: "no-store", signal: controller.signal });
+        response = await receive(url, { cache: "no-store", signal: controller.signal }, item.bytes);
       } catch {
         controller.signal.throwIfAborted();
         response = await cached();
@@ -35,11 +32,6 @@ export async function bytes(path: string, signal?: AbortSignal): Promise<Uint8Ar
       v.toString(16).padStart(2, "0"),
     ).join("");
     if (data.length !== item.bytes || sha !== item.sha256) {
-      const name = `nautikon-${__EDITION__}`;
-      if ("caches" in window && (await caches.has(name))) {
-        const cache = await caches.open(name);
-        await cache.delete(url);
-      }
       throw new Error(
         `Source check failed for ${path}. The file was not used. Reload this edition or restore the source.`,
       );
@@ -49,7 +41,6 @@ export async function bytes(path: string, signal?: AbortSignal): Promise<Uint8Ar
     window.dispatchEvent(new Event("nautikon:asset-failure"));
     throw e;
   } finally {
-    clearTimeout(timeout);
     signal?.removeEventListener("abort", cancel);
   }
 }
