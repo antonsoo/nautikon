@@ -42,7 +42,7 @@ native saved reading and immutable review. Its
 [canonical discovery study](https://github.com/antonsoo/officina/tree/main/studies/nautikon-evidence-public)
 keeps the catalogue's own hosted-byte and browser evidence separate.
 
-Fresh clean installs on Node 24.22.1 and 26.7.0 reproduced every production
+[Fresh clean installs](delivery-audit/clean-build.json) on Node 24.22.1 and 26.7.0 reproduced every production
 byte after lint, typecheck, 24 tests, source concordance and an independent
 4,416-account / 39,744-proposal oracle. The regenerated three educational
 packets were also opened as actual files in both browsers at 320 px: all source,
@@ -54,6 +54,13 @@ No source CI pass is claimed. The distinct legacy Pages deployment ran actual
 steps and succeeded. Local validation, static publication, source identities,
 public browser operation and historical interpretation remain separate claims.
 These results do not establish the truth of the ancient testimony or a verdict.
+
+The final unauthenticated raw audit matched **87 pinned artifacts** across both
+repositories (73 Nautikon, 14 Officina), with clean trees and main/remote agreement
+at its recorded revisions. A separate [upstream refetch](delivery-audit/upstream-sources.json)
+matched nine primary artifacts from Internet Archive and pinned Perseus XML.
+The receipt commits append evidence after those immutable checked revisions;
+no self-hashing or recursively verified receipt is claimed.
 
 ---
 

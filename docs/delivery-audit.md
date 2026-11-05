@@ -148,9 +148,10 @@ notes. The test-only long/malicious notes remain confined to audit artifacts.
 ## Reviewed edition and receipts
 
 The reviewed production edition is **`e7d01a374f11d57b1166`**: 25 built files,
-with 24 files in its worker inventory. All of the following receipts identify
-that same complete build, apart from the explicitly labeled older failure
-receipt and the deliberately different second upgrade fixture.
+with 24 files in its worker inventory. Receipts with build inventories identify
+that same complete build, apart from explicitly labeled older failure receipts
+and the deliberately different second upgrade fixture. Artifact-only and
+polling receipts record their own narrower boundaries.
 
 | Evidence boundary                                      | Receipt                                           |
 | ------------------------------------------------------ | ------------------------------------------------- |
@@ -173,7 +174,7 @@ more than fifteen seconds in both browsers. Full repairs took
 transfer timings and byte counts. These are controlled workload observations,
 not estimates of ancient travel, representative user networks or Internet speed.
 
-Fresh isolated installs passed on both **Node 24.22.1** (the documented major)
+[Fresh isolated installs](delivery-audit/clean-build.json) passed on both **Node 24.22.1** (the documented major)
 and **Node 26.7.0** (the interactive shell). Each ran install, lint, typecheck,
 24 tests, production build, source concordance and the 4,416-account / 39,744-proposal
 independent oracle. Both clean builds were byte-for-byte identical to the reviewed
