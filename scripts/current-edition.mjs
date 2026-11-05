@@ -3,7 +3,8 @@
  * Edited tabs must export their notebooks before any reload.
  */
 export async function waitForEdition(page, edition, timeout = 90000) {
-  await page.waitForFunction(
+  await waitForValue(
+    page,
     async (expected) => {
       const worker = navigator.serviceWorker.controller;
       if (!worker) return false;
@@ -32,6 +33,16 @@ export async function waitForEdition(page, edition, timeout = 90000) {
       );
     },
     edition,
-    { polling: 250, timeout },
+    timeout,
   );
+}
+
+export async function waitForValue(page, predicate, argument = null, timeout = 30000) {
+  const deadline = Date.now() + timeout;
+  for (;;) {
+    if ((await page.evaluate(predicate, argument)) === true) return;
+    if (Date.now() >= deadline)
+      throw new Error("Timed out waiting for an explicitly true browser result");
+    await new Promise((resolve) => setTimeout(resolve, 250));
+  }
 }

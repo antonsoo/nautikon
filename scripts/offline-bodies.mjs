@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { mkdir } from "node:fs/promises";
 import { chromium, firefox } from "playwright";
 import { buildIdentity, writeReceipt } from "./build-receipt.mjs";
+import { waitForValue } from "./current-edition.mjs";
 import { reviewServer } from "./review-server.mjs";
 
 const build = await buildIdentity();
@@ -26,13 +27,14 @@ try {
       await p.goto(server.base);
       await wait(p, "not retained");
       // The initial install must settle rather than holding an installing worker forever.
-      await p.waitForFunction(
+      await waitForValue(
+        p,
         async () => {
           const r = await navigator.serviceWorker.getRegistration();
           return !r?.installing;
         },
-        {},
-        { timeout: 22000 },
+        null,
+        22000,
       );
       assert.equal(await p.evaluate(() => !!navigator.serviceWorker.controller), false);
       server.clearFaults();
