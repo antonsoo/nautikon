@@ -52,10 +52,13 @@ export function reviewServer(root) {
           const fault = faults.get(path);
           if (fault?.stallHeaders) return;
           if (fault?.status) {
-            res.writeHead(fault.status).end("Controlled HTTP failure");
+            res
+              .writeHead(fault.status, { "Content-Type": fault.contentType || "text/html" })
+              .end(fault.body || "Controlled HTTP failure");
             return;
           }
           if (fault?.stallBody) {
+            fault.onBody?.();
             res.writeHead(200, {
               "Content-Type": types[extname(file)] || "application/octet-stream",
               "Cache-Control": "no-store",
