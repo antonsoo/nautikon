@@ -45,7 +45,7 @@ export async function receive(
         if (!value.length) continue;
         length += value.length;
         if (length > maxBytes)
-          throw new Error("Downloaded file exceeds its expected size; it was not used.");
+          throw new RangeError("Downloaded file exceeds its expected size; it was not used.");
         chunks.push(value);
       }
     }

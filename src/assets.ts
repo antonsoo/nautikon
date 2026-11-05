@@ -39,6 +39,11 @@ export async function bytes(path: string, signal?: AbortSignal): Promise<Uint8Ar
     return data;
   } catch (e) {
     window.dispatchEvent(new Event("nautikon:asset-failure"));
+    if (e instanceof RangeError)
+      throw new Error(
+        `Source check failed for ${path}. The file was not used because it exceeds the retained size.`,
+        { cause: e },
+      );
     throw e;
   } finally {
     signal?.removeEventListener("abort", cancel);
