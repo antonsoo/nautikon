@@ -22,7 +22,12 @@ export async function bytes(path: string, signal?: AbortSignal): Promise<Uint8Ar
       } catch (error) {
         controller.signal.throwIfAborted();
         response = await cached();
-        if (!response) throw error;
+        if (
+          !response &&
+          (error instanceof RangeError ||
+            (error instanceof DOMException && error.name === "TimeoutError"))
+        )
+          throw error;
       }
     }
     controller.signal.throwIfAborted();
