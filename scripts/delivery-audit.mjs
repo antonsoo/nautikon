@@ -68,6 +68,7 @@ for (const [name, engine] of [
     }, css);
     await voyage.bringToFront();
     await wait(voyage, "offline", "not retained");
+    await server.stop();
     await context.setOffline(true);
     const refused = await voyage.evaluate(async (path) => {
       try {
@@ -77,6 +78,7 @@ for (const [name, engine] of [
       }
     }, css);
     assert.equal(refused, false);
+    await server.start();
     await context.setOffline(false);
     await voyage.locator("#retry-offline").click();
     await wait(voyage, "offline", "Complete edition available offline");
@@ -111,12 +113,14 @@ for (const [name, engine] of [
     });
     await voyage.bringToFront();
     await wait(voyage, "offline", "not retained");
+    await server.stop();
     await context.setOffline(true);
     const missing = await context.newPage();
     const response = await missing.goto(`${server.base}index.html`);
     assert.equal(response.status(), 503);
     assert.match(await missing.locator("body").textContent(), /no verified saved page/);
     await missing.close();
+    await server.start();
     await context.setOffline(false);
     await voyage.locator("#retry-offline").click();
     await wait(voyage, "offline", "Complete edition available offline");
@@ -141,6 +145,39 @@ for (const [name, engine] of [
     server.clearFaults();
     await voyage.locator("#retry-offline").click();
     await wait(voyage, "offline", "Complete edition available offline");
+    let updateBodyStarted;
+    const updateBodyPending = new Promise((resolve) => {
+      updateBodyStarted = resolve;
+    });
+    server.fault("/nautikon/sw.js", {
+      stallBody: true,
+      onBody: () => {
+        server.clearFaults();
+        updateBodyStarted();
+      },
+    });
+    await voyage.evaluate(() => {
+      void navigator.serviceWorker
+        .getRegistration()
+        .then((r) => r.update())
+        .catch(() => {});
+    });
+    await updateBodyPending;
+    await voyage.evaluate(async () => {
+      const key = (await caches.keys()).find((k) => k.startsWith("nautikon-"));
+      await (await caches.open(key)).delete(new URL("sources/rennie-p111.jpg", location.href));
+      window.dispatchEvent(new Event("focus"));
+    });
+    await wait(voyage, "offline", "not retained");
+    const queueRepairStarted = Date.now();
+    await voyage.locator("#retry-offline").click();
+    await wait(voyage, "offline", "Complete edition available offline", 10000);
+    assert.ok(
+      Date.now() - queueRepairStarted < 10000,
+      "A stalled native update blocked an already valid controller",
+    );
+    await server.stop();
+    await server.start();
     await save(voyage, `${name}-repaired-voyage.html`);
     await context.close();
     observations.push({
@@ -152,6 +189,7 @@ for (const [name, engine] of [
       maintenanceAndStatusFallbacks: 9,
       cancelledRepairKeepsWork: true,
       verifiedRepairRestoresAllFiles: true,
+      nativeUpdateStallDoesNotBlockRepair: true,
     });
     console.log(`${name}: cold source read competes with install at shared 64,000 bytes/s`);
     const slow = await slowReviewServer("dist", 64000);

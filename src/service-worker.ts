@@ -51,7 +51,7 @@ worker.addEventListener("install", (event) => {
             for (;;) {
               const url = FILES[next++];
               if (!url) break;
-              downloaded.set(url, await checked(url, controller.signal));
+              downloaded.set(url, (await saved(url)) ?? (await checked(url, controller.signal)));
             }
           }),
         );

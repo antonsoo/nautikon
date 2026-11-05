@@ -10,6 +10,33 @@ function bounded<T>(task: Promise<T>, signal: AbortSignal): Promise<T> {
   return Promise.race([task, cancelled]).finally(() => signal.removeEventListener("abort", abort));
 }
 
+async function probe(
+  worker: ServiceWorker,
+): Promise<{ edition?: string; complete?: boolean; count?: number; total?: number }> {
+  return new Promise<{
+    edition?: string;
+    complete?: boolean;
+    count?: number;
+    total?: number;
+  }>((resolve) => {
+    const channel = new MessageChannel();
+    const done = (data: object) => {
+      clearTimeout(timer);
+      channel.port1.close();
+      resolve(data);
+    };
+    const timer = setTimeout(() => done({}), 3000);
+    channel.port1.onmessage = (e) => done(e.data && typeof e.data === "object" ? e.data : {});
+    try {
+      worker.postMessage({ type: "INSPECT" }, [channel.port2]);
+    } catch {
+      // A controller can become redundant between reading it and messaging
+      // it. Settle this inspection rather than leaving an unhandled promise.
+      done({});
+    }
+  });
+}
+
 export function installOffline(): void {
   const labelNode = document.querySelector<HTMLElement>("#offline");
   const retry = document.querySelector<HTMLButtonElement>("#retry-offline");
@@ -59,28 +86,7 @@ export function installOffline(): void {
         : "Saving the complete offline edition…";
       return;
     }
-    const result = await new Promise<{
-      edition?: string;
-      complete?: boolean;
-      count?: number;
-      total?: number;
-    }>((resolve) => {
-      const channel = new MessageChannel();
-      const done = (data: object) => {
-        clearTimeout(timer);
-        channel.port1.close();
-        resolve(data);
-      };
-      const timer = setTimeout(() => done({}), 3000);
-      channel.port1.onmessage = (e) => done(e.data && typeof e.data === "object" ? e.data : {});
-      try {
-        worker.postMessage({ type: "INSPECT" }, [channel.port2]);
-      } catch {
-        // A controller can become redundant between reading it and messaging
-        // it. Settle this inspection rather than leaving an unhandled promise.
-        done({});
-      }
-    });
+    const result = await probe(worker);
     if (request !== revision || worker !== navigator.serviceWorker.controller || saving) return;
     label.textContent =
       result.edition === __EDITION__ &&
@@ -107,10 +113,8 @@ export function installOffline(): void {
   };
   async function install(parent?: AbortSignal): Promise<void> {
     const own = new AbortController();
-    const signal = parent ?? own.signal;
-    const timer = parent
-      ? undefined
-      : setTimeout(() => own.abort(new Error("Offline installation timed out")), 15000);
+    const signal = parent ? AbortSignal.any([parent, own.signal]) : own.signal;
+    const timer = setTimeout(() => own.abort(new Error("Offline registration timed out")), 15000);
     installationFailed = false;
     invalidate();
     try {
@@ -125,7 +129,6 @@ export function installOffline(): void {
         registrations.add(registration);
       }
       watch();
-      await bounded(registration.update(), signal);
       await inspect();
     } catch {
       installationFailed = true;
@@ -215,7 +218,17 @@ export function installOffline(): void {
       controller.signal.throwIfAborted();
       const cache = await caches.open(`nautikon-${__EDITION__}`);
       await Promise.all(downloaded.map(([url, file]) => cache.put(url, file)));
-      await install(controller.signal);
+      const worker = navigator.serviceWorker.controller;
+      const inspected = worker ? await probe(worker) : null;
+      // A validated current controller already knows how to serve these files.
+      // Do not queue registration/update behind an unrelated stalled native job.
+      if (
+        !worker ||
+        worker !== navigator.serviceWorker.controller ||
+        inspected?.edition !== __EDITION__ ||
+        inspected.complete !== true
+      )
+        await install(controller.signal);
       controller.signal.throwIfAborted();
     } catch (error) {
       const cancelled = controller.signal.aborted;
