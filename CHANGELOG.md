@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Keep a verified saved entry when a different marked network page arrives, preventing an older HTML/current-worker mismatch from blanking the app.
+
 - Audit every cached body before claiming offline readiness; refuse corrupt
   resources and preserve verified lessons through maintenance and HTTP errors.
 - Bound transfer inactivity rather than active elapsed time, retain foreground

@@ -1,0 +1,162 @@
+{
+  "checkedAt": "2026-11-05T01:54:24.016815+00:00",
+  "runs": [
+    {
+      "conclusion": "success",
+      "head_sha": "b80c619e1575f3d109a0b90ca3ab15aad67639f4",
+      "html_url": "https://github.com/antonsoo/nautikon/actions/runs/41951498976",
+      "id": 41951498976,
+      "name": "pages build and deployment",
+      "status": "completed",
+      "jobs": [
+        {
+          "id": 126996260837,
+          "name": "build",
+          "status": "completed",
+          "conclusion": "success",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-11-05T01:53:11Z",
+              "completed_at": "2026-11-05T01:53:12Z"
+            },
+            {
+              "name": "Checkout",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-11-05T01:53:12Z",
+              "completed_at": "2026-11-05T01:53:14Z"
+            },
+            {
+              "name": "Upload artifact",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-11-05T01:53:14Z",
+              "completed_at": "2026-11-05T01:53:15Z"
+            },
+            {
+              "name": "Post Checkout",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-11-05T01:53:15Z",
+              "completed_at": "2026-11-05T01:53:15Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-11-05T01:53:15Z",
+              "completed_at": "2026-11-05T01:53:15Z"
+            }
+          ]
+        },
+        {
+          "id": 126996315374,
+          "name": "deploy",
+          "status": "completed",
+          "conclusion": "success",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-11-05T01:53:21Z",
+              "completed_at": "2026-11-05T01:53:22Z"
+            },
+            {
+              "name": "Deploy to GitHub Pages",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-11-05T01:53:22Z",
+              "completed_at": "2026-11-05T01:53:29Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-11-05T01:53:29Z",
+              "completed_at": "2026-11-05T01:53:29Z"
+            }
+          ]
+        },
+        {
+          "id": 126996315397,
+          "name": "report-build-status",
+          "status": "completed",
+          "conclusion": "success",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-11-05T01:53:20Z",
+              "completed_at": "2026-11-05T01:53:20Z"
+            },
+            {
+              "name": "Report Build Status",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-11-05T01:53:21Z",
+              "completed_at": "2026-11-05T01:53:26Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-11-05T01:53:26Z",
+              "completed_at": "2026-11-05T01:53:26Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conclusion": "failure",
+      "head_sha": "df3b407e48adc1bf746e8fdaf47c58ac85d68a16",
+      "html_url": "https://github.com/antonsoo/nautikon/actions/runs/41951485972",
+      "id": 41951485972,
+      "name": "Check",
+      "status": "completed",
+      "jobs": [
+        {
+          "id": 126996216296,
+          "name": "check",
+          "status": "completed",
+          "conclusion": "failure",
+          "steps": []
+        }
+      ]
+    },
+    {
+      "conclusion": "failure",
+      "head_sha": "df3b407e48adc1bf746e8fdaf47c58ac85d68a16",
+      "html_url": "https://github.com/antonsoo/nautikon/actions/runs/41951485919",
+      "id": 41951485919,
+      "name": "Pages",
+      "status": "completed",
+      "jobs": [
+        {
+          "id": 126996216393,
+          "name": "deploy",
+          "status": "completed",
+          "conclusion": "failure",
+          "steps": []
+        }
+      ]
+    }
+  ],
+  "scope": "Source jobs have no executed steps; static Pages deployment is separate from source validation."
+}

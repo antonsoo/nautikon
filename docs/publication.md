@@ -1,10 +1,72 @@
-# Public edition — 2026-10-31
+# Public edition — 2026-11-05 (UTC)
+
+[Open the missing-departure investigation](https://antonsoo.github.io/nautikon/#evidence)
+· [Cargo testimony](https://antonsoo.github.io/nautikon/testimony.html)
+· [Source](https://github.com/antonsoo/nautikon).
+
+The current reviewed production edition is **`e7d01a374f11d57b1166`**.
+The user explicitly authorized pushing and publication. The source/build inputs
+are committed in `465061c`; publication source
+`df3b407e48adc1bf746e8fdaf47c58ac85d68a16` also retains regenerated educational
+packets and the reproduced failures. Static commit
+`b80c619e1575f3d109a0b90ca3ab15aad67639f4` extends the existing publication
+history and preserves older hashed modules.
+
+| Boundary                              | Current observation                                                                                                          | Receipt                                                |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| Hosted bytes                          | All 25 canonical files match the reviewed build; worker inventories 24                                                       | [Hosted inventory](delivery-audit/hosted.json)         |
+| Real public upgrade                   | Edited voyage and testimony tabs survive `7ed04c19ca9d5ba62a59` to current in both engines                                   | [Public handover](delivery-audit/public-upgrade.json)  |
+| Actual origin disconnection           | Both browsers at 1440 and 375 px reload, reopen, read sources and export through a blocked TCP tunnel                        | [Public delivery](delivery-audit/public-delivery.json) |
+| Damage and repair                     | Deleting p. 111 withdraws readiness in both rooms; exports refuse missing sources; reconnecting repairs without losing notes | [Public delivery](delivery-audit/public-delivery.json) |
+| Local behavior and portable artifacts | Slow foreground/background transfers, corrupt entries, two-edition imports and 320 px saved readings                         | [Delivery audit](delivery-audit.md)                    |
+| Public source                         | Pinned raw artifacts match committed bytes; main heads checked separately                                                    | [Source inventory](delivery-audit/public-source.json)  |
+| GitHub execution                      | Source checks did not execute; separate static deployment completed                                                          | [Execution](delivery-audit/github-execution.json)      |
+
+The public handover used canonical HTTPS with no route interception or local
+lesson responses. Both old tabs retained notes and original kept premises;
+native JSON reopened in the new edition after offline reload. The old hashed
+modules remained byte-identical at canonical URLs. The initial `582e` to `7ed0`
+attempt timed out; its [incomplete receipt](delivery-audit/first-public-upgrade.json)
+is preserved rather than counted as a successful handover.
+
+The public delivery audit blocks actual CONNECT tunnels, closes existing
+sockets, and then restores them. It does not intercept TLS or substitute
+responses. `navigator.onLine` remains true: browser offline toggles alone are
+not the proof of disconnection. The receipt records allowed, blocked and closed
+connections. Canonical entry and worker bytes are checked again after the
+journeys. This controlled outage is not a measurement of typical user networks.
+
+Officina's fourth route accepts **missing departure**, **3,800** and
+**ἐκπλεύσωσιν**. It leads to the operated two-debt question, source p. 107,
+native saved reading and immutable review. Its
+[canonical discovery study](https://github.com/antonsoo/officina/tree/main/studies/nautikon-evidence-public)
+keeps the catalogue's own hosted-byte and browser evidence separate.
+
+Fresh clean installs on Node 24.22.1 and 26.7.0 reproduced every production
+byte after lint, typecheck, 24 tests, source concordance and an independent
+4,416-account / 39,744-proposal oracle. The regenerated three educational
+packets were also opened as actual files in both browsers at 320 px: all source,
+font and notice identities matched, with no network requests and exact notebook
+roundtrips. The [audit](delivery-audit.md) records the limits of these checks.
+
+Source `Check` and source `Pages` jobs ended in failure with empty step lists.
+No source CI pass is claimed. The distinct legacy Pages deployment ran actual
+steps and succeeded. Local validation, static publication, source identities,
+public browser operation and historical interpretation remain separate claims.
+These results do not establish the truth of the ancient testimony or a verdict.
+
+---
+
+The following record describes the earlier editions only. Its file inventories,
+source heads and browser receipts are historical snapshots, not current checks.
+
+# Earlier publication record — 2026-10-31
 
 [Voyage account](https://antonsoo.github.io/nautikon/) ·
 [Cargo testimony](https://antonsoo.github.io/nautikon/testimony.html) ·
 [Source](https://github.com/antonsoo/nautikon).
 
-The current reviewed edition is **`582e41255fddd59639dd`**, with **25 production
+The then-reviewed edition was **`582e41255fddd59639dd`**, with **25 production
 files** and a controlling worker that inventories **24/24** cached resources
 (the worker script itself is stored by the browser's worker registration).
 The user explicitly authorized pushing and publication. Source, build, hosted

@@ -1,0 +1,68 @@
+{
+  "checkedAt": "2026-11-05T01:53:40.374Z",
+  "base": "https://antonsoo.github.io/nautikon/",
+  "before": "7ed04c19ca9d5ba62a59",
+  "after": "e7d01a374f11d57b1166",
+  "observations": [
+    {
+      "browser": "chromium",
+      "version": "153.0.8010.12",
+      "width": 375,
+      "before": "7ed04c19ca9d5ba62a59",
+      "after": "e7d01a374f11d57b1166",
+      "realEditedTabsAcrossPublication": true,
+      "bothNotesAndKeptWorkPreserved": true,
+      "nativeJsonBothSchemas": true,
+      "newEditionImportsAfterOfflineReload": true,
+      "restoredReadingsDownloaded": true,
+      "currentWorker": {
+        "edition": "e7d01a374f11d57b1166",
+        "complete": true,
+        "count": 24,
+        "total": 24
+      },
+      "pageErrors": [],
+      "routeInterceptionUsed": false
+    },
+    {
+      "browser": "firefox",
+      "version": "155.0",
+      "width": 375,
+      "before": "7ed04c19ca9d5ba62a59",
+      "after": "e7d01a374f11d57b1166",
+      "realEditedTabsAcrossPublication": true,
+      "bothNotesAndKeptWorkPreserved": true,
+      "nativeJsonBothSchemas": true,
+      "newEditionImportsAfterOfflineReload": true,
+      "restoredReadingsDownloaded": true,
+      "currentWorker": {
+        "edition": "e7d01a374f11d57b1166",
+        "complete": true,
+        "count": 24,
+        "total": 24
+      },
+      "pageErrors": [],
+      "routeInterceptionUsed": false
+    }
+  ],
+  "previousHashedModules": [
+    {
+      "url": "https://antonsoo.github.io/nautikon/assets/voyage-DoEHgkoQ.js",
+      "bytes": 34230,
+      "sha256": "f97a135d534184a0591d12127db2a66cfe88a31976533d2b6faa204dc87ed707",
+      "unchangedAfterPublication": true
+    },
+    {
+      "url": "https://antonsoo.github.io/nautikon/assets/source-BUCA-luo.js",
+      "bytes": 40531,
+      "sha256": "9c057af415c8958b0572539464a7c04718375067013d7e98671b65a7536fc33a",
+      "unchangedAfterPublication": true
+    },
+    {
+      "url": "https://antonsoo.github.io/nautikon/assets/testimony-D12WB8Ir.js",
+      "bytes": 31856,
+      "sha256": "07b5bf5455a61c40623de2d6261ce1d87dab02ba797f6dc685f7b957649bfe68",
+      "unchangedAfterPublication": true
+    }
+  ]
+}
