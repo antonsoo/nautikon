@@ -53,7 +53,9 @@ try {
   await p.setViewportSize({ width: 1440, height: 1100 });
   await p.locator("#read-default").click();
   await p.locator("#source-status").filter({ hasText: "Page 108" }).waitFor();
-  await p.locator("#reading-text").scrollIntoViewIfNeeded();
+  await p
+    .locator("#reading-text")
+    .evaluate((e) => window.scrollTo(0, e.getBoundingClientRect().top + scrollY - 24));
   await p.screenshot({ path: "docs/assets/greek-source-1440.png" });
   const file = await b.newPage();
   await file.goto(pathToFileURL(temp).href);
@@ -62,6 +64,7 @@ try {
     path: "examples/default-reading.pdf",
     format: "A4",
     printBackground: true,
+    tagged: true,
     margin: { top: "12mm", right: "12mm", bottom: "12mm", left: "12mm" },
   });
   await p.goto(`${server.base}testimony.html`);
@@ -104,10 +107,47 @@ try {
     path: "examples/testimony-reading.pdf",
     format: "A4",
     printBackground: true,
+    tagged: true,
+    margin: { top: "12mm", right: "12mm", bottom: "12mm", left: "12mm" },
+  });
+  await p.goto(`${server.base}#evidence`);
+  await p.locator("#withhold-departure").click();
+  await p.locator("#claim-amount").fill("3800");
+  await p.locator("#check-debt").click();
+  await p.locator("#pin").click();
+  await p.locator("#arrival").evaluate((e) => {
+    e.value = "-5";
+    e.dispatchEvent(new Event("input", { bubbles: true }));
+  });
+  await p
+    .locator("#note")
+    .fill(
+      "The kept check proposed 3,800 drachmas with arrival 25 days after Arcturus and departure missing. Its complete alternatives were 3,675 or 3,900: an amount between them did not follow. The current arrival is five days before Arcturus. Departure must be earlier, so the lower rate now follows without an exact sailing date. The earlier check keeps its original facts. Whole days and the allowed departure range are modern teaching premises, not a historical travel-time estimate.",
+    );
+  await download("json", "examples/departure-notebook.json");
+  await download("csv", "examples/departure-ledger.csv");
+  await download("svg", "examples/departure-timeline.svg");
+  const evidencePending = p.waitForEvent("download");
+  await p.locator("#html").click();
+  const evidenceRaw = await readFile(await (await evidencePending).path());
+  await writeFile("examples/departure-reading.html.gz", gzipSync(evidenceRaw));
+  const evidenceFile = resolve("test-results/departure-example.html");
+  await writeFile(evidenceFile, evidenceRaw);
+  await p.evaluate(() => document.fonts.ready);
+  await p.locator("#evidence").screenshot({ path: "docs/assets/departure-desktop.png" });
+  await p.setViewportSize({ width: 375, height: 1100 });
+  await p.locator("#evidence").screenshot({ path: "docs/assets/departure-phone.png" });
+  await file.goto(pathToFileURL(evidenceFile).href);
+  await file.evaluate(() => document.fonts.ready);
+  await file.pdf({
+    path: "examples/departure-reading.pdf",
+    format: "A4",
+    printBackground: true,
+    tagged: true,
     margin: { top: "12mm", right: "12mm", bottom: "12mm", left: "12mm" },
   });
   console.log(
-    "Saved both lessons through native browser downloads, six screenshots and two printed example PDFs.",
+    "Saved three coherent investigations through native downloads, eight screenshots and three tagged printed PDFs.",
   );
 } finally {
   await b.close();

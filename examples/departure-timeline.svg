@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 205" role="img" aria-label="Departure unknown; arrival 5 days before Arcturus; twenty-day interval ends 15 days after Arcturus. Current point: 15 days after arrival.">
+  <rect width="900" height="205" fill="#f8f3e7"/><g stroke="#173b4b" fill="none"><path d="M65 98H825"/><path d="M199.11764705882354 33V174" stroke="#a53523" stroke-dasharray="4 4"/>
+  <path d="M176.76470588235293 120H266.1764705882353" stroke="#173b4b" stroke-width="11"/>
+  <path d="M243.8235294117647 113v30" stroke="#a53523" stroke-width="3"/>
+  <path d="M65 98H172.29411764705884" stroke="#173b4b" stroke-width="8"/><circle cx="172.29411764705884" cy="98" r="4" fill="#173b4b"/>
+  <path d="M176.76470588235293 91v14m89.41176470588238-14v14" stroke-width="3"/>
+  </g><g fill="#173b4b" font-family="Gentium,Georgia,serif" font-size="18">
+  <text x="65" y="24">Illustrative days, relative to the rising of Arcturus</text><text x="207.11764705882354" y="51" fill="#a53523">Arcturus · 0</text>
+  <text x="65" y="78" text-anchor="start">Departure ? · allowed days marked</text>
+  <text x="176.76470588235293" y="164" text-anchor="middle">Arrival -5</text>
+  <text x="266.1764705882353" y="190" text-anchor="middle">Interval ends 15</text>
+  <text x="825" y="24" text-anchor="end">Now: arrival + 15</text></g></svg>

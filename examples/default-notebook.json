@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "voyage": {
     "departure": -5,
     "arrival": 25,
@@ -28,5 +28,6 @@
     "otherPledge": false,
     "sameVessel": true
   },
-  "note": "Departure five days before Arcturus selects 225 per thousand: 675 interest on 3,000. The late arrival does not raise that rate. The kept voyage is inside the twenty-day interval; the current voyage is at day 21, still unpaid. On assumed sale proceeds of 2,000, §12 leaves 1,675 claimable from the borrowers’ other property. The text does not guarantee collection."
+  "note": "Departure five days before Arcturus selects 225 per thousand: 675 interest on 3,000. The late arrival does not raise that rate. The kept voyage is inside the twenty-day interval; the current voyage is at day 21, still unpaid. On assumed sale proceeds of 2,000, §12 leaves 1,675 claimable from the borrowers’ other property. The text does not guarantee collection.",
+  "claim": null
 }

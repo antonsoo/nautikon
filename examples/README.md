@@ -32,5 +32,26 @@ conditional inference separate from historical truth and monetary damages.
 - `testimony-reading.html.gz`: decompress and open the scriptless full reading.
 - `testimony-reading.pdf`: the browser's actual print of that saved reading.
 
-Both illustrated readings include seven whole scan images, four font subsets,
+All three illustrated readings include seven whole scan images, four font subsets,
 retained TEI downloads, attribution, licenses and embedded editable JSON.
+
+## A missing departure and a kept debt proposal
+
+The `departure-*` files preserve an excluded proposal of 3,800 drachmas under
+the earlier missing-departure facts. Arrival +25 allows debts 3,675 or 3,900;
+the values between them do not follow. The current arrival is -5, which rules
+out departure after Arcturus without establishing the exact date. The earlier
+check keeps its original facts while the current account changes.
+
+- `departure-notebook.json`: the current/kept voyages, original checked proposal
+  and a learner explanation; reopen it through **Reopen notebook**.
+- `departure-ledger.csv`: both accounts and the proposal with its original facts.
+- `departure-timeline.svg`: the current arrival and remaining departure window.
+- `departure-reading.html.gz`: the complete scriptless illustrated reading.
+- `departure-reading.pdf`: a tagged browser print of that same reading.
+
+Current voyage files use version 2, while testimony retains its separate version
+1 schema. Legacy voyage version 1 files still open through explicit migration.
+These are modern selected-clause learning examples, not historical voyage data.
+All current PDFs were printed from the actual downloaded HTML with tagging
+requested. This is not a full assistive-technology audit of the PDF structure.

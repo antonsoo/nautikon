@@ -1,5 +1,34 @@
 {
   "version": 2,
+  "voyage": {
+    "departure": null,
+    "arrival": -5,
+    "days": 15,
+    "route": "pontus",
+    "outcome": "safe",
+    "loss": "none",
+    "lossAmount": 300,
+    "consent": true,
+    "sale": 2000,
+    "paid": false,
+    "otherPledge": false,
+    "sameVessel": true
+  },
+  "pinned": {
+    "departure": null,
+    "arrival": 25,
+    "days": 15,
+    "route": "pontus",
+    "outcome": "safe",
+    "loss": "none",
+    "lossAmount": 300,
+    "consent": true,
+    "sale": 2000,
+    "paid": false,
+    "otherPledge": false,
+    "sameVessel": true
+  },
+  "note": "The kept check proposed 3,800 drachmas with arrival 25 days after Arcturus and departure missing. Its complete alternatives were 3,675 or 3,900: an amount between them did not follow. The current arrival is five days before Arcturus. Departure must be earlier, so the lower rate now follows without an exact sailing date. The earlier check keeps its original facts. Whole days and the allowed departure range are modern teaching premises, not a historical travel-time estimate.",
   "claim": {
     "amount": 3800,
     "voyage": {
@@ -16,21 +45,5 @@
       "otherPledge": false,
       "sameVessel": true
     }
-  },
-  "voyage": {
-    "departure": null,
-    "arrival": 25,
-    "days": 15,
-    "route": "pontus",
-    "outcome": "safe",
-    "loss": "none",
-    "lossAmount": 300,
-    "consent": true,
-    "sale": 2000,
-    "paid": false,
-    "otherPledge": false,
-    "sameVessel": true
-  },
-  "pinned": null,
-  "note": "Two possible debts are not an interval. Departure must precede arrival; neither side of Arcturus follows from a late arrival. <b>This is a note, not markup.</b>"
+  }
 }
