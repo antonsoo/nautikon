@@ -42,6 +42,35 @@ export interface Account {
   conflicts: string[];
 }
 
+export interface DepartureCase {
+  first: number;
+  last: number;
+  witness: number;
+  rate: 225 | 300;
+}
+
+/** Complete partition of the workshop's whole-day departure domain.
+ * The arrival constrains every completion, including a withheld departure.
+ * Counts of days are not probabilities or historical sailing-time estimates.
+ */
+export function departureCases(v: Voyage): DepartureCase[] {
+  if (v.departure !== null)
+    return [
+      {
+        first: v.departure,
+        last: v.departure,
+        witness: v.departure,
+        rate: v.departure > 0 ? 300 : 225,
+      },
+    ];
+  const last = Math.min(40, v.arrival - 1);
+  const cases: DepartureCase[] = [
+    { first: -30, last: Math.min(0, last), witness: Math.min(-5, last), rate: 225 },
+  ];
+  if (last >= 1) cases.push({ first: 1, last, witness: 1, rate: 300 });
+  return cases;
+}
+
 /** Conditional arithmetic for selected transmitted clauses, not a judicial decision. */
 export function account(v: Voyage): Account {
   const conflicts: string[] = [];
@@ -53,8 +82,9 @@ export function account(v: Voyage): Account {
     conflicts.push(
       "The return cargo changed vessel: §11 says ‘in the same ship’. The arithmetic does not decide the legal effect of this departure from the terms.",
     );
+  const departures = departureCases(v);
   const perThousand: Account["perThousand"] =
-    v.departure === null || v.route !== "pontus" ? null : v.departure > 0 ? 300 : 225;
+    v.route !== "pontus" ? null : departures.length === 1 ? (departures[0]?.rate ?? null) : null;
   const interest = perThousand === null ? null : 3 * perThousand;
   const deduction = v.loss === "enemies" || (v.loss === "jettison" && v.consent) ? v.lossAmount : 0;
   const base = { perThousand, interest, deduction, conflicts };
@@ -93,11 +123,13 @@ export function account(v: Voyage): Account {
     security: v.paid
       ? "Security released after full repayment (§11)"
       : "Return cargo remains under the lenders’ control (§11)",
-    reason: v.paid
-      ? "Full repayment ends the selected security-holding condition. This control records payment of the entire modeled debt, not a partial payment."
-      : v.days > 20
-        ? "The twenty-day interval has elapsed without repayment. §12 permits pledge or sale of the security and collection of a shortfall from the borrowers and their other property. Collection is a right described by the clause, not guaranteed recovery."
-        : "Within the selected twenty-day repayment interval. §11 gives control of the security until repayment; the §12 default sale is not yet activated.",
+    reason: `${v.departure === null ? "The exact departure is missing, but arrival rules out every after-Arcturus departure in this whole-day model. The 225 rate follows from that order constraint (§10), not a recovered sailing date. " : ""}${
+      v.paid
+        ? "Full repayment ends the selected security-holding condition. This control records payment of the entire modeled debt, not a partial payment."
+        : v.days > 20
+          ? "The twenty-day interval has elapsed without repayment. §12 permits pledge or sale of the security and collection of a shortfall from the borrowers and their other property. Collection is a right described by the clause, not guaranteed recovery."
+          : "Within the selected twenty-day repayment interval. §11 gives control of the security until repayment; the §12 default sale is not yet activated."
+    }`,
   };
 }
 
@@ -133,25 +165,44 @@ export function readVoyage(value: unknown): Voyage {
     if (typeof v[key] !== "boolean") throw new Error(`${key} must be true or false.`);
   return structuredClone(value) as Voyage;
 }
+export function sameVoyage(left: Voyage, right: Voyage): boolean {
+  return (Object.keys(initial) as (keyof Voyage)[]).every((key) => left[key] === right[key]);
+}
+export interface DebtClaim {
+  voyage: Voyage;
+  amount: number;
+}
 export interface Notebook {
-  version: 1;
+  version: 2;
   voyage: Voyage;
   pinned: Voyage | null;
   note: string;
+  claim: DebtClaim | null;
 }
 export function readNotebook(value: unknown): Notebook {
   if (!value || typeof value !== "object" || Array.isArray(value))
     throw new Error("Expected a Nautikon notebook.");
   const r = value as Record<string, unknown>;
   if (
-    r.version !== 1 ||
-    Object.keys(r).sort().join(",") !== "note,pinned,version,voyage" ||
+    ![1, 2].includes(r.version as number) ||
+    Object.keys(r).sort().join(",") !==
+      (r.version === 1 ? "note,pinned,version,voyage" : "claim,note,pinned,version,voyage") ||
     typeof r.note !== "string" ||
     r.note.length > 6000
   )
-    throw new Error("Use a version 1 notebook with a note of at most 6,000 characters.");
+    throw new Error("Use a version 1 or 2 notebook with a note of at most 6,000 characters.");
+  let claim: DebtClaim | null = null;
+  if (r.version === 2 && r.claim !== null) {
+    if (!r.claim || typeof r.claim !== "object" || Array.isArray(r.claim))
+      throw new Error("A checked debt must contain its amount and voyage facts.");
+    const c = r.claim as Record<string, unknown>;
+    if (Object.keys(c).sort().join(",") !== "amount,voyage" || !integer(c.amount, 0, 10000))
+      throw new Error("A proposed debt must be a whole number from 0 to 10,000 drachmas.");
+    claim = { amount: c.amount, voyage: readVoyage(c.voyage) };
+  }
   return {
-    version: 1,
+    version: 2,
+    claim,
     voyage: readVoyage(r.voyage),
     pinned: r.pinned === null ? null : readVoyage(r.pinned),
     note: r.note,

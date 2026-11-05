@@ -1,5 +1,6 @@
 import { type Reading, readings, scope } from "./content/readings";
 import sections from "./content/sections.json";
+import { possibleAccounts } from "./core/debt-claim";
 import { account, type Voyage } from "./core/model";
 import { day, esc, money } from "./html";
 export function ledger(v: Voyage): string {
@@ -10,7 +11,7 @@ export function ledger(v: Voyage): string {
   <tr><th scope="row">Allowed deduction <a href="#read-loss">§11</a><small>${v.loss === "none" ? "No loss selected" : v.loss === "ordinary" ? "Other losses are not deducted" : v.loss === "jettison" && !v.consent ? "No shared decision: exception not met" : "Entered valuation assumed allowable"}</small></th><td>${a.debt === null ? "Withheld" : `− ${money(a.deduction)}`}</td></tr>
   <tr class="total"><th scope="row">${a.stage === "released" ? "Amount repaid in full" : "Debt before repayment"}</th><td>${money(a.debt)}</td></tr>
   ${a.stage === "released" ? `<tr><th scope="row">Balance after full repayment</th><td>0</td></tr>` : ""}
-  </tbody></table><p class="account-reason">${esc(a.reason)}</p>
+  </tbody></table><p class="account-reason">${esc(a.reason)}</p>${v.departure === null ? `<p><a href="#evidence">Inspect the permitted departures and check a proposed debt ↓</a></p>` : ""}
   ${a.conflicts.length ? `<div class="conflict"><strong>Terms contradicted</strong>${a.conflicts.map((c) => `<p>${esc(c)}</p>`).join("")}<p>The numbers remain a conditional reading. They are not a verdict on this altered voyage.</p></div>` : ""}`;
 }
 export function collection(v: Voyage): string {
@@ -32,6 +33,16 @@ export const rows = (v: Voyage): [string, string][] => {
     ["Loss", `${v.loss}; assumed ${v.lossAmount}; shared decision ${v.consent}`],
     ["Rate per thousand", money(a.perThousand)],
     ["Voyage interest", money(a.interest)],
+    [
+      "Permitted debts before repayment",
+      [
+        ...new Set(
+          possibleAccounts(v).map((c) =>
+            c.account.debt === null ? "Withheld" : money(c.account.debt),
+          ),
+        ),
+      ].join(" or "),
+    ],
     [
       "Allowed deduction (safe-return branch only)",
       a.debt === null ? "Withheld" : money(a.deduction),

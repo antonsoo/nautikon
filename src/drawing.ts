@@ -1,4 +1,4 @@
-import { account, type Voyage } from "./core/model";
+import { account, departureCases, type Voyage } from "./core/model";
 import { day, esc } from "./html";
 export function cargo(v: Voyage): string {
   const a = account(v);
@@ -50,11 +50,20 @@ export function timeline(v: Voyage): string {
   <rect width="900" height="205" fill="#f8f3e7"/><g stroke="#173b4b" fill="none"><path d="M65 98H825"/><path d="M${x(0)} 33V174" stroke="#a53523" stroke-dasharray="4 4"/>
   <path d="M${x(v.arrival)} 120H${x(v.arrival + 20)}" stroke="#173b4b" stroke-width="11"/>
   <path d="M${x(v.arrival + v.days)} 113v30" stroke="#a53523" stroke-width="3"/>
-  ${d === null ? "" : `<circle cx="${x(d)}" cy="98" r="6" fill="#a53523"/><path d="M${x(d)} 61V90"/>`}
+  ${
+    d === null
+      ? departureCases(v)
+          .map(
+            (c) =>
+              `<path d="M${x(c.first)} 98H${x(c.last)}" stroke="${c.rate === 225 ? "#173b4b" : "#a53523"}" stroke-width="8"/><circle cx="${x(c.last)}" cy="98" r="4" fill="${c.rate === 225 ? "#173b4b" : "#a53523"}"/>`,
+          )
+          .join("")
+      : `<circle cx="${x(d)}" cy="98" r="6" fill="#a53523"/><path d="M${x(d)} 61V90"/>`
+  }
   <path d="M${x(v.arrival)} 91v14m${x(v.arrival + 20) - x(v.arrival)}-14v14" stroke-width="3"/>
   </g><g fill="#173b4b" font-family="Gentium,Georgia,serif" font-size="18">
   <text x="65" y="24">Illustrative days, relative to the rising of Arcturus</text><text x="${x(0) + 8}" y="51" fill="#a53523">Arcturus · 0</text>
-  <text x="${d === null ? 65 : x(d)}" y="78" text-anchor="${d === null ? "start" : "middle"}">Departure ${d === null ? "?" : d}</text>
+  <text x="${d === null ? 65 : x(d)}" y="78" text-anchor="${d === null ? "start" : "middle"}">Departure ${d === null ? "? · allowed days marked" : d}</text>
   <text x="${x(v.arrival)}" y="164" text-anchor="middle">Arrival ${v.arrival}</text>
   <text x="${x(v.arrival + 20)}" y="190" text-anchor="middle">Interval ends ${v.arrival + 20}</text>
   <text x="825" y="24" text-anchor="end">Now: arrival + ${v.days}</text></g></svg>`;

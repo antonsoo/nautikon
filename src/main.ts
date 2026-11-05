@@ -10,6 +10,7 @@ import {
   readNotebook,
   share,
 } from "./core/model";
+import { debtClaimHtml, departureEvidence } from "./debt-views";
 import { cargo, timeline } from "./drawing";
 import { csv, illustrated } from "./export";
 import { day, download, esc, money } from "./html";
@@ -27,14 +28,14 @@ try {
   warning =
     "This share link has invalid voyage facts. The starting voyage is shown; no partial link settings were applied.";
 }
-let notebook: Notebook = { version: 1, voyage, pinned: null, note: "" };
+let notebook: Notebook = { version: 2, voyage, pinned: null, note: "", claim: null };
 let notebookRevision = 0;
 let importRevision = 0;
 const select = (id: string, title: string, options: [string, string][]) =>
   `<label for="${id}">${title}</label><select id="${id}">${options.map(([value, label]) => `<option value="${value}">${label}</option>`).join("")}</select>`;
 const range = (id: string, title: string, min: number, max: number, step = 1) =>
   `<div class="range-field"><label for="${id}">${title} <output id="${id}-value" for="${id}"></output></label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}"></div>`;
-root.innerHTML = `<header><a class="wordmark" href="./"><span lang="grc">ΝΑΥΤΙΚΟΝ</span><span>A voyage under written terms</span></a><nav aria-label="Main"><a href="#bench">Voyage</a><a href="#losses">Loss</a><a href="#default">Default</a><a href="#reading">Greek & sources</a><a href="#keep">Keep it</a><a href="testimony.html" target="_blank" rel="noopener">Cargo testimony ↗</a></nav></header>
+root.innerHTML = `<header><a class="wordmark" href="./"><span lang="grc">ΝΑΥΤΙΚΟΝ</span><span>A voyage under written terms</span></a><nav aria-label="Main"><a href="#bench">Voyage</a><a href="#evidence">Missing evidence</a><a href="#losses">Loss</a><a href="#default">Default</a><a href="#reading">Greek & sources</a><a href="#keep">Keep it</a><a href="testimony.html" target="_blank" rel="noopener">Cargo testimony ↗</a></nav></header>
 <main><section class="opening"><p class="eyebrow">The agreement transmitted in [Demosthenes] 35.10–13</p><div class="intro-grid"><h1>The cargo came home.<br>Does the debt change?</h1><div class="intro-copy"><p>Move a departure. Keep an arrival. Read the clause that makes the difference.</p><p>An Athenian sea-loan agreement separates the voyage’s interest, losses allowed in deduction, and the goods a lender can hold. Follow those distinctions through one altered voyage.</p><a href="#bench" class="text-link">Open the account <span aria-hidden="true">↓</span></a></div></div></section>
 <p id="warning" class="warning" ${warning ? "" : "hidden"}>${esc(warning)}</p>
 <section id="bench" aria-labelledby="bench-title"><div class="section-heading"><p class="section-number">01 / WHEN</p><h2 id="bench-title">Which event changes the rate?</h2></div>
@@ -53,7 +54,8 @@ ${select("outcome", "Ship and cargo outcome", [
   ["lost", "Ship and security lost"],
 ])}
 </div><div id="ledger" aria-live="polite" aria-atomic="true"></div></div>
-<div id="timeline" class="diagram-scroll" tabindex="0" role="region" aria-label="Relative voyage and repayment timeline"></div><p class="hint">Departure selects the §10 rate. Safe arrival begins the §11 interval. In the ordinary safe-return branch, the blue bar is twenty elapsed days and the red tick is the selected day after arrival. A missing departure leaves the rate undetermined.</p>
+<div id="timeline" class="diagram-scroll" tabindex="0" role="region" aria-label="Relative voyage and repayment timeline"></div><p class="hint">Departure selects the §10 rate. Safe arrival begins the §11 interval. In the ordinary safe-return branch, the blue bar is twenty elapsed days and the red tick is the selected day after arrival. When departure is missing, arrival still constrains which departures are possible.</p>
+<article id="evidence" class="evidence-bench" aria-labelledby="evidence-title"><p class="section-number">01b / WHAT FOLLOWS?</p><h3 id="evidence-title">A missing date. Two debts?</h3><p>Withhold departure, then move arrival across Arcturus. What can the evidence still establish? Try a proposed debt of 3,675, then 3,800. Keep the amount lost fixed while changing its cause below.</p><div class="actions"><button type="button" id="withhold-departure">Withhold departure</button></div><div id="departure-evidence"></div><div class="claim-entry"><label for="claim-amount">Proposed debt before repayment · drachmas</label><input id="claim-amount" type="number" min="0" max="10000" step="1" value="3675" aria-describedby="claim-help claim-error"><p id="claim-help" class="hint">Check the debt, even if already paid. Sale proceeds and balance are different quantities. An unchecked amount is a draft and is not saved.</p><p id="claim-error" role="status"></p><div class="actions"><button type="button" id="check-debt" class="primary">Check & keep proposal</button><button type="button" id="clear-claim">Clear kept check</button></div></div><div id="debt-check" aria-live="polite"></div></article>
 <div class="clause-strip"><span lang="grc">ἐκπλεύσωσιν</span><p>“If they <b>sail out</b>…”<br><a href="#read-rate">Read the verb and the rate · §10</a></p></div></section>
 <section id="losses" aria-labelledby="loss-title"><div class="section-heading"><p class="section-number">02 / LOSS</p><h2 id="loss-title">The same amount. A different cause.</h2></div><div class="work-grid"><div class="controls">
 ${select("loss", "One selected loss event", [
@@ -102,6 +104,10 @@ function update(): void {
   $("cargo").innerHTML = cargo(v);
   $("timeline").innerHTML = timeline(v);
   $("ledger").innerHTML = ledger(v);
+  $("departure-evidence").innerHTML = departureEvidence(v, true);
+  $<HTMLButtonElement>("withhold-departure").disabled = v.departure === null;
+  $("debt-check").innerHTML = debtClaimHtml(notebook.claim, v);
+  $<HTMLButtonElement>("clear-claim").disabled = notebook.claim === null;
   $("collection").innerHTML = collection(v);
   $("loss-result").innerHTML =
     a.debt === null
@@ -110,6 +116,53 @@ function update(): void {
   $("comparison").innerHTML = comparison(v, notebook.pinned);
   $<HTMLButtonElement>("unpin").disabled = notebook.pinned === null;
 }
+$("withhold-departure").addEventListener("click", () => {
+  notebook.voyage.departure = null;
+  update();
+  input("claim-amount").focus();
+  status("Departure withheld. Arrival and all other current voyage facts stay fixed.");
+});
+$("departure-evidence").addEventListener("click", (event) => {
+  const button = (event.target as HTMLElement).closest<HTMLButtonElement>(
+    "[data-departure-witness]",
+  );
+  if (!button) return;
+  notebook.pinned = structuredClone(notebook.voyage);
+  notebook.voyage.departure = Number(button.dataset.departureWitness);
+  update();
+  input("departure").focus();
+  status(
+    "Missing-departure evidence kept. The current departure is a hypothetical example, not recovered evidence. Withhold departure to return to the alternatives.",
+  );
+});
+function claimAmount(): number | null {
+  const field = input("claim-amount");
+  const n = field.valueAsNumber;
+  return field.validity.valid && Number.isInteger(n) && n >= 0 && n <= 10000 ? n : null;
+}
+input("claim-amount").addEventListener("input", () => {
+  notebookRevision++;
+  const valid = claimAmount() !== null;
+  input("claim-amount").setAttribute("aria-invalid", String(!valid));
+  $("claim-error").textContent = valid
+    ? ""
+    : "Enter a whole debt from 0 to 10,000 drachmas. The kept check is unchanged.";
+  $<HTMLButtonElement>("check-debt").disabled = !valid;
+});
+$("check-debt").addEventListener("click", () => {
+  const amount = claimAmount();
+  if (amount === null) return;
+  notebook.claim = { amount, voyage: structuredClone(notebook.voyage) };
+  update();
+  status(
+    "Proposal checked and kept with these voyage facts. Later edits do not rewrite it; notebook downloads include it.",
+  );
+});
+$("clear-claim").addEventListener("click", () => {
+  notebook.claim = null;
+  update();
+  status("Kept debt check cleared.");
+});
 for (const key of ["departure", "arrival", "days", "lossAmount", "sale"] as const)
   input(key).addEventListener("input", () => {
     notebook.voyage[key] = Number(input(key).value);
@@ -224,7 +277,8 @@ input("import").addEventListener("change", async () => {
   const revision = notebookRevision;
   try {
     if (file.size > 100000) throw new Error("Notebook files must be smaller than 100 KB.");
-    const candidate = readNotebook(parseJson(await file.text()));
+    const raw = parseJson(await file.text());
+    const candidate = readNotebook(raw);
     if (request !== importRevision) return;
     if (revision !== notebookRevision) {
       status(
@@ -232,10 +286,17 @@ input("import").addEventListener("change", async () => {
       );
       return;
     }
+    const legacy = (raw as { version?: number }).version === 1;
     notebook = candidate;
     $<HTMLTextAreaElement>("note").value = notebook.note;
     update();
-    status("Notebook reopened, including the kept voyage and note.");
+    if (notebook.claim) input("claim-amount").value = String(notebook.claim.amount);
+    input("claim-amount").dispatchEvent(new Event("input"));
+    status(
+      legacy
+        ? "Notebook reopened. Version 1 upgraded to version 2; no checked proposal was present. Missing-departure accounts now use arrival constraints."
+        : "Notebook reopened, including the kept voyage, checked proposal and note.",
+    );
   } catch (e) {
     if (request === importRevision)
       status(

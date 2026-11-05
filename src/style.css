@@ -838,3 +838,70 @@ footer #offline {
   display: block;
   font-size: 0.85rem;
 }
+
+.evidence-bench {
+  margin: 2.5rem 0;
+  padding: clamp(1rem, 3vw, 2rem) 0;
+  border-block: 2px solid var(--ink);
+  scroll-margin-top: 1rem;
+}
+.evidence-bench h3 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  line-height: 1.1;
+  margin: 0.5rem 0 1rem;
+}
+.departure-cases {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 1.5rem;
+}
+.departure-case {
+  border-block: 1px solid var(--line);
+  padding: 0.8rem 0 1rem;
+}
+.departure-case h4,
+.debt-check h4 {
+  font-size: 1.3rem;
+  margin: 0 0 0.6rem;
+}
+.case-days {
+  color: var(--red);
+}
+.case-days span,
+.case-debt span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.case-debt {
+  font-size: 1.7rem;
+  line-height: 1.2;
+}
+.claim-entry {
+  max-width: 36rem;
+  margin-top: 1.5rem;
+}
+#claim-amount {
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  font-size: 1.3rem;
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 12rem;
+  margin-top: 0.4rem;
+}
+#claim-error:not(:empty) {
+  color: var(--red);
+}
+.debt-check {
+  margin-top: 1.5rem;
+  background: var(--wash);
+  padding: clamp(0.8rem, 3vw, 1.5rem);
+}
+.claim-facts dd {
+  margin: 0;
+}
+.claim-facts div {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--line);
+}
