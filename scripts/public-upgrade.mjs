@@ -57,6 +57,8 @@ try {
       errors = [];
     for (const p of [voyage, testimony]) p.on("pageerror", (e) => errors.push(e.message));
     await voyage.goto(base);
+    await waitForEdition(voyage, before);
+    await voyage.reload();
     await wait(voyage, "offline", "Complete edition available offline");
     await voyage.locator("#note").fill(`${name}: keep the public voyage through this deployment`);
     await voyage.locator("#pin").click();
@@ -188,7 +190,7 @@ try {
     });
   }
   await writeFile(
-    "docs/verification/public-upgrade.json",
+    "docs/delivery-audit/public-upgrade.json",
     `${JSON.stringify({ checkedAt: new Date().toISOString(), base, before, after: expected, observations: receipts, previousHashedModules: modules }, null, 2)}\n`,
   );
   console.log(receipts);

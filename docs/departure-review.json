@@ -1,12 +1,12 @@
 {
-  "checkedAt": "2026-11-05T01:08:24.155Z",
+  "checkedAt": "2026-11-05T01:45:44.183Z",
   "build": {
-    "edition": "7ed04c19ca9d5ba62a59",
+    "edition": "e7d01a374f11d57b1166",
     "files": [
       {
-        "path": "assets/source-BUCA-luo.js",
+        "path": "assets/source-CjcHxMqz.js",
         "bytes": 40531,
-        "sha256": "9c057af415c8958b0572539464a7c04718375067013d7e98671b65a7536fc33a"
+        "sha256": "618792438b5b9461511d5617856ae6689e090e8f138f7b8195874b104bf7f59c"
       },
       {
         "path": "assets/source-DZso9vH-.css",
@@ -14,14 +14,14 @@
         "sha256": "1656f4c7bc14cf0e0347076236529f65413c1d9d4a04dd947039e7d01b540716"
       },
       {
-        "path": "assets/testimony-D12WB8Ir.js",
+        "path": "assets/testimony-BbjH-J-O.js",
         "bytes": 31856,
-        "sha256": "07b5bf5455a61c40623de2d6261ce1d87dab02ba797f6dc685f7b957649bfe68"
+        "sha256": "56b914cb50e01f6a05cf504b7d5227c0cbe21a70174682fe50a23a33d50a7efa"
       },
       {
-        "path": "assets/voyage-DoEHgkoQ.js",
+        "path": "assets/voyage-CLjhzxHU.js",
         "bytes": 34230,
-        "sha256": "f97a135d534184a0591d12127db2a66cfe88a31976533d2b6faa204dc87ed707"
+        "sha256": "676c06973bdb49fd3f34012380f30c1c886dca381222a9df8926c4329262ed86"
       },
       {
         "path": "fonts/gentium-book-plus-400-greek-ext.woff2",
@@ -51,7 +51,7 @@
       {
         "path": "index.html",
         "bytes": 1082,
-        "sha256": "bd29d7bd124653fa9217e3fc9f94d3a156e44daab4c7e12549dc9bb05237d8c2"
+        "sha256": "778fd066850148d3d3e6e7e52827330efece387a0a2cfd57e0f048eafb93688a"
       },
       {
         "path": "LICENSE.txt",
@@ -120,13 +120,13 @@
       },
       {
         "path": "sw.js",
-        "bytes": 9768,
-        "sha256": "29b2e1942ebc46ec760960192b816916c9af8a139372335c07dd7e579f291b13"
+        "bytes": 9899,
+        "sha256": "58aa68b002618b76d7502a7f377d593677a8e5f7901570fa0d5f8718e91f45c3"
       },
       {
         "path": "testimony.html",
         "bytes": 1094,
-        "sha256": "a613ac8cdfe3b07608a00799ff64eb21b19ad96a042541b736bf41c32f811a0f"
+        "sha256": "3d3500f17339c5337b4c44577de04fc8d770d9f978a569c1eb62d8e99828ecf7"
       }
     ]
   },
@@ -399,13 +399,13 @@
     },
     {
       "path": "examples/departure-reading.html.gz",
-      "bytes": 2430349,
-      "sha256": "d03b0015dbf473659b11cd4f0a9fc9370b9295316d97fd24dfdb451f3d7faa02"
+      "bytes": 2430350,
+      "sha256": "4a401a4a73861ecb0c4b97f896ab8be8fb6c400470e9bbef6c76963c3922d055"
     },
     {
       "path": "examples/departure-reading.pdf",
-      "bytes": 3049427,
-      "sha256": "f3f2129f2b59b8638b6a16a2f690755380a3e07b3975cdb6725829203479c5c1"
+      "bytes": 3049421,
+      "sha256": "1f41d3cdd042f189782642c0bb31b0840d2a77b04e4b3bc819e8df7757212d46"
     }
   ]
 }

@@ -59,8 +59,11 @@ page-side revisions and controller identity discard superseded replies.
 A controlled navigation first tries the network for up to two seconds, then
 uses a verified saved page. HTTP errors and maintenance HTML cannot displace
 that page. The build marks genuine entry documents with their edition. A
-current-edition response must match its expected digest; a marked newer edition
-can load so a saved worker does not prevent upgrades. With no valid network
+current-edition response must match its expected digest. A verified saved page
+takes precedence over a differently marked network document: an edition marker
+alone proves neither chronology nor compatibility. When no valid saved page
+exists, a marked network candidate can bootstrap; readiness still requires the
+matching worker and its complete verified inventory. With no valid network
 page and no valid retained page, the worker returns an explicit unavailable
 response instead of serving a corrupt document.
 
@@ -144,7 +147,7 @@ notes. The test-only long/malicious notes remain confined to audit artifacts.
 
 ## Reviewed edition and receipts
 
-The reviewed production edition is **`7ed04c19ca9d5ba62a59`**: 25 built files,
+The reviewed production edition is **`e7d01a374f11d57b1166`**: 25 built files,
 with 24 files in its worker inventory. All of the following receipts identify
 that same complete build, apart from the explicitly labeled older failure
 receipt and the deliberately different second upgrade fixture.
@@ -165,8 +168,8 @@ receipt and the deliberately different second upgrade fixture.
 | SHA-256 inventory of retained examples and screenshots | [Artifacts](delivery-audit/artifacts.json)        |
 
 At the controlled shared 64,000-byte/s limit, the first p. 107 transfer took
-19.740 seconds in Chromium and 19.583 seconds in Firefox. Full repairs took
-49.297 and 49.439 seconds respectively. The receipts retain the underlying
+more than fifteen seconds in both browsers. Full repairs took
+49.316 and 49.417 seconds respectively. The receipts retain the underlying
 transfer timings and byte counts. These are controlled workload observations,
 not estimates of ancient travel, representative user networks or Internet speed.
 
@@ -174,7 +177,7 @@ Fresh isolated installs passed on both **Node 24.22.1** (the documented major)
 and **Node 26.7.0** (the interactive shell). Each ran install, lint, typecheck,
 24 tests, production build, source concordance and the 4,416-account / 39,744-proposal
 independent oracle. Both clean builds were byte-for-byte identical to the reviewed
-25-file output. Source/build inputs are committed in `57a2fef`.
+25-file output. Source/build inputs are committed in `465061c`.
 
 All eight refreshed screenshots were inspected. Desktop controls and Greek
 remain beside their consequences and source scan; phone layouts stack the work
@@ -192,3 +195,28 @@ node scripts/examples-audit.mjs
 Public source, hosted-file identity, actual public upgrade and catalogue discovery
 are verified separately in the [publication record](publication.md). No remote CI
 result is inferred from these local checks.
+
+## Additional entry and audit-runner regression
+
+A real older marked HTML document displaced a valid current saved entry in both
+browsers and produced an empty application. The [before](delivery-audit/entry-before.json)
+and [after](delivery-audit/entry-after.json) receipts retain that exact operation.
+The repaired worker serves its verified saved entry in both engines. Worker
+installation still proceeds through normal registration; edited tabs are never
+automatically reloaded.
+
+The installed Playwright version also accepted a Promise returned by an async
+`waitForFunction` predicate before its resolved value was true. The
+[polling regression](delivery-audit/poll.json) demonstrates the false acceptance
+and checks the replacement: explicitly await `page.evaluate`, accept only literal
+`true`, and bound the wait. Upgrade audits use that helper to identify the new
+controller before reloading an untouched bootstrap tab. The complete current
+local matrices above were rerun after this correction.
+
+The first real public handover attempt from `582e41255fddd59639dd` to
+`7ed04c19ca9d5ba62a59` timed out and is
+[retained as incomplete](delivery-audit/first-public-upgrade.json). It is not a
+successful handover receipt. The intermediate edition's
+[hosted bytes](delivery-audit/first-hosted.json) and
+[actual TCP-outage journeys](delivery-audit/first-public-delivery.json) passed
+separately. Current public verification belongs to the publication record.

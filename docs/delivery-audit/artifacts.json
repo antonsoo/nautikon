@@ -1,5 +1,5 @@
 {
-  "buildInputCommit": "57a2fef500000e1ec0fc7ea7025a21a3579e3e7c",
+  "buildInputCommit": "465061cc3ca9c0355a8af5113d9e55411be8b525",
   "generation": "node scripts/example.mjs; native browser downloads and tagged prints",
   "files": [
     {
@@ -24,8 +24,8 @@
     },
     {
       "path": "docs/assets/testimony-1440.png",
-      "bytes": 138119,
-      "sha256": "0645b861358e0e1e5385622aeafd7232e7e4eb2684cab27b32ac2daf40bd4c79"
+      "bytes": 138078,
+      "sha256": "2b89b289447617ae8943c441f525d6b1959d5e8e2680c563fb2147821a33dec1"
     },
     {
       "path": "docs/assets/testimony-375.png",
@@ -64,13 +64,13 @@
     },
     {
       "path": "examples/default-reading.html.gz",
-      "bytes": 2429066,
-      "sha256": "545ce1b74c746a56ef8896e70f59ac0014288e8a63180b81cdb22a135619ef0d"
+      "bytes": 2429067,
+      "sha256": "2bbc69a11a422b8450995d4138f73e1bdbaedf9257d9dd9833c0667057e445df"
     },
     {
       "path": "examples/default-reading.pdf",
-      "bytes": 3027149,
-      "sha256": "179dca4f067838f7443a906d63fd2fcfe6830436dc1555f3dfc06d7bfa00092c"
+      "bytes": 3027140,
+      "sha256": "ddf0d0f26f2ceba5ec65f4b2c362244f48f68a33e6874903ab2d5b7bc6e79172"
     },
     {
       "path": "examples/default-timeline.svg",
@@ -89,13 +89,13 @@
     },
     {
       "path": "examples/departure-reading.html.gz",
-      "bytes": 2430349,
-      "sha256": "d03b0015dbf473659b11cd4f0a9fc9370b9295316d97fd24dfdb451f3d7faa02"
+      "bytes": 2430350,
+      "sha256": "4a401a4a73861ecb0c4b97f896ab8be8fb6c400470e9bbef6c76963c3922d055"
     },
     {
       "path": "examples/departure-reading.pdf",
-      "bytes": 3049427,
-      "sha256": "f3f2129f2b59b8638b6a16a2f690755380a3e07b3975cdb6725829203479c5c1"
+      "bytes": 3049421,
+      "sha256": "1f41d3cdd042f189782642c0bb31b0840d2a77b04e4b3bc819e8df7757212d46"
     },
     {
       "path": "examples/departure-timeline.svg",
@@ -120,12 +120,12 @@
     {
       "path": "examples/testimony-reading.html.gz",
       "bytes": 2424355,
-      "sha256": "880d56880fbce14fca5588b04e1ab2e0959e7a3df548e0b7549f858e90860081"
+      "sha256": "43c356b3ffbc77253396b62270a75b89787e7a379759b1c657c683027a63d8ee"
     },
     {
       "path": "examples/testimony-reading.pdf",
-      "bytes": 2931216,
-      "sha256": "49987df47e5c71eda7fee79b3c842b4319512ac8f4ba888fa5aacf9f026e874c"
+      "bytes": 2931213,
+      "sha256": "8bdf0efd8554bcd2e40150d80abf97a81234d7fcb452f890f38e67dca509479a"
     }
   ]
 }

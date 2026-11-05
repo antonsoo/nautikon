@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-11-05T01:42:27.249Z",
+  "sdk": "1.63.0",
+  "observations": [
+    {
+      "browser": "chromium",
+      "version": "153.0.8010.12",
+      "asyncFalseRejected": true,
+      "delayedTrueEvaluations": 3,
+      "installedSdkReturnedFalseHandle": true
+    },
+    {
+      "browser": "firefox",
+      "version": "155.0",
+      "asyncFalseRejected": true,
+      "delayedTrueEvaluations": 3,
+      "installedSdkReturnedFalseHandle": true
+    }
+  ]
+}

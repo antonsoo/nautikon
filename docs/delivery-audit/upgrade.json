@@ -1,18 +1,18 @@
 {
-  "checkedAt": "2026-11-05T01:09:39.567Z",
+  "checkedAt": "2026-11-05T01:46:52.507Z",
   "fixture": "Two builds of one committed source; second adds an HTML comment and a changed retained notice; never published",
   "observations": [
     {
       "browser": "chromium",
-      "before": "7ed04c19ca9d5ba62a59",
-      "after": "590f830652a11122439d",
-      "oldPageLabel": "This page\u2019s complete edition is not retained. A different edition is controlling this tab. Download your notebook JSON before reloading, then reopen it in the updated page. Your edits remain in this tab until then.",
+      "before": "e7d01a374f11d57b1166",
+      "after": "2e5966dcc53691a61bb2",
+      "oldPageLabel": "This page’s complete edition is not retained. A different edition is controlling this tab. Download your notebook JSON before reloading, then reopen it in the updated page. Your edits remain in this tab until then.",
       "oldWorkPreserved": true,
       "mixedEditionExportRefused": true,
       "notebookMigrated": true,
       "testimonyNotebookAndKeptCheckMigrated": true,
       "currentWorker": {
-        "edition": "590f830652a11122439d",
+        "edition": "2e5966dcc53691a61bb2",
         "complete": true,
         "count": 24,
         "total": 24
@@ -21,7 +21,7 @@
       "currentOnlyCache": true,
       "cacheInventory": [
         {
-          "name": "nautikon-590f830652a11122439d",
+          "name": "nautikon-2e5966dcc53691a61bb2",
           "files": 24
         }
       ],
@@ -32,15 +32,15 @@
     },
     {
       "browser": "firefox",
-      "before": "7ed04c19ca9d5ba62a59",
-      "after": "590f830652a11122439d",
-      "oldPageLabel": "This page\u2019s complete edition is not retained. A different edition is controlling this tab. Download your notebook JSON before reloading, then reopen it in the updated page. Your edits remain in this tab until then.",
+      "before": "e7d01a374f11d57b1166",
+      "after": "2e5966dcc53691a61bb2",
+      "oldPageLabel": "This page’s complete edition is not retained. A different edition is controlling this tab. Download your notebook JSON before reloading, then reopen it in the updated page. Your edits remain in this tab until then.",
       "oldWorkPreserved": true,
       "mixedEditionExportRefused": true,
       "notebookMigrated": true,
       "testimonyNotebookAndKeptCheckMigrated": true,
       "currentWorker": {
-        "edition": "590f830652a11122439d",
+        "edition": "2e5966dcc53691a61bb2",
         "complete": true,
         "count": 24,
         "total": 24
@@ -49,7 +49,7 @@
       "currentOnlyCache": true,
       "cacheInventory": [
         {
-          "name": "nautikon-590f830652a11122439d",
+          "name": "nautikon-2e5966dcc53691a61bb2",
           "files": 24
         }
       ],
