@@ -64,7 +64,7 @@ are outside the model.
 
 ## A missing date. Two debts?
 
-In the local **Missing evidence** investigation, withhold the departure while
+In the **Missing evidence** investigation, withhold the departure while
 keeping arrival 25 days after Arcturus. Both **3,675** and **3,900** drachmas
 remain possible before repayment, assuming no deduction. Propose **3,800**:
 no permitted departure gives that amount. Two possible debts do not license
@@ -83,7 +83,7 @@ example. The check distinguishes what follows, what is merely possible, what is
 excluded, and what this model cannot calculate. Sale proceeds and a paid balance
 never silently become the debt being checked.
 
-![The complete departure alternatives and a checked debt proposal](docs/assets/departure-desktop.png)
+![An early arrival fixes the lower rate while the kept proposal retains its earlier facts](docs/assets/departure-desktop.png)
 
 The [source, model and operated review](docs/departure-review.md) gives the
 completeness argument, exact replay and limitations. [A checked notebook](examples/departure-notebook.json)
@@ -96,8 +96,9 @@ gzip -dc examples/departure-reading.html.gz > /tmp/nautikon-departure-reading.ht
 
 New voyage
 notebooks use version 2; version 1 opens with an explicit migration notice.
-Version 2 requires this updated local edition. The published edition has not
-been changed by this work.
+Version 2 requires the updated edition. The [delivery audit](docs/delivery-audit.md)
+records the source, saved-reading and offline checks; [publication evidence](docs/publication.md)
+is recorded separately.
 
 ## What does a witness establish?
 
@@ -167,6 +168,13 @@ saving do not change the captured reading. Notes are escaped as text.
 **Copy voyage link** includes current voyage facts, with neither notes nor the
 kept account. It does not silently replace the page URL.
 
+The [delivery audit](docs/delivery-audit.md) repairs false offline readiness,
+active downloads cut off by elapsed-time deadlines, maintenance-page navigation,
+and narrow saved-reading layouts. Readiness verifies the actual cached bodies.
+A progressing source transfer can last longer than fifteen seconds; a stalled
+one remains bounded. Manual saving can be cancelled, and a valid controller can
+finish a repair without waiting on an unrelated native update job.
+
 Production retains a complete edition only after an integrity-checked worker
 installation and matching file inventory. Source failures, cache damage and
 recovery are observable. Check the footer before going offline. Browser storage
@@ -206,13 +214,15 @@ npm run test:browser
 npm run test:faults
 npm run test:testimony
 npm run test:departure
+npm run test:portable
+npm run test:delivery
 npm run test:audit
 npm run test:offline-bodies
 npm run test:rollout
 ```
 
 The independent day-enumeration / exact-fraction Python oracle checks **4,416**
-accounts and **39,744** debt proposals. Twenty focused tests check the distinctions
+accounts and **39,744** debt proposals. Twenty-four focused tests check the distinctions
 and import boundaries. Browser review
 covers Chromium and Firefox at desktop and 375 px, native downloads, source
 navigation, panning, a real unavailable origin, two controlled tabs, cache damage

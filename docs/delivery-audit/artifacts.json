@@ -1,0 +1,131 @@
+{
+  "buildInputCommit": "57a2fef500000e1ec0fc7ea7025a21a3579e3e7c",
+  "generation": "node scripts/example.mjs; native browser downloads and tagged prints",
+  "files": [
+    {
+      "path": "docs/assets/alternatives-audit.png",
+      "bytes": 68634,
+      "sha256": "d74cc55be01510778cc1110d1fcffcc2c1f5122a093d2d1bc9fd73d7a94c8946"
+    },
+    {
+      "path": "docs/assets/departure-desktop.png",
+      "bytes": 151908,
+      "sha256": "29ec9bce0e40dfe056aa93c31257c61c86fef37b482863353f2bb92e1834f4a9"
+    },
+    {
+      "path": "docs/assets/departure-phone.png",
+      "bytes": 123317,
+      "sha256": "6f7892c3343da95d30d5f4e1baaf354b517f4e673e75a7c5f49f6824d036cea4"
+    },
+    {
+      "path": "docs/assets/greek-source-1440.png",
+      "bytes": 660060,
+      "sha256": "41d92a673312f20822f5eb2304d0315e201d17e74953ce8a63ce17cb26f96fc6"
+    },
+    {
+      "path": "docs/assets/testimony-1440.png",
+      "bytes": 138119,
+      "sha256": "0645b861358e0e1e5385622aeafd7232e7e4eb2684cab27b32ac2daf40bd4c79"
+    },
+    {
+      "path": "docs/assets/testimony-375.png",
+      "bytes": 71623,
+      "sha256": "aa4893e90850f6a285675883df64473fe7240ded61abf2bf8a2a47c836678393"
+    },
+    {
+      "path": "docs/assets/testimony-source-1440.png",
+      "bytes": 564193,
+      "sha256": "ae3c3f9234bd58ae64359c8f42de864380eb52b41c02e20dc582a28421a127dc"
+    },
+    {
+      "path": "docs/assets/voyage-1440.png",
+      "bytes": 156995,
+      "sha256": "900d706cee36a80cdbb8e054a56d3f5c64d32c029975d54686e917e5bb59368c"
+    },
+    {
+      "path": "docs/assets/voyage-375.png",
+      "bytes": 68805,
+      "sha256": "dcb94369aa65ad32c7887570a3d8ef5396c50d1756e7f6289419c4bef16a2055"
+    },
+    {
+      "path": "examples/README.md",
+      "bytes": 3388,
+      "sha256": "983b24a4008750021a735b8d92f790f173db7c329de5fadf36f4cf056fe6137f"
+    },
+    {
+      "path": "examples/default-ledger.csv",
+      "bytes": 4262,
+      "sha256": "d859ff773e4fa4d8cea89cdd1825a717b19e7345c3f0acf3385b8de283201ce9"
+    },
+    {
+      "path": "examples/default-notebook.json",
+      "bytes": 957,
+      "sha256": "dcd79ea2fbd8a0365987ac9206e2ce4652c71f66d148d8ec8ccfa4361020703f"
+    },
+    {
+      "path": "examples/default-reading.html.gz",
+      "bytes": 2429066,
+      "sha256": "545ce1b74c746a56ef8896e70f59ac0014288e8a63180b81cdb22a135619ef0d"
+    },
+    {
+      "path": "examples/default-reading.pdf",
+      "bytes": 3027149,
+      "sha256": "179dca4f067838f7443a906d63fd2fcfe6830436dc1555f3dfc06d7bfa00092c"
+    },
+    {
+      "path": "examples/default-timeline.svg",
+      "bytes": 1316,
+      "sha256": "4159cd53259677624f738347addff92e3e4478ea67d5fd2f2a220d5e1db3973a"
+    },
+    {
+      "path": "examples/departure-ledger.csv",
+      "bytes": 7130,
+      "sha256": "8e03136ce5c04561b7a99c9422d34faabef2b7811f0e65b41dbaffb594922a89"
+    },
+    {
+      "path": "examples/departure-notebook.json",
+      "bytes": 1393,
+      "sha256": "db9e7ee07774838d5e4c420d525ef9d3161c982aeedb749b651a78281ab51f39"
+    },
+    {
+      "path": "examples/departure-reading.html.gz",
+      "bytes": 2430349,
+      "sha256": "d03b0015dbf473659b11cd4f0a9fc9370b9295316d97fd24dfdb451f3d7faa02"
+    },
+    {
+      "path": "examples/departure-reading.pdf",
+      "bytes": 3049427,
+      "sha256": "f3f2129f2b59b8638b6a16a2f690755380a3e07b3975cdb6725829203479c5c1"
+    },
+    {
+      "path": "examples/departure-timeline.svg",
+      "bytes": 1339,
+      "sha256": "376f506ee437c3976838e68554b83aa17f0de6355c9bc8e5779973ebdc0d0f55"
+    },
+    {
+      "path": "examples/testimony-count.svg",
+      "bytes": 2209,
+      "sha256": "f98562f6e2e731dfd451dc3cb73333a807b23a4528bcfb3349577fd3118e86ca"
+    },
+    {
+      "path": "examples/testimony-inferences.csv",
+      "bytes": 482,
+      "sha256": "40f41e65e3ab33d846fd60a522ae05a338fc5b6509aa6d03dcd84cdff11f3e83"
+    },
+    {
+      "path": "examples/testimony-notebook.json",
+      "bytes": 814,
+      "sha256": "3f078679aceb7302d9749e5f8f376c2ac6cddf396dfb7aa0a4a964c6ecece2aa"
+    },
+    {
+      "path": "examples/testimony-reading.html.gz",
+      "bytes": 2424355,
+      "sha256": "880d56880fbce14fca5588b04e1ab2e0959e7a3df548e0b7549f858e90860081"
+    },
+    {
+      "path": "examples/testimony-reading.pdf",
+      "bytes": 2931216,
+      "sha256": "49987df47e5c71eda7fee79b3c842b4319512ac8f4ba888fa5aacf9f026e874c"
+    }
+  ]
+}

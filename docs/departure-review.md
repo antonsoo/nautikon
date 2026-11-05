@@ -3,8 +3,8 @@
 This change makes an existing sea-loan investigation answer a question its earlier
 account could not: **what can a known arrival establish when departure is missing?**
 It adds an operable debt proposal and preserves its original evidence through
-later edits, native downloads and offline reopening. This work is local; the
-published site and remote branches have not been changed.
+later edits, native downloads and offline reopening. The later [delivery audit](delivery-audit.md) tests and repairs the saved-file and
+offline promises; [publication](publication.md) is recorded separately.
 
 ## Reproduce the earlier gap
 
@@ -144,7 +144,7 @@ Its accessibility scan reports no axe violations in those operated states.
 
 The independent Python checker enumerates raw permitted days without importing
 the TypeScript partition. It uses exact fractions for the accounts and checks
-4,416 accounts and 39,744 debt proposals. The unit suite has 20 cases, including
+4,416 accounts and 39,744 debt proposals. The unit suite now has 24 cases, including
 complete agreement of the partition with raw day enumeration at all 120 arrival
 settings. These support the finite calculation, not a claim about historical
 sailing, document authenticity or litigation.
@@ -163,14 +163,14 @@ and `npm run verify:model` passed there. `diff -qr` found no byte differences
 between that clean build and the reviewed production output. The current receipt
 also includes the original voyage and testimony suites' four journeys each,
 verified against the same complete build identity: twelve journeys altogether.
-The printed sample was inspected, including the kept facts and alternatives;
-its sixteen-page browser PDF is tagged and contains no JavaScript.
+The refreshed printed sample was inspected, including the kept facts and
+alternatives. Its browser PDF is tagged and contains no JavaScript.
 
 The existing voyage browser suite separately checks the original workshop,
 source images and actual export bytes, an unavailable origin, browser-offline
 reloads, and two-tab cache damage/repair. The testimony room retains its separate
-notebook schema and source-inference workflow. No public deployment or remote
-CI result is claimed. Production build: **`npm run build`**, output **`dist/`**,
+notebook schema and source-inference workflow. Public deployment and remote execution are assessed in the
+[publication record](publication.md), independently of this model review. Production build: **`npm run build`**, output **`dist/`**,
 base **`/nautikon/`**.
 
 Suggested repository description: **Read an Athenian sea-loan contract; test

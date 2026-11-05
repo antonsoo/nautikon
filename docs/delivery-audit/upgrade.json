@@ -1,0 +1,62 @@
+{
+  "checkedAt": "2026-11-05T01:09:39.567Z",
+  "fixture": "Two builds of one committed source; second adds an HTML comment and a changed retained notice; never published",
+  "observations": [
+    {
+      "browser": "chromium",
+      "before": "7ed04c19ca9d5ba62a59",
+      "after": "590f830652a11122439d",
+      "oldPageLabel": "This page\u2019s complete edition is not retained. A different edition is controlling this tab. Download your notebook JSON before reloading, then reopen it in the updated page. Your edits remain in this tab until then.",
+      "oldWorkPreserved": true,
+      "mixedEditionExportRefused": true,
+      "notebookMigrated": true,
+      "testimonyNotebookAndKeptCheckMigrated": true,
+      "currentWorker": {
+        "edition": "590f830652a11122439d",
+        "complete": true,
+        "count": 24,
+        "total": 24
+      },
+      "currentCachePresent": true,
+      "currentOnlyCache": true,
+      "cacheInventory": [
+        {
+          "name": "nautikon-590f830652a11122439d",
+          "files": 24
+        }
+      ],
+      "currentOfflineExport": true,
+      "workerMessagingErrors": [],
+      "workerMessagingLabel": "The complete edition is not retained. Keep a notebook download; reconnect and retry offline saving.",
+      "otherPageErrors": []
+    },
+    {
+      "browser": "firefox",
+      "before": "7ed04c19ca9d5ba62a59",
+      "after": "590f830652a11122439d",
+      "oldPageLabel": "This page\u2019s complete edition is not retained. A different edition is controlling this tab. Download your notebook JSON before reloading, then reopen it in the updated page. Your edits remain in this tab until then.",
+      "oldWorkPreserved": true,
+      "mixedEditionExportRefused": true,
+      "notebookMigrated": true,
+      "testimonyNotebookAndKeptCheckMigrated": true,
+      "currentWorker": {
+        "edition": "590f830652a11122439d",
+        "complete": true,
+        "count": 24,
+        "total": 24
+      },
+      "currentCachePresent": true,
+      "currentOnlyCache": true,
+      "cacheInventory": [
+        {
+          "name": "nautikon-590f830652a11122439d",
+          "files": 24
+        }
+      ],
+      "currentOfflineExport": true,
+      "workerMessagingErrors": [],
+      "workerMessagingLabel": "The complete edition is not retained. Keep a notebook download; reconnect and retry offline saving.",
+      "otherPageErrors": []
+    }
+  ]
+}

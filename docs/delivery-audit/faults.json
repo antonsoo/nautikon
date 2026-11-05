@@ -1,0 +1,157 @@
+{
+  "checkedAt": "2026-11-05T01:06:58.679Z",
+  "build": {
+    "edition": "7ed04c19ca9d5ba62a59",
+    "files": [
+      {
+        "path": "assets/source-BUCA-luo.js",
+        "bytes": 40531,
+        "sha256": "9c057af415c8958b0572539464a7c04718375067013d7e98671b65a7536fc33a"
+      },
+      {
+        "path": "assets/source-DZso9vH-.css",
+        "bytes": 12156,
+        "sha256": "1656f4c7bc14cf0e0347076236529f65413c1d9d4a04dd947039e7d01b540716"
+      },
+      {
+        "path": "assets/testimony-D12WB8Ir.js",
+        "bytes": 31856,
+        "sha256": "07b5bf5455a61c40623de2d6261ce1d87dab02ba797f6dc685f7b957649bfe68"
+      },
+      {
+        "path": "assets/voyage-DoEHgkoQ.js",
+        "bytes": 34230,
+        "sha256": "f97a135d534184a0591d12127db2a66cfe88a31976533d2b6faa204dc87ed707"
+      },
+      {
+        "path": "fonts/gentium-book-plus-400-greek-ext.woff2",
+        "bytes": 9356,
+        "sha256": "f4cbbee8404f7275cdece60d170d787d693df853452ef43a7b504d73eca2d658"
+      },
+      {
+        "path": "fonts/gentium-book-plus-400-greek.woff2",
+        "bytes": 18168,
+        "sha256": "cba273ba7a0fbe810e3531f5cc62fd4e963da7c5d32b4981c3f30fe562aea343"
+      },
+      {
+        "path": "fonts/gentium-book-plus-400-latin-ext.woff2",
+        "bytes": 57824,
+        "sha256": "46b8923c77eceb874e1b6a28ce08d56293641382ea0382f7043139bfff8f2383"
+      },
+      {
+        "path": "fonts/gentium-book-plus-400-latin.woff2",
+        "bytes": 21564,
+        "sha256": "dd5d2902dac9c11d3acc42b0e54a74b4f2db9bd4a7d6872c23338f70df29ca7e"
+      },
+      {
+        "path": "fonts/OFL.txt",
+        "bytes": 4533,
+        "sha256": "72a6f68e8715c4de18823c2ec0bd54d3b0de0f8cc143615c2131ed998077df60"
+      },
+      {
+        "path": "index.html",
+        "bytes": 1082,
+        "sha256": "bd29d7bd124653fa9217e3fc9f94d3a156e44daab4c7e12549dc9bb05237d8c2"
+      },
+      {
+        "path": "LICENSE.txt",
+        "bytes": 4654,
+        "sha256": "5bf05ce4f512d2bb48510eeb67f9a7576b4b7f1553ab41e69723e9c5e0e45ee7"
+      },
+      {
+        "path": "sources/CC-BY-SA-4.0.txt",
+        "bytes": 20138,
+        "sha256": "28a9529c7d0bb4dc51f4bf5c116a3d16ef247a052f7591466768ddf563fd1cf5"
+      },
+      {
+        "path": "sources/NOTICE.txt",
+        "bytes": 1694,
+        "sha256": "ef0552a02ceba8e7f934fe8456831bd2206962da8471b6b0925db45c3de75c05"
+      },
+      {
+        "path": "sources/perseus-eng2.xml",
+        "bytes": 44863,
+        "sha256": "8a9f4a7fcef782be0ad15289fdbe22bdd188ef0094b425fd15e332cd6990723b"
+      },
+      {
+        "path": "sources/perseus-grc2.xml",
+        "bytes": 54489,
+        "sha256": "a438785a11d7b300a4afe56b5d3cb11d227a7cabac7fc90ca0355fa1ceb4cc1a"
+      },
+      {
+        "path": "sources/provenance.json",
+        "bytes": 1337,
+        "sha256": "9276ecfddaa4c6b96576175827041e00f9e7f24b5c2a707c9681a3d5d8fdb5c4"
+      },
+      {
+        "path": "sources/rennie-imprint.jpg",
+        "bytes": 134932,
+        "sha256": "edd9ed2ba58e51fe173ee64c2c9d9de79d276eb87785b923e744088409c95d12"
+      },
+      {
+        "path": "sources/rennie-p107.jpg",
+        "bytes": 411629,
+        "sha256": "c36220d68c3487f764b0873b2630d31e07999ff57c92995eb3823ce6b65874fa"
+      },
+      {
+        "path": "sources/rennie-p108.jpg",
+        "bytes": 450273,
+        "sha256": "8e7ae4d181116e2f7d91fb5a3c56806a2958a78f345342caf272281c9c1e7909"
+      },
+      {
+        "path": "sources/rennie-p109.jpg",
+        "bytes": 406544,
+        "sha256": "f08cd4893ed0d887c213c66fd47b420462b1215b6683f93aab36cefb14c0e1ed"
+      },
+      {
+        "path": "sources/rennie-p110.jpg",
+        "bytes": 380210,
+        "sha256": "a4f9368da4e33d393e29293f63648fe83e4347e6dd8412aed815bd417ec87ef6"
+      },
+      {
+        "path": "sources/rennie-p111.jpg",
+        "bytes": 394754,
+        "sha256": "8f91b7d5edca666e0c9cf9f9cb168184149202f0e1fc6bed56f682313ec583a0"
+      },
+      {
+        "path": "sources/rennie-title.jpg",
+        "bytes": 158615,
+        "sha256": "63d8243d7da3c8f0817c9c3112ba7781f979f2eacd945ccd7ff8c05936338c32"
+      },
+      {
+        "path": "sw.js",
+        "bytes": 9768,
+        "sha256": "29b2e1942ebc46ec760960192b816916c9af8a139372335c07dd7e579f291b13"
+      },
+      {
+        "path": "testimony.html",
+        "bytes": 1094,
+        "sha256": "a613ac8cdfe3b07608a00799ff64eb21b19ad96a042541b736bf41c32f811a0f"
+      }
+    ]
+  },
+  "observations": [
+    {
+      "browser": "chromium",
+      "supersededSourceResponse": true,
+      "corruptExportRefused": true,
+      "exportCancelAndRetry": true,
+      "testimonyCorruptExportRefused": true,
+      "testimonyCancelRetryAndCapturedSnapshot": true,
+      "corruptCacheInvalidatedAcrossTabs": true,
+      "repairFetchesFreshBytes": true,
+      "failedInstallCannotClaimReady": true
+    },
+    {
+      "browser": "firefox",
+      "supersededSourceResponse": true,
+      "corruptExportRefused": true,
+      "exportCancelAndRetry": true,
+      "testimonyCorruptExportRefused": true,
+      "testimonyCancelRetryAndCapturedSnapshot": true,
+      "corruptCacheInvalidatedAcrossTabs": true,
+      "repairFetchesFreshBytes": true,
+      "failedInstallCannotClaimReady": true
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "checkedAt": "2026-11-05T01:15:47.934Z",
+  "observations": [
+    {
+      "browser": "chromium",
+      "example": "default",
+      "width": 320,
+      "sourceFontAndNoticeBytesVerified": 18,
+      "nativeJsonRoundtrip": true,
+      "networkRequests": [],
+      "axeViolations": 0
+    },
+    {
+      "browser": "chromium",
+      "example": "testimony",
+      "width": 320,
+      "sourceFontAndNoticeBytesVerified": 18,
+      "nativeJsonRoundtrip": true,
+      "networkRequests": [],
+      "axeViolations": 0
+    },
+    {
+      "browser": "chromium",
+      "example": "departure",
+      "width": 320,
+      "sourceFontAndNoticeBytesVerified": 18,
+      "nativeJsonRoundtrip": true,
+      "networkRequests": [],
+      "axeViolations": 0
+    },
+    {
+      "browser": "firefox",
+      "example": "default",
+      "width": 320,
+      "sourceFontAndNoticeBytesVerified": 18,
+      "nativeJsonRoundtrip": true,
+      "networkRequests": [],
+      "axeViolations": 0
+    },
+    {
+      "browser": "firefox",
+      "example": "testimony",
+      "width": 320,
+      "sourceFontAndNoticeBytesVerified": 18,
+      "nativeJsonRoundtrip": true,
+      "networkRequests": [],
+      "axeViolations": 0
+    },
+    {
+      "browser": "firefox",
+      "example": "departure",
+      "width": 320,
+      "sourceFontAndNoticeBytesVerified": 18,
+      "nativeJsonRoundtrip": true,
+      "networkRequests": [],
+      "axeViolations": 0
+    }
+  ]
+}

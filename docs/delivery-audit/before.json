@@ -1,0 +1,652 @@
+{
+  "checkedAt": "2026-11-05T00:46:22.151Z",
+  "kind": "reproduced failures before repair",
+  "build": {
+    "edition": "041e2e1706e18593fd4f",
+    "files": [
+      {
+        "path": "assets/source-BDNHBpWX.js",
+        "bytes": 38282,
+        "sha256": "26dc4096fbc12ec83c659136ba46856760b430c89eb94844f0c310fe5e46180c"
+      },
+      {
+        "path": "assets/source-DZso9vH-.css",
+        "bytes": 12156,
+        "sha256": "1656f4c7bc14cf0e0347076236529f65413c1d9d4a04dd947039e7d01b540716"
+      },
+      {
+        "path": "assets/testimony-BnJ4NNId.js",
+        "bytes": 31502,
+        "sha256": "6140fc50915d4e316e4e4d80b0acfab0ce7d21ba6867a1f607d7334c61a988a0"
+      },
+      {
+        "path": "assets/voyage-B7HIbkqb.js",
+        "bytes": 33608,
+        "sha256": "1e8d0f3dce46f12e5684d6d7097cac87de6efb6e3903d6fdb9ed8fed14d7b73c"
+      },
+      {
+        "path": "fonts/gentium-book-plus-400-greek-ext.woff2",
+        "bytes": 9356,
+        "sha256": "f4cbbee8404f7275cdece60d170d787d693df853452ef43a7b504d73eca2d658"
+      },
+      {
+        "path": "fonts/gentium-book-plus-400-greek.woff2",
+        "bytes": 18168,
+        "sha256": "cba273ba7a0fbe810e3531f5cc62fd4e963da7c5d32b4981c3f30fe562aea343"
+      },
+      {
+        "path": "fonts/gentium-book-plus-400-latin-ext.woff2",
+        "bytes": 57824,
+        "sha256": "46b8923c77eceb874e1b6a28ce08d56293641382ea0382f7043139bfff8f2383"
+      },
+      {
+        "path": "fonts/gentium-book-plus-400-latin.woff2",
+        "bytes": 21564,
+        "sha256": "dd5d2902dac9c11d3acc42b0e54a74b4f2db9bd4a7d6872c23338f70df29ca7e"
+      },
+      {
+        "path": "fonts/OFL.txt",
+        "bytes": 4533,
+        "sha256": "72a6f68e8715c4de18823c2ec0bd54d3b0de0f8cc143615c2131ed998077df60"
+      },
+      {
+        "path": "index.html",
+        "bytes": 1021,
+        "sha256": "40237241366435a6f72a257da129d01a34b5f2c36548bb5cf8a32e720deadce0"
+      },
+      {
+        "path": "LICENSE.txt",
+        "bytes": 4654,
+        "sha256": "5bf05ce4f512d2bb48510eeb67f9a7576b4b7f1553ab41e69723e9c5e0e45ee7"
+      },
+      {
+        "path": "sources/CC-BY-SA-4.0.txt",
+        "bytes": 20138,
+        "sha256": "28a9529c7d0bb4dc51f4bf5c116a3d16ef247a052f7591466768ddf563fd1cf5"
+      },
+      {
+        "path": "sources/NOTICE.txt",
+        "bytes": 1694,
+        "sha256": "ef0552a02ceba8e7f934fe8456831bd2206962da8471b6b0925db45c3de75c05"
+      },
+      {
+        "path": "sources/perseus-eng2.xml",
+        "bytes": 44863,
+        "sha256": "8a9f4a7fcef782be0ad15289fdbe22bdd188ef0094b425fd15e332cd6990723b"
+      },
+      {
+        "path": "sources/perseus-grc2.xml",
+        "bytes": 54489,
+        "sha256": "a438785a11d7b300a4afe56b5d3cb11d227a7cabac7fc90ca0355fa1ceb4cc1a"
+      },
+      {
+        "path": "sources/provenance.json",
+        "bytes": 1337,
+        "sha256": "9276ecfddaa4c6b96576175827041e00f9e7f24b5c2a707c9681a3d5d8fdb5c4"
+      },
+      {
+        "path": "sources/rennie-imprint.jpg",
+        "bytes": 134932,
+        "sha256": "edd9ed2ba58e51fe173ee64c2c9d9de79d276eb87785b923e744088409c95d12"
+      },
+      {
+        "path": "sources/rennie-p107.jpg",
+        "bytes": 411629,
+        "sha256": "c36220d68c3487f764b0873b2630d31e07999ff57c92995eb3823ce6b65874fa"
+      },
+      {
+        "path": "sources/rennie-p108.jpg",
+        "bytes": 450273,
+        "sha256": "8e7ae4d181116e2f7d91fb5a3c56806a2958a78f345342caf272281c9c1e7909"
+      },
+      {
+        "path": "sources/rennie-p109.jpg",
+        "bytes": 406544,
+        "sha256": "f08cd4893ed0d887c213c66fd47b420462b1215b6683f93aab36cefb14c0e1ed"
+      },
+      {
+        "path": "sources/rennie-p110.jpg",
+        "bytes": 380210,
+        "sha256": "a4f9368da4e33d393e29293f63648fe83e4347e6dd8412aed815bd417ec87ef6"
+      },
+      {
+        "path": "sources/rennie-p111.jpg",
+        "bytes": 394754,
+        "sha256": "8f91b7d5edca666e0c9cf9f9cb168184149202f0e1fc6bed56f682313ec583a0"
+      },
+      {
+        "path": "sources/rennie-title.jpg",
+        "bytes": 158615,
+        "sha256": "63d8243d7da3c8f0817c9c3112ba7781f979f2eacd945ccd7ff8c05936338c32"
+      },
+      {
+        "path": "sw.js",
+        "bytes": 5778,
+        "sha256": "3ace72ff64218b0b4429e70c956322b84c6de8ffceb587e0ada26e94d34cea21"
+      },
+      {
+        "path": "testimony.html",
+        "bytes": 1033,
+        "sha256": "46dcf287cf2eb82f33b0310891e32bf499f2b7f54b0aea7bfdc3e33abe3c6dbb"
+      }
+    ]
+  },
+  "observations": [
+    {
+      "browser": "chromium",
+      "corruptCacheLabel": "Complete edition available offline: 24/24 files. Notebook edits stay in this tab until downloaded.",
+      "falselyReportsComplete": true,
+      "maintenanceReplacedLesson": true
+    },
+    {
+      "browser": "chromium",
+      "sharedBytesPerSecond": 128000,
+      "offlineLabel": "The complete edition is not retained. Offline installation failed; reconnect and retry offline saving.",
+      "sourceLabel": "Page 107 · complete checked image. The scan is of a printed edition, not the original contract.",
+      "transfers": [
+        {
+          "path": "/nautikon/",
+          "bytes": 1021,
+          "delivered": 1021,
+          "startedAt": 1793839516412,
+          "endedAt": 1793839516419,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/assets/voyage-B7HIbkqb.js",
+          "bytes": 33608,
+          "delivered": 33608,
+          "startedAt": 1793839516429,
+          "endedAt": 1793839517220,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/assets/source-DZso9vH-.css",
+          "bytes": 12156,
+          "delivered": 12156,
+          "startedAt": 1793839516430,
+          "endedAt": 1793839516719,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/assets/source-BDNHBpWX.js",
+          "bytes": 38282,
+          "delivered": 38282,
+          "startedAt": 1793839516430,
+          "endedAt": 1793839517322,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/fonts/gentium-book-plus-400-latin.woff2",
+          "bytes": 21564,
+          "delivered": 21564,
+          "startedAt": 1793839516729,
+          "endedAt": 1793839517271,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/sources/rennie-p107.jpg",
+          "bytes": 411629,
+          "delivered": 411629,
+          "startedAt": 1793839517330,
+          "endedAt": 1793839530381,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/sw.js",
+          "bytes": 5778,
+          "delivered": 5778,
+          "startedAt": 1793839517344,
+          "endedAt": 1793839517472,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/fonts/gentium-book-plus-400-greek-ext.woff2",
+          "bytes": 9356,
+          "delivered": 9356,
+          "startedAt": 1793839517389,
+          "endedAt": 1793839517773,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/fonts/gentium-book-plus-400-greek.woff2",
+          "bytes": 18168,
+          "delivered": 18168,
+          "startedAt": 1793839517389,
+          "endedAt": 1793839518125,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/LICENSE.txt",
+          "bytes": 4654,
+          "delivered": 4654,
+          "startedAt": 1793839517477,
+          "endedAt": 1793839517724,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/assets/source-BDNHBpWX.js",
+          "bytes": 38282,
+          "delivered": 38282,
+          "startedAt": 1793839517478,
+          "endedAt": 1793839518879,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/assets/source-DZso9vH-.css",
+          "bytes": 12156,
+          "delivered": 12156,
+          "startedAt": 1793839517478,
+          "endedAt": 1793839518024,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/assets/testimony-BnJ4NNId.js",
+          "bytes": 31502,
+          "delivered": 31502,
+          "startedAt": 1793839517727,
+          "endedAt": 1793839518828,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/assets/voyage-B7HIbkqb.js",
+          "bytes": 33608,
+          "delivered": 33608,
+          "startedAt": 1793839518028,
+          "endedAt": 1793839519131,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/fonts/OFL.txt",
+          "bytes": 4533,
+          "delivered": 4533,
+          "startedAt": 1793839518832,
+          "endedAt": 1793839518979,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/fonts/gentium-book-plus-400-greek-ext.woff2",
+          "bytes": 9356,
+          "delivered": 9356,
+          "startedAt": 1793839518883,
+          "endedAt": 1793839519180,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/fonts/gentium-book-plus-400-greek.woff2",
+          "bytes": 18168,
+          "delivered": 18168,
+          "startedAt": 1793839518982,
+          "endedAt": 1793839519581,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/fonts/gentium-book-plus-400-latin-ext.woff2",
+          "bytes": 57824,
+          "delivered": 57824,
+          "startedAt": 1793839519138,
+          "endedAt": 1793839520986,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/fonts/gentium-book-plus-400-latin.woff2",
+          "bytes": 21564,
+          "delivered": 21564,
+          "startedAt": 1793839519185,
+          "endedAt": 1793839519882,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/index.html",
+          "bytes": 1021,
+          "delivered": 1021,
+          "startedAt": 1793839519584,
+          "endedAt": 1793839519631,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/sources/CC-BY-SA-4.0.txt",
+          "bytes": 20138,
+          "delivered": 20138,
+          "startedAt": 1793839519637,
+          "endedAt": 1793839520284,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/sources/NOTICE.txt",
+          "bytes": 1694,
+          "delivered": 1694,
+          "startedAt": 1793839519885,
+          "endedAt": 1793839519983,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/sources/perseus-eng2.xml",
+          "bytes": 44863,
+          "delivered": 44863,
+          "startedAt": 1793839519985,
+          "endedAt": 1793839521437,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/sources/perseus-grc2.xml",
+          "bytes": 54489,
+          "delivered": 54489,
+          "startedAt": 1793839520287,
+          "endedAt": 1793839522040,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/sources/provenance.json",
+          "bytes": 1337,
+          "delivered": 1337,
+          "startedAt": 1793839520990,
+          "endedAt": 1793839521037,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/sources/rennie-imprint.jpg",
+          "bytes": 134932,
+          "delivered": 134932,
+          "startedAt": 1793839521049,
+          "endedAt": 1793839525308,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/sources/rennie-p107.jpg",
+          "bytes": 411629,
+          "delivered": 372253,
+          "startedAt": 1793839521440,
+          "endedAt": 1793839532477,
+          "aborted": true
+        },
+        {
+          "path": "/nautikon/sources/rennie-p108.jpg",
+          "bytes": 450273,
+          "delivered": 353053,
+          "startedAt": 1793839522044,
+          "endedAt": 1793839532477,
+          "aborted": true
+        },
+        {
+          "path": "/nautikon/sources/rennie-p109.jpg",
+          "bytes": 406544,
+          "delivered": 249053,
+          "startedAt": 1793839525311,
+          "endedAt": 1793839532477,
+          "aborted": true
+        },
+        {
+          "path": "/nautikon/sources/rennie-p110.jpg",
+          "bytes": 380210,
+          "delivered": 380210,
+          "startedAt": 1793839532478,
+          "endedAt": 1793839535451,
+          "aborted": false
+        }
+      ]
+    },
+    {
+      "browser": "firefox",
+      "corruptCacheLabel": "Complete edition available offline: 24/24 files. Notebook edits stay in this tab until downloaded.",
+      "falselyReportsComplete": true,
+      "maintenanceReplacedLesson": true
+    },
+    {
+      "browser": "firefox",
+      "sharedBytesPerSecond": 128000,
+      "offlineLabel": "The complete edition is not retained. Offline installation failed; reconnect and retry offline saving.",
+      "sourceLabel": "The operation was aborted. ",
+      "transfers": [
+        {
+          "path": "/nautikon/",
+          "bytes": 1021,
+          "delivered": 1021,
+          "startedAt": 1793839553710,
+          "endedAt": 1793839553758,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/assets/voyage-B7HIbkqb.js",
+          "bytes": 33608,
+          "delivered": 33608,
+          "startedAt": 1793839553791,
+          "endedAt": 1793839554563,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/assets/source-BDNHBpWX.js",
+          "bytes": 38282,
+          "delivered": 38282,
+          "startedAt": 1793839553794,
+          "endedAt": 1793839554662,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/assets/source-DZso9vH-.css",
+          "bytes": 12156,
+          "delivered": 12156,
+          "startedAt": 1793839553794,
+          "endedAt": 1793839554059,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/fonts/gentium-book-plus-400-latin.woff2",
+          "bytes": 21564,
+          "delivered": 21564,
+          "startedAt": 1793839554069,
+          "endedAt": 1793839554613,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/sources/rennie-p107.jpg",
+          "bytes": 411629,
+          "delivered": 327268,
+          "startedAt": 1793839554675,
+          "endedAt": 1793839569934,
+          "aborted": true
+        },
+        {
+          "path": "/nautikon/sw.js",
+          "bytes": 5778,
+          "delivered": 5778,
+          "startedAt": 1793839554677,
+          "endedAt": 1793839554813,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/fonts/gentium-book-plus-400-greek.woff2",
+          "bytes": 18168,
+          "delivered": 18168,
+          "startedAt": 1793839554722,
+          "endedAt": 1793839555464,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/fonts/gentium-book-plus-400-greek-ext.woff2",
+          "bytes": 9356,
+          "delivered": 9356,
+          "startedAt": 1793839554723,
+          "endedAt": 1793839555013,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/LICENSE.txt",
+          "bytes": 4654,
+          "delivered": 4654,
+          "startedAt": 1793839554936,
+          "endedAt": 1793839555163,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/assets/source-BDNHBpWX.js",
+          "bytes": 38282,
+          "delivered": 38282,
+          "startedAt": 1793839554937,
+          "endedAt": 1793839556721,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/assets/source-DZso9vH-.css",
+          "bytes": 12156,
+          "delivered": 12156,
+          "startedAt": 1793839554938,
+          "endedAt": 1793839555514,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/assets/testimony-BnJ4NNId.js",
+          "bytes": 31502,
+          "delivered": 31502,
+          "startedAt": 1793839555015,
+          "endedAt": 1793839556522,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/assets/voyage-B7HIbkqb.js",
+          "bytes": 33608,
+          "delivered": 33608,
+          "startedAt": 1793839555164,
+          "endedAt": 1793839556772,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/fonts/OFL.txt",
+          "bytes": 4533,
+          "delivered": 4533,
+          "startedAt": 1793839555466,
+          "endedAt": 1793839555715,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/fonts/gentium-book-plus-400-greek-ext.woff2",
+          "bytes": 9356,
+          "delivered": 9356,
+          "startedAt": 1793839555516,
+          "endedAt": 1793839555967,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/fonts/gentium-book-plus-400-greek.woff2",
+          "bytes": 18168,
+          "delivered": 18168,
+          "startedAt": 1793839555717,
+          "endedAt": 1793839556620,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/fonts/gentium-book-plus-400-latin-ext.woff2",
+          "bytes": 57824,
+          "delivered": 57824,
+          "startedAt": 1793839555969,
+          "endedAt": 1793839558756,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/fonts/gentium-book-plus-400-latin.woff2",
+          "bytes": 21564,
+          "delivered": 21564,
+          "startedAt": 1793839556523,
+          "endedAt": 1793839557597,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/index.html",
+          "bytes": 1021,
+          "delivered": 1021,
+          "startedAt": 1793839556623,
+          "endedAt": 1793839556671,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/sources/CC-BY-SA-4.0.txt",
+          "bytes": 20138,
+          "delivered": 20138,
+          "startedAt": 1793839556672,
+          "endedAt": 1793839557641,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/sources/NOTICE.txt",
+          "bytes": 1694,
+          "delivered": 1694,
+          "startedAt": 1793839556724,
+          "endedAt": 1793839556822,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/sources/perseus-eng2.xml",
+          "bytes": 44863,
+          "delivered": 44863,
+          "startedAt": 1793839556773,
+          "endedAt": 1793839558957,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/sources/perseus-grc2.xml",
+          "bytes": 54489,
+          "delivered": 54489,
+          "startedAt": 1793839556826,
+          "endedAt": 1793839559464,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/sources/provenance.json",
+          "bytes": 1337,
+          "delivered": 1337,
+          "startedAt": 1793839557599,
+          "endedAt": 1793839557692,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/sources/rennie-imprint.jpg",
+          "bytes": 134932,
+          "delivered": 134932,
+          "startedAt": 1793839557647,
+          "endedAt": 1793839564044,
+          "aborted": false
+        },
+        {
+          "path": "/nautikon/sources/rennie-p107.jpg",
+          "bytes": 411629,
+          "delivered": 257972,
+          "startedAt": 1793839557695,
+          "endedAt": 1793839569934,
+          "aborted": true
+        },
+        {
+          "path": "/nautikon/sources/rennie-p108.jpg",
+          "bytes": 450273,
+          "delivered": 235586,
+          "startedAt": 1793839558760,
+          "endedAt": 1793839569934,
+          "aborted": true
+        },
+        {
+          "path": "/nautikon/sources/rennie-p109.jpg",
+          "bytes": 406544,
+          "delivered": 231322,
+          "startedAt": 1793839558966,
+          "endedAt": 1793839569934,
+          "aborted": true
+        },
+        {
+          "path": "/nautikon/sources/rennie-p110.jpg",
+          "bytes": 380210,
+          "delivered": 220662,
+          "startedAt": 1793839559468,
+          "endedAt": 1793839569934,
+          "aborted": true
+        },
+        {
+          "path": "/nautikon/sources/rennie-p111.jpg",
+          "bytes": 394754,
+          "delivered": 123656,
+          "startedAt": 1793839564046,
+          "endedAt": 1793839569934,
+          "aborted": true
+        }
+      ]
+    }
+  ]
+}

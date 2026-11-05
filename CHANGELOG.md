@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+- Audit every cached body before claiming offline readiness; refuse corrupt
+  resources and preserve verified lessons through maintenance and HTTP errors.
+- Bound transfer inactivity rather than active elapsed time, retain foreground
+  bandwidth, and support cancellation and recovery of explicit offline repairs.
+- Finish valid repairs without waiting on stalled native registration/update jobs.
+- Repair saved-reading landmarks, heading levels, narrow tables/diagrams and
+  fragment links; regenerate all three native example packets and tagged PDFs.
+- Keep imported testimony reports independent and compare their field values
+  consistently across JSON key order.
+
 - Use known arrival to constrain missing departure; an early arrival can establish
   the lower voyage rate without inventing a sailing date.
 - Compare every permitted departure and check a proposed debt against the discrete
