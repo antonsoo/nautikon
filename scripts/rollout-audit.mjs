@@ -4,6 +4,7 @@ import assert from "node:assert/strict";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { chromium, firefox } from "playwright";
+import { waitForEdition } from "./current-edition.mjs";
 import { reviewServer } from "./review-server.mjs";
 
 const fixture = (await readFile("test-results/rollout-fixture-path.txt", "utf8")).trim(),
@@ -49,6 +50,8 @@ try {
       server.use(b);
       const next = await c.newPage();
       await next.goto(server.base);
+      await waitForEdition(next, after);
+      await next.reload();
       await wait(next, "offline", "Complete edition available offline");
       const active = await next.evaluate(async () => {
         const channel = new MessageChannel();

@@ -101,17 +101,14 @@ async function navigation(request: Request, path: string): Promise<Response> {
   const controller = new AbortController();
   const network = receive(request, { signal: controller.signal }, 1024 * 1024)
     .then(async (response) => {
-      if (!response.ok || !response.headers.get("Content-Type")?.includes("text/html"))
+      if (response.status !== 200 || !response.headers.get("Content-Type")?.includes("text/html"))
         return undefined;
-      const text = await response.clone().text();
+      const current = await hasDigest(response, INTEGRITY[path] ?? "", SIZES[path] ?? -1);
+      const text = current ? "" : await response.clone().text();
       const marker = /<meta name="nautikon-edition" content="([a-f0-9]{20})">/.exec(text)?.[1];
-      if (!marker) return undefined;
-      if (
-        marker === EDITION &&
-        !(await hasDigest(response, INTEGRITY[path] ?? "", SIZES[path] ?? -1))
-      )
-        return undefined;
-      return response;
+      // Different hashes do not establish which edition is newer. Prefer our
+      // verified page until its replacement worker has installed and taken over.
+      return { response, current, candidate: !!marker && marker !== EDITION };
     })
     .catch(() => undefined);
   let timer: number | ReturnType<typeof setTimeout> | undefined;
@@ -122,15 +119,17 @@ async function navigation(request: Request, path: string): Promise<Response> {
         timer = setTimeout(resolve, 2000);
       }),
     ]);
-    if (result) return result;
+    if (result?.current) return normalized(path, result.response);
     const retained = await saved(path);
     if (retained) {
       controller.abort();
       return retained;
     }
-    const later = await network;
+    const later = result ?? (await network);
+    // A missing/evicted page must still be able to bootstrap a marked network
+    // edition. Its own page code will require a matching worker before readiness.
     return (
-      later ??
+      (later?.candidate || later?.current ? normalized(path, later.response) : undefined) ??
       new Response(
         "This lesson could not be loaded and no verified saved page is available. Reconnect and reload.",
         { status: 503, headers: { "Content-Type": "text/plain" } },

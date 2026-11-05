@@ -6,6 +6,7 @@ import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { chromium, firefox } from "playwright";
+import { waitForEdition } from "./current-edition.mjs";
 
 const base = "https://antonsoo.github.io/nautikon/",
   out = "test-results/public-upgrade";
@@ -94,6 +95,7 @@ try {
     const current = await context.newPage();
     current.on("pageerror", (e) => errors.push(e.message));
     await current.goto(base);
+    await waitForEdition(current, expected);
     await current.reload();
     await wait(current, "offline", "Complete edition available offline");
     const active = await current.evaluate(
