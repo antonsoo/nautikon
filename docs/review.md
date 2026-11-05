@@ -20,7 +20,9 @@ Open `http://127.0.0.1:4401/nautikon/`.
    remains **675**. Move departure to one day after Arcturus: interest becomes
    **900**, debt **3,900**. The kept voyage still has **3,675**.
 2. Select **A missing departure**. Arrival remains known; rate and debt become
-   undetermined. Follow ἐκπλεύσωσιν back to §10 and the checked whole source page.
+   undetermined at the preset's late arrival. The new [missing-evidence review](departure-review.md)
+   also checks early arrival, which rules out the higher rate even with departure
+   withheld. Follow ἐκπλεύσωσιν back to §10 and the checked whole source page.
 3. Select **The same 300 lost**. Spoilage gives no deduction. Jettison with a
    shared vote gives **300**; removing the vote removes that deduction.
 4. Select **A cargo worth less**. Day 21 and assumed sale proceeds of **2,000**

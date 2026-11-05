@@ -109,3 +109,14 @@ A kept check stores its selected reports, proposed count and learner conclusion.
 It is recomputed from those preserved inputs, rather than replaced by later
 controls or an imported precomputed grade. Testimony and voyage JSON have
 separate schemas; neither silently reinterprets the other's notebook.
+
+## Withheld departure and complete alternatives
+
+The [missing-evidence extension](departure-review.md) constrains an unknown
+departure by the known arrival and the existing whole-day input domain. It
+partitions all permitted departures at Arcturus, computes each conditional debt,
+and tests a learner's proposed debt against the resulting discrete set. An early
+arrival can force the lower rate without supplying an exact departure. An
+exceptional route or unsafe-return branch withholds arithmetic rather than
+refuting every proposal. The completeness claim concerns this modern finite
+model, not historical voyage possibilities or a court's decision.

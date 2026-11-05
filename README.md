@@ -46,7 +46,7 @@ Stop an existing preview before starting another on the same port.
 | Investigation            | Try                                                                                                               | What to read                                                                            |
 | ------------------------ | ----------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | A late arrival           | Keep departure five days before Arcturus. Move arrival to 55 days after it; then move departure to one day after. | §10: 675 interest stays 675 with the first change, becomes 900 with the second.         |
-| A missing departure      | Withhold the departure evidence while leaving arrival known.                                                      | The rate and debt remain undetermined.                                                  |
+| A missing departure      | Withhold the departure evidence while leaving arrival known.                                                      | Arrival can exclude late departures; otherwise two discrete debts remain possible.      |
 | The same 300 lost        | Change spoilage to jettison; remove the shared decision; try payment to enemies.                                  | §11: the exception includes a condition, not just a loss label.                         |
 | A cargo worth less       | Move from day 20 to 21 after safe arrival, with assumed sale proceeds of 2,000.                                   | §12: a 3,675 debt leaves a 1,675 claim after sale, without guaranteeing collection.     |
 | Ship lost; goods survive | Select surviving security after irreparable damage to the vessel.                                                 | §13 assigns the survivors jointly to lenders; ordinary debt arithmetic is withheld.     |
@@ -61,6 +61,43 @@ Cargo clauses can be contradicted: another loan on the same goods or a changed
 return vessel produces a flag, without inventing a penalty, creditor priority or
 court decision. Full modeled repayment releases the security; partial payments
 are outside the model.
+
+## A missing date. Two debts?
+
+In the local **Missing evidence** investigation, withhold the departure while
+keeping arrival 25 days after Arcturus. Both **3,675** and **3,900** drachmas
+remain possible before repayment, assuming no deduction. Propose **3,800**:
+no permitted departure gives that amount. Two possible debts do not license
+every amount between them.
+
+Move arrival to five days before Arcturus. Departure must precede it, so the
+lower rate follows even though the exact departure is unknown. This repairs an
+earlier account that discarded arrival's constraint when departure was missing.
+The day 1/day 2 boundary is a consequence of the explicitly modern whole-day
+convention; it is not an ancient sailing-time measurement.
+
+**Check & keep proposal** preserves the amount and all its voyage facts. Later
+changes show that the earlier check uses different facts. **Keep evidence & try
+day…** preserves the missing-departure account before substituting a hypothetical
+example. The check distinguishes what follows, what is merely possible, what is
+excluded, and what this model cannot calculate. Sale proceeds and a paid balance
+never silently become the debt being checked.
+
+![The complete departure alternatives and a checked debt proposal](docs/assets/departure-desktop.png)
+
+The [source, model and operated review](docs/departure-review.md) gives the
+completeness argument, exact replay and limitations. [A checked notebook](examples/departure-notebook.json)
+and [its self-contained illustrated reading](examples/departure-reading.html.gz)
+retain the actual work. Decompress the reading before opening it:
+
+```sh
+gzip -dc examples/departure-reading.html.gz > /tmp/nautikon-departure-reading.html
+```
+
+New voyage
+notebooks use version 2; version 1 opens with an explicit migration notice.
+Version 2 requires this updated local edition. The published edition has not
+been changed by this work.
 
 ## What does a witness establish?
 
@@ -116,12 +153,12 @@ Decompress the HTML before opening it.
 
 ## Keep the work
 
-| Artifact         | Contents                                                                                                                                       |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| Notebook JSON    | Current voyage, kept voyage and note; strict validation before replacing anything                                                              |
-| Ledger CSV       | Both accounts, every selected fact and explicit model scope                                                                                    |
-| Timeline SVG     | Star-relative departure, arrival and the twenty-day interval; accessible text description                                                      |
-| Illustrated HTML | Both accounts, note, diagrams, all readings and words, full Greek context, seven scans, four font subsets, licenses and embedded editable JSON |
+| Artifact         | Contents                                                                                                                            |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Notebook JSON    | Current voyage, kept voyage, checked debt proposal and note; version 1 migration and strict validation                              |
+| Ledger CSV       | Both accounts, each possible debt, and the checked proposal with its original facts and verdict                                     |
+| Timeline SVG     | Star-relative departure, arrival and the twenty-day interval; accessible text description                                           |
+| Illustrated HTML | Accounts, departure alternatives, checked proposal, note, diagrams, Greek and notes, seven scans, fonts, licenses and editable JSON |
 
 The illustrated HTML opens offline without scripts or automatic external
 requests. Print it from a browser for a reading PDF. Saving checks the actual
@@ -168,13 +205,15 @@ npm run verify:model
 npm run test:browser
 npm run test:faults
 npm run test:testimony
+npm run test:departure
 npm run test:audit
 npm run test:offline-bodies
 npm run test:rollout
 ```
 
-The exact-fraction Python oracle independently checks **576** accounts. Fifteen
-focused tests check the distinctions and import boundaries. Browser review
+The independent day-enumeration / exact-fraction Python oracle checks **4,416**
+accounts and **39,744** debt proposals. Twenty focused tests check the distinctions
+and import boundaries. Browser review
 covers Chromium and Firefox at desktop and 375 px, native downloads, source
 navigation, panning, a real unavailable origin, two controlled tabs, cache damage
 and repair. [The review](docs/review.md) records the precise results and limits.

@@ -1,0 +1,36 @@
+{
+  "version": 2,
+  "claim": {
+    "amount": 3800,
+    "voyage": {
+      "departure": null,
+      "arrival": 25,
+      "days": 15,
+      "route": "pontus",
+      "outcome": "safe",
+      "loss": "none",
+      "lossAmount": 300,
+      "consent": true,
+      "sale": 2000,
+      "paid": false,
+      "otherPledge": false,
+      "sameVessel": true
+    }
+  },
+  "voyage": {
+    "departure": null,
+    "arrival": 25,
+    "days": 15,
+    "route": "pontus",
+    "outcome": "safe",
+    "loss": "none",
+    "lossAmount": 300,
+    "consent": true,
+    "sale": 2000,
+    "paid": false,
+    "otherPledge": false,
+    "sameVessel": true
+  },
+  "pinned": null,
+  "note": "Two possible debts are not an interval. Departure must precede arrival; neither side of Arcturus follows from a late arrival. <b>This is a note, not markup.</b>"
+}
