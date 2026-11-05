@@ -19,9 +19,10 @@ export async function bytes(path: string, signal?: AbortSignal): Promise<Uint8Ar
     if (!response) {
       try {
         response = await receive(url, { cache: "no-store", signal: controller.signal }, item.bytes);
-      } catch {
+      } catch (error) {
         controller.signal.throwIfAborted();
         response = await cached();
+        if (!response) throw error;
       }
     }
     controller.signal.throwIfAborted();

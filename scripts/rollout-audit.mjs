@@ -81,6 +81,12 @@ try {
       assert.equal(saved.note, "KEEP MY OLD EDITION WORK");
       assert.equal(saved.voyage.departure, 1);
       assert.equal(saved.pinned.departure, -5);
+      // An authentic retained old source is safe to export. The refusal case
+      // must remove that fallback, rather than assume no old cache can remain
+      // while an earlier worker's in-flight requests settle.
+      await p.evaluate(async (edition) => {
+        await caches.delete(`nautikon-${edition}`);
+      }, before);
       const downloads = [];
       p.on("download", (d) => downloads.push(d));
       await p.locator("#html").click();
